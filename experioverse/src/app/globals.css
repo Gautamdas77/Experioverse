@@ -1,0 +1,326 @@
+@import "tailwindcss";
+
+/* ============================================
+   EXPERIO VERSE — Design System & Global Styles
+   ============================================ */
+
+/* --- Design Tokens --- */
+:root {
+  /* Primary palette — Deep navy to warm gold */
+  --ev-navy: #0B1D3A;
+  --ev-navy-light: #132B54;
+  --ev-navy-mid: #1A3A6E;
+  --ev-blue: #2563EB;
+  --ev-blue-light: #3B82F6;
+
+  /* Accent — Warm terracotta / coral */
+  --ev-accent: #E07A5F;
+  --ev-accent-hover: #D4603E;
+  --ev-accent-light: #F4A88A;
+
+  /* Gold / Premium accent */
+  --ev-gold: #D4A843;
+  --ev-gold-light: #F0D178;
+
+  /* Neutrals */
+  --ev-white: #FFFFFF;
+  --ev-off-white: #F8F9FC;
+  --ev-gray-50: #F1F3F8;
+  --ev-gray-100: #E2E6EF;
+  --ev-gray-200: #C8CED9;
+  --ev-gray-300: #9CA3AF;
+  --ev-gray-400: #6B7280;
+  --ev-gray-500: #4B5563;
+  --ev-gray-600: #374151;
+  --ev-gray-700: #1F2937;
+  --ev-dark: #0F172A;
+
+  /* Experience Category Colors */
+  --ev-celebrate: #E07A5F;
+  --ev-connect: #3B82F6;
+  --ev-move: #10B981;
+  --ev-reset: #8B5CF6;
+  --ev-explore: #F59E0B;
+
+  /* Typography — Uses CSS variables set by next/font in layout.js */
+  --font-heading: var(--font-outfit), 'Outfit', sans-serif;
+  --font-body: var(--font-inter), 'Inter', sans-serif;
+
+  /* Spacing scale */
+  --section-padding-y: 6rem;
+  --section-padding-x: 1.5rem;
+  --container-max: 1280px;
+
+  /* Border radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(11, 29, 58, 0.08);
+  --shadow-md: 0 4px 12px rgba(11, 29, 58, 0.1);
+  --shadow-lg: 0 8px 30px rgba(11, 29, 58, 0.12);
+  --shadow-xl: 0 16px 50px rgba(11, 29, 58, 0.15);
+  --shadow-glow: 0 0 30px rgba(224, 122, 95, 0.2);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+  --transition-spring: 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* --- Tailwind v4 Theme Extension --- */
+@theme inline {
+  --color-background: var(--ev-off-white);
+  --color-foreground: var(--ev-navy);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
+
+  /* Map design tokens to Tailwind */
+  --color-ev-navy: var(--ev-navy);
+  --color-ev-navy-light: var(--ev-navy-light);
+  --color-ev-navy-mid: var(--ev-navy-mid);
+  --color-ev-blue: var(--ev-blue);
+  --color-ev-blue-light: var(--ev-blue-light);
+  --color-ev-accent: var(--ev-accent);
+  --color-ev-accent-hover: var(--ev-accent-hover);
+  --color-ev-accent-light: var(--ev-accent-light);
+  --color-ev-gold: var(--ev-gold);
+  --color-ev-gold-light: var(--ev-gold-light);
+  --color-ev-white: var(--ev-white);
+  --color-ev-off-white: var(--ev-off-white);
+  --color-ev-gray-50: var(--ev-gray-50);
+  --color-ev-gray-100: var(--ev-gray-100);
+  --color-ev-gray-200: var(--ev-gray-200);
+  --color-ev-gray-300: var(--ev-gray-300);
+  --color-ev-gray-400: var(--ev-gray-400);
+  --color-ev-gray-500: var(--ev-gray-500);
+  --color-ev-gray-600: var(--ev-gray-600);
+  --color-ev-gray-700: var(--ev-gray-700);
+  --color-ev-dark: var(--ev-dark);
+  --color-ev-celebrate: var(--ev-celebrate);
+  --color-ev-connect: var(--ev-connect);
+  --color-ev-move: var(--ev-move);
+  --color-ev-reset: var(--ev-reset);
+  --color-ev-explore: var(--ev-explore);
+}
+
+/* --- Base Styles --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ev-navy);
+  background: var(--ev-off-white);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--ev-navy);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- Utility Classes --- */
+
+/* Container */
+.ev-container {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--section-padding-x);
+  padding-right: var(--section-padding-x);
+}
+
+/* Section padding */
+.ev-section {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+}
+
+/* Section with navy background */
+.ev-section-dark {
+  background-color: var(--ev-navy);
+  color: var(--ev-white);
+}
+.ev-section-dark h1,
+.ev-section-dark h2,
+.ev-section-dark h3,
+.ev-section-dark h4 {
+  color: var(--ev-white);
+}
+
+/* Gradient backgrounds */
+.ev-gradient-hero {
+  background: linear-gradient(135deg, var(--ev-navy) 0%, var(--ev-navy-light) 40%, var(--ev-navy-mid) 100%);
+}
+
+.ev-gradient-accent {
+  background: linear-gradient(135deg, var(--ev-accent) 0%, var(--ev-gold) 100%);
+}
+
+.ev-gradient-subtle {
+  background: linear-gradient(180deg, var(--ev-off-white) 0%, var(--ev-gray-50) 100%);
+}
+
+/* Glass effect */
+.ev-glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.ev-glass-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow-md);
+}
+
+/* Badge / Tag */
+.ev-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* Section heading pattern */
+.ev-section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ev-accent);
+  margin-bottom: 1rem;
+}
+
+.ev-section-label::before {
+  content: '';
+  display: inline-block;
+  width: 2rem;
+  height: 2px;
+  background: var(--ev-accent);
+  border-radius: 1px;
+}
+
+.ev-section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+.ev-section-subtitle {
+  font-size: 1.125rem;
+  color: var(--ev-gray-400);
+  max-width: 640px;
+  line-height: 1.7;
+}
+
+/* Card base */
+.ev-card {
+  background: var(--ev-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--ev-gray-100);
+  transition: box-shadow var(--transition-base), transform var(--transition-spring);
+  overflow: hidden;
+}
+
+.ev-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+/* Scroll animations */
+.ev-fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.ev-fade-up.ev-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ev-gray-50);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ev-gray-200);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ev-gray-300);
+}
+
+/* Focus ring for a11y */
+:focus-visible {
+  outline: 2px solid var(--ev-blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Selection */
+::selection {
+  background: var(--ev-accent);
+  color: var(--ev-white);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  :root {
+    --section-padding-y: 4rem;
+    --section-padding-x: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding-y: 3rem;
+    --section-padding-x: 1rem;
+  }
+}
