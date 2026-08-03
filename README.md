@@ -64,21 +64,20 @@ Experio Verse
 Experioverse/
 ├── REQUIREMENTS.md          # Single source of truth & detailed specification blueprint
 ├── README.md                # Project documentation (this file)
-└── experioverse/            # Next.js Application Source Code
-    ├── src/
-    │   └── app/
-    │       ├── about/               # About Us Page Route
-    │       ├── components/          # Reusable UI Components (Header, Footer, Form, Cards)
-    │       ├── contact/             # Contact / Request a Call Page Route
-    │       ├── experiences/         # 5 Experience Categories Page Route
-    │       ├── how-we-work/         # How We Work Page Route
-    │       ├── why-experio-verse/   # Why Experio Verse Page Route
-    │       ├── globals.css          # Global Styles & Theme Variables
-    │       ├── layout.js            # Root Layout Component
-    │       └── page.js              # Home Page Component
-    ├── public/                  # Static assets & brand assets
-    ├── package.json             # App dependencies & scripts
-    └── next.config.mjs          # Next.js configuration
+├── package.json             # App dependencies & scripts
+├── next.config.mjs          # Next.js configuration
+├── public/                  # Static assets & brand icons
+└── src/
+    └── app/
+        ├── about/               # About Us Page Route
+        ├── components/          # Reusable UI Components (Header, Footer, Form, Cards)
+        ├── contact/             # Contact / Request a Call Page Route
+        ├── experiences/         # 5 Experience Categories Page Route
+        ├── how-we-work/         # How We Work Page Route
+        ├── why-experio-verse/   # Why Experio Verse Page Route
+        ├── globals.css          # Global Styles & Theme Variables
+        ├── layout.js            # Root Layout Component
+        └── page.js              # Home Page Component
 ```
 
 ---
@@ -97,32 +96,26 @@ Experioverse/
    cd Experioverse
    ```
 
-2. **Navigate to the application folder**:
-   ```bash
-   cd experioverse
-   ```
-
-3. **Install dependencies**:
+2. **Install dependencies**:
    ```bash
    npm install
    ```
 
-4. **Run the development server**:
+3. **Run the development server**:
    ```bash
    npm run dev
    ```
 
-5. **Open in Browser**:  
+4. **Open in Browser**:  
    Visit `http://localhost:3000` to view the running application.
 
 ---
 
 ## 🏷️ Commit Stage Info
 
-This commit marks a key milestone in the project:
-* ✅ Full Next.js 16 + Tailwind CSS app architecture initialized.
+* ✅ Full Next.js 16 + Tailwind CSS app architecture at root directory.
 * ✅ All 6 primary pages and components configured.
-* ✅ Modern corporate styling tokens, responsive navigation, header, footer, and lead request form set up.
+* ✅ Vercel zero-config auto-deployment support enabled.
 * ✅ Complete requirements blueprint (`REQUIREMENTS.md`) and project documentation (`README.md`) included.
 
 ---
