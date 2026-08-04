@@ -21,7 +21,6 @@ const steps = [
       'Budget and timeline alignment',
       'Success metrics definition',
     ],
-    icon: '🎯',
     color: 'var(--ev-blue)',
   },
   {
@@ -37,7 +36,6 @@ const steps = [
       'Venue options & recommendations',
       'Custom branding & communication',
     ],
-    icon: '✨',
     color: 'var(--ev-accent)',
   },
   {
@@ -53,7 +51,6 @@ const steps = [
       'Communication to participants',
       'Risk mitigation & backup plans',
     ],
-    icon: '📋',
     color: 'var(--ev-gold)',
   },
   {
@@ -69,7 +66,6 @@ const steps = [
       'Photo & video documentation',
       'Smooth, seamless delivery',
     ],
-    icon: '🚀',
     color: 'var(--ev-move)',
   },
   {
@@ -85,7 +81,6 @@ const steps = [
       'Photo & video highlights',
       'Recommendations for next experience',
     ],
-    icon: '📊',
     color: 'var(--ev-reset)',
   },
 ];
@@ -132,7 +127,7 @@ export default function HowWeWorkPage() {
                 className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white shadow-md"
                 style={{ backgroundColor: step.color, fontFamily: 'var(--font-heading)' }}
               >
-                {step.icon} {step.title}
+                {step.title}
               </div>
               {i < steps.length - 1 && (
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-ev-gray-200 hidden md:block shrink-0">
@@ -155,12 +150,6 @@ export default function HowWeWorkPage() {
             {/* Content side */}
             <div className={`${i % 2 === 1 ? 'lg:order-2' : ''}`}>
               <div className="flex items-center gap-4 mb-6">
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl"
-                  style={{ backgroundColor: `color-mix(in srgb, ${step.color} 15%, transparent)` }}
-                >
-                  {step.icon}
-                </div>
                 <div>
                   <div className="text-sm font-bold text-ev-gray-300 uppercase tracking-wider" style={{ fontFamily: 'var(--font-heading)' }}>
                     Step {step.number}
@@ -193,14 +182,9 @@ export default function HowWeWorkPage() {
             {/* Visual side */}
             <div className={`${i % 2 === 1 ? 'lg:order-1' : ''}`}>
               <div
-                className="aspect-[4/3] rounded-2xl flex items-center justify-center"
+                className="aspect-[4/3] rounded-2xl"
                 style={{ backgroundColor: `color-mix(in srgb, ${step.color} 6%, var(--ev-gray-50))` }}
-              >
-                <div className="text-center p-8">
-                  <div className="text-7xl mb-4">{step.icon}</div>
-                  <div className="text-xs text-ev-gray-300 italic">Visual illustration placeholder</div>
-                </div>
-              </div>
+              />
             </div>
           </div>
         </Section>

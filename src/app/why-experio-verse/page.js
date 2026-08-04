@@ -9,7 +9,7 @@ export const metadata = {
 
 const differentiators = [
   {
-    icon: '✨',
+    num: '01',
     title: 'We Don\'t Just Organise Events',
     subtitle: 'We design employee experiences.',
     description:
@@ -23,7 +23,7 @@ const differentiators = [
     color: 'var(--ev-accent)',
   },
   {
-    icon: '🎯',
+    num: '02',
     title: 'One Partner for Everything',
     subtitle: 'Events + Engagement + Wellness + Sports + Offsites + Experiences.',
     description:
@@ -37,7 +37,7 @@ const differentiators = [
     color: 'var(--ev-blue)',
   },
   {
-    icon: '📅',
+    num: '03',
     title: 'A Year-Round Approach',
     subtitle: 'Not one event. A complete employee experience calendar.',
     description:
@@ -51,7 +51,7 @@ const differentiators = [
     color: 'var(--ev-gold)',
   },
   {
-    icon: '📊',
+    num: '04',
     title: 'Measurable Impact',
     subtitle: 'We collect employee feedback and participation data.',
     description:
@@ -65,7 +65,7 @@ const differentiators = [
     color: 'var(--ev-move)',
   },
   {
-    icon: '💎',
+    num: '05',
     title: 'Curated Experiences',
     subtitle: 'Handpicked trainers, facilitators, artists, coaches, venues & partners.',
     description:
@@ -133,12 +133,6 @@ export default function WhyExperioVersePage() {
           <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? '' : ''}`}>
             <div className={`${i % 2 === 1 ? 'lg:order-2' : ''}`}>
               <div className="flex items-center gap-4 mb-6">
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl"
-                  style={{ backgroundColor: `color-mix(in srgb, ${diff.color} 15%, transparent)` }}
-                >
-                  {diff.icon}
-                </div>
                 <div>
                   <h2
                     className="text-2xl md:text-3xl font-extrabold"
@@ -170,14 +164,9 @@ export default function WhyExperioVersePage() {
 
             <div className={`${i % 2 === 1 ? 'lg:order-1' : ''}`}>
               <div
-                className="aspect-[4/3] rounded-2xl flex items-center justify-center"
+                className="aspect-[4/3] rounded-2xl"
                 style={{ backgroundColor: `color-mix(in srgb, ${diff.color} 6%, var(--ev-gray-50))` }}
-              >
-                <div className="text-center p-8">
-                  <div className="text-7xl mb-4">{diff.icon}</div>
-                  <div className="text-xs text-ev-gray-300 italic">Visual illustration placeholder</div>
-                </div>
-              </div>
+              />
             </div>
           </div>
         </Section>

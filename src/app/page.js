@@ -6,35 +6,35 @@ import Button, { PhoneIcon, ArrowIcon } from './components/Button';
 const categories = [
   {
     name: 'Celebrate',
-    emoji: '🎉',
+    initial: 'C',
     color: 'var(--ev-celebrate)',
     tagline: 'Milestones, festivals, awards — moments worth remembering.',
     href: '/experiences#celebrate',
   },
   {
     name: 'Connect',
-    emoji: '🤝',
+    initial: 'C',
     color: 'var(--ev-connect)',
     tagline: 'Team building, indoor & outdoor activities that bring people together.',
     href: '/experiences#connect',
   },
   {
     name: 'Move',
-    emoji: '🏃',
+    initial: 'M',
     color: 'var(--ev-move)',
     tagline: 'Sports, fitness challenges, yoga — get your team moving.',
     href: '/experiences#move',
   },
   {
     name: 'Reset',
-    emoji: '🧘',
+    initial: 'R',
     color: 'var(--ev-reset)',
     tagline: 'Wellness, mindfulness, stress management — recharge your people.',
     href: '/experiences#reset',
   },
   {
     name: 'Explore',
-    emoji: '🌍',
+    initial: 'E',
     color: 'var(--ev-explore)',
     tagline: 'Offsites, retreats, travel — experiences beyond the office.',
     href: '/experiences#explore',
@@ -43,18 +43,18 @@ const categories = [
 
 /* ─── Calendar Data ─── */
 const calendarData = [
-  { month: 'January', experience: 'Team Activity', icon: '🎯' },
-  { month: 'February', experience: 'Fitness Challenge', icon: '💪' },
-  { month: 'March', experience: 'Wellness Session', icon: '🧘' },
-  { month: 'April', experience: 'Sports Event', icon: '⚽' },
-  { month: 'May', experience: 'Company Celebration', icon: '🎉' },
-  { month: 'June', experience: 'Team Building', icon: '🤝' },
-  { month: 'July', experience: 'Outdoor Activity', icon: '🏔️' },
-  { month: 'August', experience: 'Collaboration Activity', icon: '🎨' },
-  { month: 'September', experience: 'Wellness Week', icon: '🌿' },
-  { month: 'October', experience: 'Festival Celebration', icon: '🪔' },
-  { month: 'November', experience: 'Corporate Offsite', icon: '✈️' },
-  { month: 'December', experience: 'Annual Celebration', icon: '🎊' },
+  { month: 'January', experience: 'Team Activity', abbr: 'JAN' },
+  { month: 'February', experience: 'Fitness Challenge', abbr: 'FEB' },
+  { month: 'March', experience: 'Wellness Session', abbr: 'MAR' },
+  { month: 'April', experience: 'Sports Event', abbr: 'APR' },
+  { month: 'May', experience: 'Company Celebration', abbr: 'MAY' },
+  { month: 'June', experience: 'Team Building', abbr: 'JUN' },
+  { month: 'July', experience: 'Outdoor Activity', abbr: 'JUL' },
+  { month: 'August', experience: 'Collaboration Activity', abbr: 'AUG' },
+  { month: 'September', experience: 'Wellness Week', abbr: 'SEP' },
+  { month: 'October', experience: 'Festival Celebration', abbr: 'OCT' },
+  { month: 'November', experience: 'Corporate Offsite', abbr: 'NOV' },
+  { month: 'December', experience: 'Annual Celebration', abbr: 'DEC' },
 ];
 
 /* ─── Differentiators ─── */
@@ -62,27 +62,27 @@ const differentiators = [
   {
     title: 'Not Just Events',
     desc: 'We design employee experiences tailored to your company\'s unique culture and requirements.',
-    icon: '✨',
+    num: '01',
   },
   {
     title: 'One Partner',
     desc: 'Events + Engagement + Wellness + Sports + Offsites + Experiences — all under one roof.',
-    icon: '🎯',
+    num: '02',
   },
   {
     title: 'Year-Round Approach',
     desc: 'We build a complete employee experience calendar — not just one-off events.',
-    icon: '📅',
+    num: '03',
   },
   {
     title: 'Measurable Impact',
     desc: 'We collect employee feedback and participation data to show real outcomes.',
-    icon: '📊',
+    num: '04',
   },
   {
     title: 'Curated Experiences',
     desc: 'We work with selected trainers, facilitators, artists, coaches, venues and partners.',
-    icon: '💎',
+    num: '05',
   },
 ];
 
@@ -227,9 +227,6 @@ export default function HomePage() {
                 style={{ backgroundColor: cat.color }}
               />
 
-              {/* Emoji */}
-              <div className="text-4xl mb-4">{cat.emoji}</div>
-
               {/* Name */}
               <h3
                 className="text-xl font-bold mb-2"
@@ -271,9 +268,6 @@ export default function HomePage() {
               key={item.month}
               className="ev-glass rounded-xl p-4 text-center hover:bg-white/12 transition-all duration-300 group cursor-default"
             >
-              <div className="text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">
-                {item.icon}
-              </div>
               <div className="text-sm font-bold text-white mb-1" style={{ fontFamily: 'var(--font-heading)' }}>
                 {item.month}
               </div>
@@ -310,7 +304,6 @@ export default function HomePage() {
               key={diff.title}
               className={`ev-card p-8 ${i === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}
             >
-              <div className="text-3xl mb-4">{diff.icon}</div>
               <h3
                 className="text-lg font-bold mb-3"
                 style={{ fontFamily: 'var(--font-heading)' }}
@@ -325,7 +318,7 @@ export default function HomePage() {
         </div>
 
         <div className="text-center mt-10">
-          <Button href="/why-experio-verse" variant="dark" size="md" icon={<ArrowIcon size={16} />}>
+          <Button href="/why-experio-verse" variant="secondary" size="md" icon={<ArrowIcon size={16} />}>
             Learn More
           </Button>
         </div>

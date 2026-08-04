@@ -10,6 +10,11 @@
   --ev-navy: #0B1D3A;
   --ev-navy-light: #132B54;
   --ev-navy-mid: #1A3A6E;
+
+  /* Lighter section backgrounds — used for hero, dark sections (NOT footer) */
+  --ev-section-bg: #1E3A5F;
+  --ev-section-bg-light: #274D7A;
+  --ev-section-bg-mid: #2E5F8A;
   --ev-blue: #2563EB;
   --ev-blue-light: #3B82F6;
 
@@ -163,9 +168,9 @@ img {
   padding-bottom: var(--section-padding-y);
 }
 
-/* Section with navy background */
+/* Section with navy background — uses lighter shade for better readability */
 .ev-section-dark {
-  background-color: var(--ev-navy);
+  background-color: var(--ev-section-bg);
   color: var(--ev-white);
 }
 .ev-section-dark h1,
@@ -177,7 +182,7 @@ img {
 
 /* Gradient backgrounds */
 .ev-gradient-hero {
-  background: linear-gradient(135deg, var(--ev-navy) 0%, var(--ev-navy-light) 40%, var(--ev-navy-mid) 100%);
+  background: linear-gradient(135deg, var(--ev-section-bg) 0%, var(--ev-section-bg-light) 40%, var(--ev-section-bg-mid) 100%);
 }
 
 .ev-gradient-accent {

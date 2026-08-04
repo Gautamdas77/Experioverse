@@ -12,7 +12,7 @@ const categories = [
   {
     id: 'celebrate',
     name: 'Celebrate',
-    emoji: '🎉',
+    initial: 'C',
     color: 'var(--ev-celebrate)',
     colorClass: 'ev-celebrate',
     tagline: 'Create moments worth remembering.',
@@ -48,7 +48,7 @@ const categories = [
   {
     id: 'connect',
     name: 'Connect',
-    emoji: '🤝',
+    initial: 'C',
     color: 'var(--ev-connect)',
     colorClass: 'ev-connect',
     tagline: 'Build stronger teams together.',
@@ -84,7 +84,7 @@ const categories = [
   {
     id: 'move',
     name: 'Move',
-    emoji: '🏃',
+    initial: 'M',
     color: 'var(--ev-move)',
     colorClass: 'ev-move',
     tagline: 'Get your team moving.',
@@ -120,7 +120,7 @@ const categories = [
   {
     id: 'reset',
     name: 'Reset',
-    emoji: '🧘',
+    initial: 'R',
     color: 'var(--ev-reset)',
     colorClass: 'ev-reset',
     tagline: 'Recharge your people.',
@@ -156,7 +156,7 @@ const categories = [
   {
     id: 'explore',
     name: 'Explore',
-    emoji: '🌍',
+    initial: 'E',
     color: 'var(--ev-explore)',
     colorClass: 'ev-explore',
     tagline: 'Experiences beyond the office.',
@@ -229,7 +229,7 @@ export default function ExperiencesPage() {
                   href={`#${cat.id}`}
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-sm font-medium border border-white/10 hover:bg-white/20 hover:text-white transition-all duration-200"
                 >
-                  {cat.emoji} {cat.name}
+                  {cat.name}
                 </a>
               ))}
             </div>
@@ -246,24 +246,16 @@ export default function ExperiencesPage() {
         >
           {/* Category header */}
           <div className="flex flex-col lg:flex-row items-start gap-8 mb-12">
-            <div className="flex items-center gap-4 shrink-0">
-              <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl"
-                style={{ backgroundColor: `color-mix(in srgb, ${cat.color} 15%, transparent)` }}
+            <div>
+              <h2
+                className="text-3xl md:text-4xl font-extrabold"
+                style={{ fontFamily: 'var(--font-heading)', color: cat.color }}
               >
-                {cat.emoji}
-              </div>
-              <div>
-                <h2
-                  className="text-3xl md:text-4xl font-extrabold"
-                  style={{ fontFamily: 'var(--font-heading)', color: cat.color }}
-                >
-                  {cat.name}
-                </h2>
-                <p className="text-sm text-ev-gray-400 font-medium">{cat.tagline}</p>
-              </div>
+                {cat.name}
+              </h2>
+              <p className="text-sm text-ev-gray-400 font-medium mt-1">{cat.tagline}</p>
             </div>
-            <p className="text-ev-gray-500 leading-relaxed max-w-2xl">
+            <p className="text-ev-gray-500 leading-relaxed max-w-2xl lg:pt-1">
               {cat.description}
             </p>
           </div>
@@ -281,13 +273,11 @@ export default function ExperiencesPage() {
                   style={{ backgroundColor: cat.color }}
                 />
 
-                {/* Image placeholder */}
+                {/* Image placeholder — hidden, no content */}
                 <div
-                  className="w-full aspect-[16/9] rounded-lg mb-4 flex items-center justify-center"
+                  className="w-full aspect-[16/9] rounded-lg mb-4"
                   style={{ backgroundColor: `color-mix(in srgb, ${cat.color} 8%, var(--ev-gray-50))` }}
-                >
-                  <span className="text-3xl opacity-50">{cat.emoji}</span>
-                </div>
+                />
 
                 <h3
                   className="text-base font-bold mb-2"

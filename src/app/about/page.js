@@ -26,32 +26,32 @@ const founders = [
 /* ─── Values ─── */
 const values = [
   {
-    icon: '🎯',
+    num: '01',
     title: 'Purpose-Driven',
     desc: 'Every experience we create has a clear purpose — strengthening connections, boosting morale, or building culture.',
   },
   {
-    icon: '🤝',
+    num: '02',
     title: 'Partnership',
     desc: 'We work as an extension of your HR and People team, not just a vendor fulfilling a brief.',
   },
   {
-    icon: '💎',
+    num: '03',
     title: 'Quality',
     desc: 'Curated partners, thoughtful planning, and flawless execution — every single time.',
   },
   {
-    icon: '📊',
+    num: '04',
     title: 'Impact',
     desc: 'We measure what matters — participation, engagement, feedback, and real outcomes.',
   },
   {
-    icon: '🌱',
+    num: '05',
     title: 'Growth',
     desc: 'We believe great employee experiences lead to great business outcomes.',
   },
   {
-    icon: '🔄',
+    num: '06',
     title: 'Consistency',
     desc: 'A year-round approach, not one-off events. Sustained engagement, not temporary excitement.',
   },
@@ -115,10 +115,6 @@ export default function AboutPage() {
           {/* Visual placeholder */}
           <div className="relative">
             <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-ev-navy/5 to-ev-accent/10 border border-ev-gray-100 flex items-center justify-center overflow-hidden">
-              <div className="text-center p-8">
-                <div className="text-6xl mb-4">🏢</div>
-                <p className="text-sm text-ev-gray-400 italic">Company team photo placeholder</p>
-              </div>
             </div>
             {/* Decorative elements */}
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-ev-accent/10 rounded-2xl -z-10" />
@@ -133,7 +129,6 @@ export default function AboutPage() {
           {/* Vision */}
           <div className="ev-card p-10 relative overflow-hidden group">
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-ev-accent to-ev-gold" />
-            <div className="text-4xl mb-4">🔭</div>
             <h2
               className="text-2xl font-bold mb-4"
               style={{ fontFamily: 'var(--font-heading)' }}
@@ -148,7 +143,6 @@ export default function AboutPage() {
           {/* Mission */}
           <div className="ev-card p-10 relative overflow-hidden group">
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-ev-blue to-ev-navy-mid" />
-            <div className="text-4xl mb-4">🚀</div>
             <h2
               className="text-2xl font-bold mb-4"
               style={{ fontFamily: 'var(--font-heading)' }}
@@ -173,7 +167,6 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {values.map((value) => (
             <div key={value.title} className="ev-card p-7">
-              <div className="text-3xl mb-3">{value.icon}</div>
               <h3
                 className="text-lg font-bold mb-2"
                 style={{ fontFamily: 'var(--font-heading)' }}
