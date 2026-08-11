@@ -28,8 +28,10 @@
   --ev-gold-light: #F0D178;
 
   /* Neutrals */
-  --ev-white: #FFFFFF;
-  --ev-off-white: #F8F9FC;
+  --ev-off-white: #F3F4F6;
+  --ev-white: var(--ev-off-white);
+  /* off-white in RGB for rgba() usage */
+  --ev-white-rgb: 243, 244, 246;
   --ev-gray-50: #F1F3F8;
   --ev-gray-100: #E2E6EF;
   --ev-gray-200: #C8CED9;
@@ -195,18 +197,30 @@ img {
 
 /* Glass effect */
 .ev-glass {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(var(--ev-white-rgb), 0.08);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(var(--ev-white-rgb), 0.12);
 }
 
 .ev-glass-light {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(var(--ev-white-rgb), 0.7);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(var(--ev-white-rgb), 0.8);
   box-shadow: var(--shadow-md);
+}
+
+/* Override Tailwind "white" utility classes to use off-white token */
+/* These selectors use substring match on class attribute so they cover variants like "text-white/50" and "bg-white/10" */
+[class*="text-white"] {
+  color: var(--ev-off-white) !important;
+}
+[class*="bg-white"] {
+  background-color: var(--ev-off-white) !important;
+}
+[class*="border-white"] {
+  border-color: var(--ev-off-white) !important;
 }
 
 /* Badge / Tag */
