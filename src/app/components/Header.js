@@ -39,22 +39,15 @@ export default function Header() {
   return (
     <header
       id="site-header"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-md py-3'
-          : 'bg-transparent py-5'
-      }`}
+      className="fixed top-6 left-0 right-0 z-50 transition-all duration-300 pointer-events-none"
     >
-      <div className="ev-container flex items-center justify-between">
+      <div className="ev-container flex justify-center">
+        <div className="w-full max-w-[1280px] pointer-events-auto bg-white/95 backdrop-blur-md rounded-[14px] px-5 py-3 shadow-xl border border-gray-100 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group" id="header-logo">
           <div className="relative">
             <div
-              className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg transition-all duration-300 ${
-                isScrolled
-                  ? 'bg-ev-navy text-white'
-                  : 'bg-white/10 text-white border border-white/20'
-              }`}
+              className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg transition-all duration-300 bg-ev-navy text-white`}
               style={{ fontFamily: 'var(--font-heading)' }}
             >
               EV
@@ -62,17 +55,13 @@ export default function Header() {
           </div>
           <div className="flex flex-col">
             <span
-              className={`text-lg font-bold leading-tight transition-colors duration-300 ${
-                isScrolled ? 'text-ev-navy' : 'text-white'
-              }`}
+              className={`text-lg font-bold leading-tight transition-colors duration-300 text-ev-navy`}
               style={{ fontFamily: 'var(--font-heading)' }}
             >
               Experio Verse
             </span>
             <span
-              className={`text-[0.625rem] font-medium tracking-[0.15em] uppercase transition-colors duration-300 ${
-                isScrolled ? 'text-ev-gray-400' : 'text-white/60'
-              }`}
+                className={`text-[0.625rem] font-medium tracking-[0.15em] uppercase transition-colors duration-300 text-ev-gray-400`}
             >
               Employee Experience
             </span>
@@ -80,16 +69,12 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-1" id="desktop-nav">
+          <nav className="hidden lg:flex items-center gap-1" id="desktop-nav">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-white/10 ${
-                isScrolled
-                  ? 'text-ev-gray-600 hover:text-ev-navy hover:bg-ev-gray-50'
-                  : 'text-white/80 hover:text-white'
-              }`}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 text-ev-gray-600 hover:text-ev-navy hover:bg-ev-gray-50`}
             >
               {link.label}
             </Link>
@@ -112,30 +97,23 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden relative w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${
-              isScrolled ? 'text-ev-navy hover:bg-ev-gray-50' : 'text-white hover:bg-white/10'
-            }`}
+            className={`lg:hidden relative w-10 h-10 rounded-lg flex items-center justify-center transition-colors text-ev-navy hover:bg-ev-gray-50`}
             id="mobile-menu-toggle"
             aria-label="Toggle menu"
           >
             <div className="w-5 h-4 flex flex-col justify-between">
               <span
-                className={`block h-0.5 rounded-full transition-all duration-300 ${
-                  isScrolled ? 'bg-ev-navy' : 'bg-white'
-                } ${isMobileMenuOpen ? 'rotate-45 translate-y-[7px]' : ''}`}
+                className={`block h-0.5 rounded-full transition-all duration-300 bg-ev-navy ${isMobileMenuOpen ? 'rotate-45 translate-y-[7px]' : ''}`}
               />
               <span
-                className={`block h-0.5 rounded-full transition-all duration-300 ${
-                  isScrolled ? 'bg-ev-navy' : 'bg-white'
-                } ${isMobileMenuOpen ? 'opacity-0' : ''}`}
+                className={`block h-0.5 rounded-full transition-all duration-300 bg-ev-navy ${isMobileMenuOpen ? 'opacity-0' : ''}`}
               />
               <span
-                className={`block h-0.5 rounded-full transition-all duration-300 ${
-                  isScrolled ? 'bg-ev-navy' : 'bg-white'
-                } ${isMobileMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`}
+                className={`block h-0.5 rounded-full transition-all duration-300 bg-ev-navy ${isMobileMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`}
               />
             </div>
           </button>
+        </div>
         </div>
       </div>
 
