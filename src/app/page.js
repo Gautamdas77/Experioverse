@@ -170,6 +170,194 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ═══════ WHO WE ARE ═══════ */}
+      <section className="relative py-28 bg-white overflow-hidden" id="who-we-are">
+        {/* Decorative background accent */}
+        <div
+          className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(var(--ev-accent-rgb, 99,102,241),0.06) 0%, transparent 70%)',
+            transform: 'translate(-30%, -30%)',
+          }}
+        />
+        <div
+          className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(var(--ev-gold-rgb, 234,179,8),0.05) 0%, transparent 70%)',
+            transform: 'translate(30%, 30%)',
+          }}
+        />
+
+        <div className="ev-container relative z-10">
+          <div className="max-w-4xl mx-auto">
+            {/* Label */}
+            <p
+              id="who-we-are-label"
+              className="text-base sm:text-lg font-bold uppercase tracking-[0.2em] mb-5"
+              style={{ color: 'var(--ev-accent)' }}
+            >
+              Who We Are
+            </p>
+
+            {/* Headline */}
+            <h2
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.15] mb-8"
+              style={{ fontFamily: 'var(--font-heading)', color: 'var(--ev-navy)' }}
+            >
+              More Than Events.{' '}
+              <span
+                className="bg-gradient-to-r from-ev-accent to-ev-gold bg-clip-text text-transparent"
+              >
+                We Create Experiences.
+              </span>
+            </h2>
+
+            {/* Body copy */}
+            <div className="space-y-5 text-lg text-ev-gray-400 leading-relaxed">
+              <p>
+                The best workplaces aren&apos;t built in meeting rooms — they&apos;re built through
+                shared experiences.
+              </p>
+              <p>
+                At <strong className="text-ev-navy font-semibold">ExperioVerse</strong>, we help
+                organizations create moments that spark connection, celebrate people, and build
+                cultures employees genuinely enjoy being part of.
+              </p>
+              <p>
+                Whether it&apos;s an offsite, a wellness week, or an annual celebration, every
+                experience is designed with one goal:
+              </p>
+            </div>
+
+            {/* Pull-quote closer */}
+            <div
+              className="mt-10 inline-block px-8 py-5 rounded-2xl"
+              style={{
+                background: 'linear-gradient(135deg, var(--ev-accent) 0%, var(--ev-gold) 100%)',
+              }}
+            >
+              <p
+                className="text-xl sm:text-2xl font-bold text-white tracking-wide"
+                style={{ fontFamily: 'var(--font-heading)' }}
+              >
+                Make work feel more human.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════ WHY EMPLOYEE EXPERIENCE MATTERS ═══════ */}
+      <section
+        className="relative py-28 overflow-hidden"
+        id="why-ee-matters"
+        style={{ background: 'linear-gradient(160deg, #0f172a 0%, #1e293b 100%)' }}
+      >
+        {/* Decorative orbs */}
+        <div
+          className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none opacity-20"
+          style={{
+            background: 'radial-gradient(circle, var(--ev-accent) 0%, transparent 70%)',
+            transform: 'translate(30%, -30%)',
+          }}
+        />
+        <div
+          className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none opacity-10"
+          style={{
+            background: 'radial-gradient(circle, var(--ev-gold) 0%, transparent 70%)',
+            transform: 'translate(-30%, 30%)',
+          }}
+        />
+
+        <div className="ev-container relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+            {/* ── Left: Text ── */}
+            <div>
+              <p
+                className="text-base sm:text-lg font-bold uppercase tracking-[0.2em] mb-5"
+                style={{ color: 'var(--ev-accent)' }}
+              >
+                Why Employee Experience Matters
+              </p>
+              <h2
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-[1.15] mb-8"
+                style={{ fontFamily: 'var(--font-heading)' }}
+              >
+                Because Great Businesses Are Built by{' '}
+                <span
+                  className="bg-gradient-to-r from-ev-accent to-ev-gold bg-clip-text text-transparent"
+                >
+                  Engaged People.
+                </span>
+              </h2>
+              <p className="text-lg text-white/60 leading-relaxed mb-10">
+                Employees who feel appreciated don&apos;t just stay longer — they contribute more,
+                collaborate better, and become ambassadors of your culture.
+              </p>
+
+              {/* Closing statement */}
+              <div
+                className="inline-block px-6 py-4 rounded-xl border"
+                style={{ borderColor: 'rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.05)' }}
+              >
+                <p
+                  className="text-lg font-semibold text-white"
+                  style={{ fontFamily: 'var(--font-heading)' }}
+                >
+                  When employees thrive,{' '}
+                  <span className="bg-gradient-to-r from-ev-accent to-ev-gold bg-clip-text text-transparent">
+                    businesses grow.
+                  </span>
+                </p>
+              </div>
+            </div>
+
+            {/* ── Right: Benefits list ── */}
+            <div>
+              <p
+                className="text-sm font-semibold uppercase tracking-widest text-white/40 mb-6"
+              >
+                A Strong Employee Experience Helps You
+              </p>
+              <ul className="space-y-4">
+                {[
+                  'Build a positive workplace culture',
+                  'Increase employee engagement',
+                  'Improve retention and loyalty',
+                  'Strengthen collaboration across teams',
+                  'Boost productivity and motivation',
+                  'Create memorable workplace moments',
+                  'Support employee well-being',
+                  'Enhance employer branding',
+                ].map((benefit) => (
+                  <li
+                    key={benefit}
+                    className="flex items-center gap-4 group"
+                  >
+                    {/* Check icon */}
+                    <span
+                      className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center"
+                      style={{ background: 'linear-gradient(135deg, var(--ev-accent), var(--ev-gold))' }}
+                    >
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    </span>
+                    <span className="text-base text-white/75 group-hover:text-white transition-colors duration-200">
+                      {benefit}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* ═══════ WHAT WE DO ═══════ */}
       <Section id="what-we-do" gradient>
         <SectionHeader
