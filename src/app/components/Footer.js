@@ -19,7 +19,7 @@ const experienceLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-ev-navy text-white" id="site-footer">
+    <footer className="text-white relative overflow-hidden border-t border-white/10" id="site-footer" style={{ background: '#060c18' }}>
 
       {/* Main Footer Grid */}
       <div className="ev-container py-16">

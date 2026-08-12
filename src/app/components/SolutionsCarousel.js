@@ -130,10 +130,26 @@ export default function SolutionsCarousel() {
 
   return (
     <section
-      className="relative py-28 overflow-hidden"
+      className="relative py-28 bg-white overflow-hidden"
       id="offered-solutions"
-      style={{ background: 'linear-gradient(160deg, #f8faff 0%, #eef2ff 100%)' }}
     >
+      {/* Decorative background accents (matching Who We Are section) */}
+      <div
+        className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(circle, rgba(var(--ev-accent-rgb, 99,102,241),0.06) 0%, transparent 70%)',
+          transform: 'translate(-30%, -30%)',
+        }}
+      />
+      <div
+        className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(circle, rgba(var(--ev-gold-rgb, 234,179,8),0.05) 0%, transparent 70%)',
+          transform: 'translate(30%, 30%)',
+        }}
+      />
       {/* ── Header ── */}
       <div className="ev-container relative z-10 text-center mb-16">
         <p

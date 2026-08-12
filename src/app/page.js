@@ -294,210 +294,99 @@ export default function HomePage() {
       {/* ═══════ OFFERED SOLUTIONS ═══════ */}
       <SolutionsCarousel />
 
-      {/* ═══════ WHAT WE DO ═══════ */}
-      <Section id="what-we-do" gradient>
-        <SectionHeader
-          label="What We Do"
-          title="Crafting Experiences That Matter"
-          subtitle="Experio Verse helps companies create better employee experiences through corporate events, employee engagement, wellness, sports, team-building, celebrations and corporate experiences."
-        />
 
-        {/* Stats row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-          {[
-            { number: '5', label: 'Experience Categories' },
-            { number: '30+', label: 'Activity Types' },
-            { number: '12', label: 'Months Coverage' },
-            { number: '1', label: 'Trusted Partner' },
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              className="text-center p-6 rounded-2xl bg-white border border-ev-gray-100 shadow-sm"
-            >
-              <div
-                className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-ev-accent to-ev-gold bg-clip-text text-transparent mb-2"
-                style={{ fontFamily: 'var(--font-heading)' }}
-              >
-                {stat.number}
-              </div>
-              <div className="text-sm text-ev-gray-400">{stat.label}</div>
-            </div>
-          ))}
-        </div>
-      </Section>
 
-      {/* ═══════ FIVE EXPERIENCE CATEGORIES ═══════ */}
-      <Section id="experience-categories">
-        <SectionHeader
-          label="Our Experiences"
-          title="Five Ways to Elevate Your Workplace"
-          subtitle="From celebrations to wellness, from team building to travel — we cover every dimension of the employee experience."
-        />
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-          {categories.map((cat) => (
-            <Link
-              key={cat.name}
-              href={cat.href}
-              className="ev-card group p-6 flex flex-col items-start relative overflow-hidden"
-              id={`cat-card-${cat.name.toLowerCase()}`}
-            >
-              {/* Accent top bar */}
-              <div
-                className="absolute top-0 left-0 right-0 h-1 transition-all duration-300 group-hover:h-1.5"
-                style={{ backgroundColor: cat.color }}
-              />
-
-              {/* Name */}
-              <h3
-                className="text-xl font-bold mb-2"
-                style={{ fontFamily: 'var(--font-heading)', color: cat.color }}
-              >
-                {cat.name}
-              </h3>
-
-              {/* Tagline */}
-              <p className="text-sm text-ev-gray-400 leading-relaxed mb-4 flex-1">
-                {cat.tagline}
-              </p>
-
-              {/* Arrow */}
-              <div
-                className="flex items-center gap-1 text-sm font-semibold transition-all duration-200 group-hover:gap-2"
-                style={{ color: cat.color }}
-              >
-                Explore
-                <ArrowIcon size={14} />
-              </div>
-            </Link>
-          ))}
-        </div>
-      </Section>
 
       {/* ═══════ ANNUAL CALENDAR ═══════ */}
-      <Section id="annual-calendar" dark>
-        <SectionHeader
-          label="Year-Round Experiences"
-          title="Annual Employee Experience Calendar"
-          subtitle="Plan meaningful experiences for your team throughout the year. We help you build a complete employee experience calendar."
+      <section id="annual-calendar" className="relative py-24 overflow-hidden" style={{ background: '#060c18' }}>
+        {/* Hero-matched ambient glowing blobs */}
+        <div
+          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 65%)',
+            filter: 'blur(50px)',
+            transform: 'translate(20%, -20%)',
+          }}
+        />
+        <div
+          className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle, rgba(224,122,95,0.15) 0%, transparent 65%)',
+            filter: 'blur(50px)',
+            transform: 'translate(-20%, 20%)',
+          }}
+        />
+        {/* Dot grid */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0)',
+            backgroundSize: '44px 44px',
+          }}
         />
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-          {calendarData.map((item) => (
-            <div
-              key={item.month}
-              className="ev-glass rounded-xl p-4 text-center hover:bg-white/12 transition-all duration-300 group cursor-default"
-            >
-              <div className="text-sm font-bold text-white mb-1" style={{ fontFamily: 'var(--font-heading)' }}>
-                {item.month}
-              </div>
-              <div className="text-xs text-white">{item.experience}</div>
-            </div>
-          ))}
-        </div>
+        <div className="ev-container relative z-10">
+          <SectionHeader
+            label="Year-Round Experiences"
+            title="Annual Employee Experience Calendar"
+            subtitle="Plan meaningful experiences for your team throughout the year. We help you build a complete employee experience calendar."
+            light={true}
+          />
 
-        {/* CTA */}
-        <div className="text-center mt-12">
-          <Button
-            href="/contact"
-            variant="primary"
-            size="lg"
-            icon={<PhoneIcon size={18} />}
-            id="calendar-cta"
-          >
-            Create My Employee Experience Calendar
-          </Button>
-        </div>
-      </Section>
-
-      {/* ═══════ WHY EXPERIO VERSE ═══════ */}
-      <Section id="why-us" gradient>
-        <SectionHeader
-          label="Why Experio Verse"
-          title="Your Complete Employee Experience Partner"
-          subtitle="We're not just another event company. We're your strategic partner in building a stronger workplace culture."
-        />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {differentiators.map((diff, i) => (
-            <div
-              key={diff.title}
-              className={`ev-card p-8 ${i === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}
-            >
-              <h3
-                className="text-lg font-bold mb-3"
-                style={{ fontFamily: 'var(--font-heading)' }}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {calendarData.map((item) => (
+              <div
+                key={item.month}
+                className="rounded-xl p-4 text-center transition-all duration-300 group cursor-default"
+                style={{
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  backdropFilter: 'blur(8px)',
+                }}
               >
-                {diff.title}
-              </h3>
-              <p className="text-sm text-ev-gray-400 leading-relaxed">
-                {diff.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <div className="text-center mt-10">
-          <Button href="/why-experio-verse" variant="secondary" size="md" icon={<ArrowIcon size={16} />}>
-            Learn More
-          </Button>
-        </div>
-      </Section>
-
-      {/* ═══════ HOW WE WORK ═══════ */}
-      <Section id="how-we-work">
-        <SectionHeader
-          label="How We Work"
-          title="From Understanding to Impact"
-          subtitle="A structured, five-step approach to creating the right experience for your team."
-        />
-
-        <div className="flex flex-col md:flex-row items-stretch gap-4">
-          {processSteps.map((step, i) => (
-            <div key={step.step} className="flex-1 flex flex-col items-center">
-              {/* Step card */}
-              <div className="ev-card p-6 text-center w-full flex-1 relative group">
                 <div
-                  className="text-ev-accent/30 text-sm font-bold mb-2"
-                  style={{ fontFamily: 'var(--font-heading)' }}
+                  className="text-sm font-bold mb-1"
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    color: '#f1f5f9',
+                  }}
                 >
-                  STEP {step.step}
+                  {item.month}
                 </div>
-                <h3
-                  className="text-lg font-bold mb-2"
-                  style={{ fontFamily: 'var(--font-heading)' }}
-                >
-                  {step.title}
-                </h3>
-                <p className="text-sm text-ev-gray-400">{step.desc}</p>
+                <div className="text-xs font-medium" style={{ color: 'rgba(241,245,249,0.65)' }}>
+                  {item.experience}
+                </div>
               </div>
+            ))}
+          </div>
 
-              {/* Arrow connector (not after last) */}
-              {i < processSteps.length - 1 && (
-                <div className="hidden md:flex items-center justify-center py-2 text-ev-gray-200">
-                  {/* Rendered via CSS or inline icon */}
-                </div>
-              )}
-            </div>
-          ))}
+          {/* CTA */}
+          <div className="text-center mt-12">
+            <Button
+              href="/contact"
+              variant="primary"
+              size="lg"
+              icon={<PhoneIcon size={18} />}
+              id="calendar-cta"
+            >
+              Create My Employee Experience Calendar
+            </Button>
+          </div>
         </div>
-
-        <div className="text-center mt-10">
-          <Button href="/how-we-work" variant="secondary" size="md" icon={<ArrowIcon size={16} />}>
-            See Our Full Process
-          </Button>
-        </div>
-      </Section>
+      </section>
 
       {/* ═══════ FINAL CTA ═══════ */}
-      <section className="relative py-24 ev-gradient-hero overflow-hidden" id="final-cta">
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
-          backgroundSize: '40px 40px',
-        }} />
+      <section className="relative py-24 bg-white border-t border-gray-100 overflow-hidden" id="final-cta">
+        {/* Warm glow background accent */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle at 50% 50%, rgba(224,122,95,0.06) 0%, rgba(212,168,67,0.04) 50%, transparent 80%)',
+          }}
+        />
         <div className="ev-container relative z-10 text-center">
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6"
+            className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-ev-navy mb-6"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
             Ready to Create Meaningful{' '}
@@ -505,7 +394,7 @@ export default function HomePage() {
               Employee Experiences?
             </span>
           </h2>
-          <p className="text-lg text-white/50 max-w-xl mx-auto mb-10">
+          <p className="text-lg text-ev-gray-400 max-w-xl mx-auto mb-10">
             Let&apos;s discuss how Experio Verse can help your team connect, engage, and grow together.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
@@ -520,7 +409,7 @@ export default function HomePage() {
             </Button>
             <Button
               href="/about"
-              variant="outline"
+              variant="secondary"
               size="lg"
             >
               Learn About Us
