@@ -197,10 +197,10 @@ img {
 
 /* Glass effect */
 .ev-glass {
-  background: rgba(var(--ev-white-rgb), 0.08);
+  background: rgba(var(--ev-white-rgb), 0.15);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(var(--ev-white-rgb), 0.12);
+  border: 1px solid rgba(var(--ev-white-rgb), 0.20);
 }
 
 .ev-glass-light {
@@ -212,12 +212,9 @@ img {
 }
 
 /* Override Tailwind "white" utility classes to use off-white token */
-/* These selectors use substring match on class attribute so they cover variants like "text-white/50" and "bg-white/10" */
+/* NOTE: bg-white override removed — it breaks glassmorphism cards that rely on bg-white/opacity */
 [class*="text-white"] {
   color: var(--ev-off-white) !important;
-}
-[class*="bg-white"] {
-  background-color: var(--ev-off-white) !important;
 }
 [class*="border-white"] {
   border-color: var(--ev-off-white) !important;

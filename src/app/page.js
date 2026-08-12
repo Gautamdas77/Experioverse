@@ -122,15 +122,12 @@ export default function HomePage() {
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-6"
               style={{ fontFamily: 'var(--font-heading)' }}
             >
-              Where Employee Experience{' '}
-              <span className="bg-gradient-to-r from-ev-accent to-ev-gold bg-clip-text text-transparent">
-                Comes to Life.
-              </span>
+              Creating Workplaces Where People Love to Belong.
             </h1>
 
             {/* Subheadline */}
             <p className="text-lg sm:text-xl text-white/60 leading-relaxed mb-10 max-w-2xl">
-              We create meaningful experiences that help employees connect, engage, move, celebrate and explore together.
+              Experio Verse partners with organizations to design meaningful employee experiences that strengthen workplace culture, inspire people, and transform everyday work into memorable moments.
             </p>
 
             {/* CTA Buttons */}
@@ -142,7 +139,7 @@ export default function HomePage() {
                 icon={<PhoneIcon size={18} />}
                 id="hero-request-call"
               >
-                Request a Call
+                Let's Talk
               </Button>
               <Button
                 href="/experiences"
@@ -151,7 +148,7 @@ export default function HomePage() {
                 icon={<ArrowIcon size={18} />}
                 id="hero-explore"
               >
-                Explore Experiences
+                Explore Solutions
               </Button>
             </div>
 
@@ -259,7 +256,6 @@ export default function HomePage() {
           label="Year-Round Experiences"
           title="Annual Employee Experience Calendar"
           subtitle="Plan meaningful experiences for your team throughout the year. We help you build a complete employee experience calendar."
-          light
         />
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -271,7 +267,7 @@ export default function HomePage() {
               <div className="text-sm font-bold text-white mb-1" style={{ fontFamily: 'var(--font-heading)' }}>
                 {item.month}
               </div>
-              <div className="text-xs text-white/50">{item.experience}</div>
+              <div className="text-xs text-white">{item.experience}</div>
             </div>
           ))}
         </div>
