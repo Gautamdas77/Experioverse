@@ -2,10 +2,8 @@ import Link from 'next/link';
 
 const quickLinks = [
   { label: 'Home', href: '/' },
-  { label: 'About Us', href: '/about' },
-  { label: 'Experiences', href: '/experiences' },
-  { label: 'How We Work', href: '/how-we-work' },
-  { label: 'Why Us', href: '/why-experio-verse' },
+  { label: 'Why EV', href: '/why-experio-verse' },
+  { label: 'Services', href: '/experiences' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -26,19 +24,25 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-white font-bold text-lg" style={{ fontFamily: 'var(--font-heading)' }}>
-                EV
+            <Link href="/" className="flex items-center gap-3 group mb-4 inline-flex" id="footer-logo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logo-icon-transparent.png"
+                alt="Experio Verse"
+                style={{ height: 44, width: 'auto', objectFit: 'contain' }}
+              />
+              <div className="flex flex-col leading-tight">
+                <span
+                  className="text-[1.05rem] font-bold text-white"
+                  style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.01em' }}
+                >
+                  Experio<span style={{ color: '#3B82F6' }}>Verse</span>
+                </span>
+                <span className="text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-white/50">
+                  Where People Connect
+                </span>
               </div>
-              <div>
-                <div className="text-lg font-bold" style={{ fontFamily: 'var(--font-heading)' }}>
-                  Experio Verse
-                </div>
-                <div className="text-[0.625rem] tracking-[0.15em] uppercase text-white/50">
-                  Employee Experience
-                </div>
-              </div>
-            </div>
+            </Link>
             <p className="text-white/50 text-sm leading-relaxed mt-4 max-w-xs">
               We create meaningful experiences that help employees connect, engage, move, celebrate and explore together.
             </p>
