@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Section, SectionHeader } from './components';
 import Button, { PhoneIcon, ArrowIcon } from './components/Button';
+import SolutionsCarousel from './components/SolutionsCarousel';
 
 /* ─── Experience Categories Data ─── */
 const categories = [
@@ -357,6 +358,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ═══════ OFFERED SOLUTIONS ═══════ */}
+      <SolutionsCarousel />
 
       {/* ═══════ WHAT WE DO ═══════ */}
       <Section id="what-we-do" gradient>
