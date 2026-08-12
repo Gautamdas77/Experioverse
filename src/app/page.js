@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Section, SectionHeader } from './components';
 import Button, { PhoneIcon, ArrowIcon } from './components/Button';
 import SolutionsCarousel from './components/SolutionsCarousel';
+import HeroSection from './components/HeroSection';
 
 /* ─── Experience Categories Data ─── */
 const categories = [
@@ -100,76 +101,7 @@ export default function HomePage() {
   return (
     <>
       {/* ═══════ HERO SECTION ═══════ */}
-      <section className="relative min-h-[100vh] flex items-center ev-gradient-hero overflow-hidden" id="hero">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
-          backgroundSize: '40px 40px',
-        }} />
-        {/* Gradient orbs */}
-        <div className="absolute top-20 right-10 w-[500px] h-[500px] bg-ev-accent/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-20 left-10 w-[400px] h-[400px] bg-ev-blue/10 rounded-full blur-[100px]" />
-
-        <div className="ev-container relative z-10 py-32">
-          <div className="max-w-3xl">
-            {/* Badge */}
-            <div className="ev-badge bg-white/10 text-white/80 border border-white/10 mb-6">
-              <span className="w-2 h-2 rounded-full bg-ev-accent animate-pulse" />
-              Corporate Employee Experience
-            </div>
-
-            {/* Headline */}
-            <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-6"
-              style={{ fontFamily: 'var(--font-heading)' }}
-            >
-              Creating Workplaces Where People Love to Belong.
-            </h1>
-
-            {/* Subheadline */}
-            <p className="text-lg sm:text-xl text-white/60 leading-relaxed mb-10 max-w-2xl">
-              Experio Verse partners with organizations to design meaningful employee experiences that strengthen workplace culture, inspire people, and transform everyday work into memorable moments.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4">
-              <Button
-                href="/contact"
-                variant="primary"
-                size="lg"
-                icon={<PhoneIcon size={18} />}
-                id="hero-request-call"
-              >
-                Let's Talk
-              </Button>
-              <Button
-                href="/experiences"
-                variant="outline"
-                size="lg"
-                icon={<ArrowIcon size={18} />}
-                id="hero-explore"
-              >
-                Explore Solutions
-              </Button>
-            </div>
-
-            {/* Trust indicators */}
-            <div className="mt-16 flex items-center gap-8 flex-wrap">
-              {['Employee Engagement', 'Corporate Events', 'Wellness Programs', 'Team Building'].map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-2 text-sm text-white/40"
-                >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-ev-accent">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* ═══════ WHO WE ARE ═══════ */}
       <section className="relative py-28 bg-white overflow-hidden" id="who-we-are">
