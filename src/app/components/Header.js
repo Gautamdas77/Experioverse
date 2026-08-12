@@ -5,10 +5,8 @@ import Link from 'next/link';
 
 const navLinks = [
   { label: 'Home', href: '/' },
-  { label: 'About Us', href: '/about' },
-  { label: 'Experiences', href: '/experiences' },
-  { label: 'How We Work', href: '/how-we-work' },
-  { label: 'Why Us', href: '/why-experio-verse' },
+  { label: 'Why EV', href: '/why-experio-verse' },
+  { label: 'Services', href: '/experiences' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -65,12 +63,12 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1" id="desktop-nav">
+          <nav className="hidden lg:flex items-center gap-4" id="desktop-nav">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 text-ev-gray-600 hover:text-ev-navy hover:bg-ev-gray-50`}
+                className={`px-8 py-2 rounded-lg text-[0.9rem] font-medium transition-all duration-200 text-ev-gray-600 hover:text-ev-navy hover:bg-ev-gray-50`}
               >
                 {link.label}
               </Link>
