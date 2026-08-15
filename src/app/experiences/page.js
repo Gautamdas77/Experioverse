@@ -1,308 +1,153 @@
-import { Section, SectionHeader } from '../components';
 import Button, { PhoneIcon } from '../components/Button';
 
 export const metadata = {
   title: 'Our Experiences',
   description:
-    'Explore Experio Verse\'s five experience categories — Celebrate, Connect, Move, Reset, and Explore. Corporate events, team building, wellness, sports, offsites, and more.',
+    "Experio Verse designs meaningful employee experiences including team building, family days, fun activities, and more to build stronger workplace cultures.",
 };
-
-/* ─── Experience Categories Full Data ─── */
-const categories = [
-  {
-    id: 'celebrate',
-    name: 'Celebrate',
-    initial: 'C',
-    color: 'var(--ev-celebrate)',
-    colorClass: 'ev-celebrate',
-    tagline: 'Create moments worth remembering.',
-    description:
-      'From company milestones to festival celebrations — we help teams come together, recognize achievements, and build traditions that strengthen workplace culture.',
-    services: [
-      {
-        title: 'Company Anniversary',
-        desc: 'Mark company milestones with memorable celebrations that reflect your journey and culture.',
-      },
-      {
-        title: 'Annual Day',
-        desc: 'A flagship event that brings the entire organisation together to celebrate the year gone by.',
-      },
-      {
-        title: 'Awards & Recognition',
-        desc: 'Meaningful recognition ceremonies that make employees feel valued and motivated.',
-      },
-      {
-        title: 'Festival Celebrations',
-        desc: 'Culturally rich celebrations that honour diversity and bring teams closer.',
-      },
-      {
-        title: 'Office Parties',
-        desc: 'Fun, engaging get-togethers — from themed parties to casual celebrations.',
-      },
-      {
-        title: 'Family Days',
-        desc: 'Invite families into the workplace culture with interactive, fun-filled experiences.',
-      },
-    ],
-  },
-  {
-    id: 'connect',
-    name: 'Connect',
-    initial: 'C',
-    color: 'var(--ev-connect)',
-    colorClass: 'ev-connect',
-    tagline: 'Build stronger teams together.',
-    description:
-      'Meaningful connections don\'t happen by accident. Our team-building and collaboration activities are designed to break silos, build trust, and create genuine bonds.',
-    services: [
-      {
-        title: 'Team Building',
-        desc: 'Purpose-driven activities that strengthen collaboration, communication, and trust.',
-      },
-      {
-        title: 'Indoor Activities',
-        desc: 'Engaging in-office or in-venue experiences — quizzes, workshops, creative sessions.',
-      },
-      {
-        title: 'Outdoor Activities',
-        desc: 'Get teams out of the office for fresh-air adventures that build resilience and teamwork.',
-      },
-      {
-        title: 'Treasure Hunts',
-        desc: 'Interactive, competitive hunts that combine problem-solving with pure fun.',
-      },
-      {
-        title: 'Team Competitions',
-        desc: 'Healthy competition that energises teams and brings out the best in people.',
-      },
-      {
-        title: 'Sports Activities',
-        desc: 'Friendly matches and sports days that encourage teamwork beyond the desk.',
-      },
-    ],
-  },
-  {
-    id: 'move',
-    name: 'Move',
-    initial: 'M',
-    color: 'var(--ev-move)',
-    colorClass: 'ev-move',
-    tagline: 'Get your team moving.',
-    description:
-      'Physical wellness is the foundation of everything. Our fitness and sports experiences energise employees, reduce stress, and create a culture of health.',
-    services: [
-      {
-        title: 'Sports Tournaments',
-        desc: 'Cricket, football, badminton, and more — inter-team and inter-company tournaments.',
-      },
-      {
-        title: 'Fitness Challenges',
-        desc: 'Step challenges, fitness weeks, and health drives that get everyone moving.',
-      },
-      {
-        title: 'Yoga',
-        desc: 'Expert-led yoga sessions for flexibility, strength, and mental calm.',
-      },
-      {
-        title: 'Zumba',
-        desc: 'High-energy dance fitness that brings joy and movement together.',
-      },
-      {
-        title: 'Running',
-        desc: 'Corporate runs, fun runs, and couch-to-5K programs for all fitness levels.',
-      },
-      {
-        title: 'Physical Activities',
-        desc: 'From obstacle courses to swimming sessions — active experiences for every team.',
-      },
-    ],
-  },
-  {
-    id: 'reset',
-    name: 'Reset',
-    initial: 'R',
-    color: 'var(--ev-reset)',
-    colorClass: 'ev-reset',
-    tagline: 'Recharge your people.',
-    description:
-      'In a world of constant hustle, Reset experiences help employees slow down, recharge, and return with clarity, focus, and resilience.',
-    services: [
-      {
-        title: 'Mental Wellness',
-        desc: 'Workshops and sessions that normalise mental health conversations at work.',
-      },
-      {
-        title: 'Stress Management',
-        desc: 'Practical tools and techniques to manage workplace stress effectively.',
-      },
-      {
-        title: 'Mindfulness',
-        desc: 'Guided mindfulness sessions that improve focus, presence, and emotional balance.',
-      },
-      {
-        title: 'Meditation',
-        desc: 'From beginner-friendly to advanced — meditation programs for lasting impact.',
-      },
-      {
-        title: 'Burnout Awareness',
-        desc: 'Interactive sessions that help teams recognise, prevent, and recover from burnout.',
-      },
-      {
-        title: 'Financial Wellness',
-        desc: 'Expert-led workshops on financial planning, investment, and security.',
-      },
-    ],
-  },
-  {
-    id: 'explore',
-    name: 'Explore',
-    initial: 'E',
-    color: 'var(--ev-explore)',
-    colorClass: 'ev-explore',
-    tagline: 'Experiences beyond the office.',
-    description:
-      'Sometimes the best team experiences happen away from the office. Our curated trips, offsites, and retreats create memories and bonds that last.',
-    services: [
-      {
-        title: 'Corporate Trips',
-        desc: 'Curated group trips designed for teams to unwind, bond, and recharge together.',
-      },
-      {
-        title: 'Offsites',
-        desc: 'Strategic offsites that combine work sessions with team experiences.',
-      },
-      {
-        title: 'Adventure Experiences',
-        desc: 'Trekking, camping, rafting, and more — push boundaries together.',
-      },
-      {
-        title: 'Leadership Retreats',
-        desc: 'Focused retreats for leadership teams to align, strategise, and bond.',
-      },
-      {
-        title: 'Cultural Experiences',
-        desc: 'Explore local culture, cuisine, and heritage as a team.',
-      },
-      {
-        title: 'Story-driven Travel',
-        desc: 'Immersive travel experiences built around stories, themes, and discovery.',
-      },
-    ],
-  },
-];
 
 export default function ExperiencesPage() {
   return (
     <>
       {/* ═══════ HERO ═══════ */}
-      <section className="relative pt-36 pb-20 ev-gradient-hero overflow-hidden" id="experiences-hero">
+      <section className="relative pt-36 pb-24 ev-gradient-hero overflow-hidden" id="experiences-hero">
+        {/* Dot grid */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
           backgroundSize: '40px 40px',
         }} />
+        {/* Ambient blobs */}
         <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-ev-gold/10 rounded-full blur-[120px]" />
+        <div className="absolute top-20 left-[-100px] w-[400px] h-[400px] rounded-full blur-[100px]"
+          style={{ background: 'radial-gradient(circle, rgba(224,122,95,0.15) 0%, transparent 70%)' }} />
 
         <div className="ev-container relative z-10">
           <div className="max-w-3xl">
+
+            {/* Overview label */}
             <div className="ev-badge bg-white/10 text-white/80 border border-white/10 mb-6">
               <span className="w-2 h-2 rounded-full bg-ev-gold" />
-              Our Experiences
+              Overview
             </div>
+
+            {/* Main Heading */}
             <h1
               className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-[1.1] mb-6"
-              style={{ fontFamily: 'var(--font-heading)' }}
+              style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.02em' }}
             >
-              Five Ways to Elevate{' '}
+              Building Stronger Teams,{' '}
               <span className="bg-gradient-to-r from-ev-accent to-ev-gold bg-clip-text text-transparent">
-                Your Workplace.
+                Stronger Cultures.
               </span>
             </h1>
-            <p className="text-lg text-white/60 leading-relaxed max-w-2xl">
-              From celebrations to wellness, from team building to travel — every dimension of the employee experience, thoughtfully designed.
-            </p>
 
-            {/* Category quick nav */}
-            <div className="flex flex-wrap gap-3 mt-10">
-              {categories.map((cat) => (
-                <a
-                  key={cat.id}
-                  href={`#${cat.id}`}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-sm font-medium border border-white/10 hover:bg-white/20 hover:text-white transition-all duration-200"
-                >
-                  {cat.name}
-                </a>
-              ))}
-            </div>
+            {/* Overview description */}
+            <p className="text-lg text-white/60 leading-relaxed max-w-2xl">
+              A thriving workplace begins with meaningful connections. We design experiences that strengthen teamwork, encourage collaboration, and create a culture where people feel valued and inspired.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* ═══════ CATEGORY SECTIONS ═══════ */}
-      {categories.map((cat, catIndex) => (
-        <Section
-          key={cat.id}
-          id={cat.id}
-          gradient={catIndex % 2 === 1}
-        >
-          {/* Category header */}
-          <div className="flex flex-col lg:flex-row items-start gap-8 mb-12">
-            <div>
-              <h2
-                className="text-3xl md:text-4xl font-extrabold"
-                style={{ fontFamily: 'var(--font-heading)', color: cat.color }}
-              >
-                {cat.name}
-              </h2>
-              <p className="text-sm text-ev-gray-400 font-medium mt-1">{cat.tagline}</p>
+      {/* ═══════ TEAM BUILDING ═══════ */}
+      <section id="team-building" className="relative py-20 overflow-hidden" style={{ background: 'var(--ev-section-bg)' }}>
+        {/* Subtle ambient glow */}
+        <div className="absolute top-0 right-0 w-[600px] h-[400px] rounded-full blur-[150px] pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%)' }} />
+
+        <div className="ev-container relative z-10">
+
+          {/* Section header */}
+          <div className="mb-14">
+            <div className="ev-badge bg-white/10 text-white/80 border border-white/10 mb-5">
+              <span className="w-2 h-2 rounded-full" style={{ background: 'var(--ev-connect)' }} />
+              Overview
             </div>
-            <p className="text-ev-gray-500 leading-relaxed max-w-2xl lg:pt-1">
-              {cat.description}
+            <h2
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight mb-5"
+              style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.02em' }}
+            >
+              Team Building
+            </h2>
+            <p className="text-lg leading-relaxed max-w-2xl" style={{ color: 'rgba(241,245,249,0.55)' }}>
+              Employee engagement is an ongoing journey that keeps people motivated, connected, and committed. Our experiences help organizations build happier teams and a stronger workplace culture.
             </p>
           </div>
 
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {cat.services.map((service) => (
+          {/* Services label */}
+          <div className="flex items-center gap-3 mb-8">
+            <span className="text-xs font-bold tracking-[0.14em] uppercase" style={{ color: 'var(--ev-connect)' }}>Services</span>
+            <span className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.08)' }} />
+          </div>
+
+          {/* Service cards grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+            {[
+              {
+                title: 'Family Day',
+                desc: 'Invite families into the workplace culture with fun, interactive, and inclusive experiences that bring everyone together.',
+                icon: '👨‍👩‍👧‍👦',
+              },
+              {
+                title: 'Fun Fridays',
+                desc: 'End every week on a high with curated fun activities — games, challenges, and light-hearted events that refresh the team.',
+                icon: '🎉',
+              },
+              {
+                title: 'Hobby Clubs',
+                desc: 'Foster passion and community by helping employees connect over shared interests beyond work.',
+                icon: '🎨',
+              },
+              {
+                title: 'Indoor Games',
+                desc: 'Engaging in-office games and activities that spark laughter, healthy competition, and team spirit.',
+                icon: '🎲',
+              },
+              {
+                title: 'Outdoor Games',
+                desc: 'Get teams outside for fresh-air activities — relay races, sports, and adventure challenges that build real bonds.',
+                icon: '⚽',
+              },
+            ].map((service) => (
               <div
                 key={service.title}
-                className="ev-card p-6 group relative overflow-hidden"
+                className="tb-card group relative flex flex-col rounded-2xl p-6 border transition-all duration-300"
               >
-                {/* Accent line */}
-                <div
-                  className="absolute top-0 left-0 w-1 h-full transition-all duration-300 group-hover:w-1.5"
-                  style={{ backgroundColor: cat.color }}
-                />
+                {/* Top accent line */}
+                <div className="absolute top-0 left-6 right-6 h-px rounded-full"
+                  style={{ background: 'linear-gradient(90deg, transparent, rgba(59,130,246,0.5), transparent)' }} />
 
-                {/* Image placeholder — hidden, no content */}
-                <div
-                  className="w-full aspect-[16/9] rounded-lg mb-4"
-                  style={{ backgroundColor: `color-mix(in srgb, ${cat.color} 8%, var(--ev-gray-50))` }}
-                />
+                {/* Icon */}
+                <span className="text-3xl mb-4 block">{service.icon}</span>
 
+                {/* Title */}
                 <h3
-                  className="text-base font-bold mb-2"
+                  className="text-base font-bold text-white mb-2"
                   style={{ fontFamily: 'var(--font-heading)' }}
                 >
                   {service.title}
                 </h3>
-                <p className="text-sm text-ev-gray-400 leading-relaxed mb-4">
+
+                {/* Description */}
+                <p className="tb-card-desc text-sm leading-relaxed flex-1">
                   {service.desc}
                 </p>
 
-                <Button
+                {/* Enquire link */}
+                <a
                   href="/contact"
-                  variant="ghost"
-                  size="sm"
-                  className="text-xs"
-                  style={{ color: cat.color }}
+                  className="tb-enquire inline-flex items-center gap-1 mt-4 text-xs font-semibold transition-colors duration-200"
                 >
-                  Enquire →
-                </Button>
+                  Enquire
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
               </div>
             ))}
           </div>
-        </Section>
-      ))}
+        </div>
+      </section>
 
       {/* ═══════ CTA ═══════ */}
       <section className="relative py-24 ev-gradient-hero overflow-hidden" id="experiences-cta">
