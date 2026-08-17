@@ -6,7 +6,7 @@ import Link from 'next/link';
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Why EV', href: '/why-experio-verse' },
-  { label: 'Services', href: '/experiences' },
+  { label: 'Services', href: '/services' },
   { label: 'Contact', href: '/contact' },
 ];
 

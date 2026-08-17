@@ -368,3 +368,195 @@ img {
 .tb-enquire:hover {
   color: rgba(59, 130, 246, 1);
 }
+
+/* ─── Services Page — Hover-Reveal Cards ─── */
+
+/* Responsive grid: 1 col → 2 → 3+ as cards accumulate */
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Card shell — CSS Grid stacking so height is driven by content */
+.svc-card {
+  position: relative;
+  display: grid;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.03);
+  cursor: default;
+  transition:
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.svc-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255,255,255,0.06);
+  transform: translateY(-6px);
+}
+
+/* Top hairline */
+.svc-card-top-line {
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 1px;
+  border-radius: 999px;
+}
+
+/* ── Rest state layer (centred name) — shares grid cell 1/1 ── */
+.svc-rest {
+  grid-row: 1;
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 2rem;
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: none;
+}
+
+.svc-card:hover .svc-rest {
+  opacity: 0;
+  transform: translateY(-12px);
+  pointer-events: none;
+}
+
+.svc-rest-icon {
+  font-size: 3rem;
+  line-height: 1;
+  display: block;
+}
+
+.svc-rest-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.svc-rest-hint {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* ── Hover content layer — shares grid cell 1/1, drives card height ── */
+.svc-content {
+  grid-row: 1;
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.svc-card:hover .svc-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Compact title row */
+.svc-content-header {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 0.75rem;
+}
+
+.svc-content-icon {
+  font-size: 1.35rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.svc-content-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Divider */
+.svc-content-divider {
+  height: 1px;
+  width: 100%;
+  margin-bottom: 0.875rem;
+  border-radius: 1px;
+}
+
+/* Description */
+.svc-content-desc {
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: rgba(241, 245, 249, 0.55);
+  margin-bottom: 0.875rem;
+  margin-top: 0;
+}
+
+/* Points list */
+.svc-content-points {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.svc-content-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: rgba(241, 245, 249, 0.65);
+  line-height: 1.5;
+}
+
+.svc-point-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.45em;
+}
+
+/* Enquire CTA */
+.svc-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transition: opacity 0.2s ease, gap 0.2s ease;
+  margin-top: auto;
+  text-decoration: none;
+}
+
+.svc-cta:hover {
+  opacity: 0.85;
+  gap: 0.5rem;
+}

@@ -88,12 +88,10 @@ Experioverse/
         ├── layout.js                    # Root Layout: fonts, global HTML shell, Header & Footer injection
         ├── page.js                      # Home Page: Hero, Solutions, Categories, Calendar, Process, CTA
         │
+        ├── services/                    # Services catalog route (/services)
+        │   └── page.js                  # Services Page: Hover-reveal service category cards (Team Building + more)
+        │
         ├── about/                       # About Us route (/about)
-        │   └── page.js                  # About Page: Vision, mission, leadership, core company values
-        │
-        ├── experiences/                 # Experiences catalog route (/experiences)
-        │   └── page.js                  # Experiences Page: 5 Pillars (Celebrate, Connect, Move, Reset, Explore)
-        │
         ├── how-we-work/                 # Process route (/how-we-work)
         │   └── page.js                  # Process Page: 5-step methodology (Understand → Design → Plan → Execute → Feedback)
         │
@@ -192,30 +190,39 @@ Each folder inside `src/app/` containing a `page.js` corresponds to a public URL
 - **Route**: `http://localhost:3000/about`
 - **Purpose**: Company identity, vision, mission, story, leadership team, and corporate values.
 
-#### 🎭 [`src/app/experiences/page.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/experiences/page.js) — Our Experiences (`/experiences`)
-- **Route**: `http://localhost:3000/experiences`
-- **Purpose**: Exhaustive catalog of experiences grouped under the 5 pillars.
-- **Hero Section Copy** *(last updated: 2026-08-15)*:
-  - **Badge Label**: `Overview`
-  - **Headline**: `Building Stronger Teams, Stronger Cultures.`
-    - Primary text: `Building Stronger Teams,`
-    - Gradient-highlighted text (coral → gold): `Stronger Cultures.`
-  - **Overview Description**: *"A thriving workplace begins with meaningful connections. We design experiences that strengthen teamwork, encourage collaboration, and create a culture where people feel valued and inspired."*
-  - **Quick-Nav Pills**: Color-coded anchor links for each of the 5 experience categories (Celebrate, Connect, Move, Reset, Explore) with category-color dots.
-- **Experience Pillars**: ~~Removed 2026-08-15~~ — The Celebrate, Connect, Move, Reset, and Explore category sections have been removed from this page. Only the Hero and Team Building sections remain active.
-- **Team Building Section** *(added: 2026-08-15)* — Dedicated section between the hero and the 5 experience pillars:
-  - **Badge Label**: `Overview` (using `--ev-connect` blue dot)
-  - **Section Title**: `Team Building`
-  - **Description**: *"Employee engagement is an ongoing journey that keeps people motivated, connected, and committed. Our experiences help organizations build happier teams and a stronger workplace culture."*
-  - **Services Label**: Uppercase divider label `Services` with a hairline separator.
-  - **Service Cards** (5-column grid on xl, responsive down to 1-col):
-    - 👨‍👩‍👧‍👦 **Family Day** — Inclusive family experience events
-    - 🎉 **Fun Fridays** — Weekly light-hearted team refresh activities
-    - 🎨 **Hobby Clubs** — Shared interest groups beyond work
-    - 🎲 **Indoor Games** — In-office competitive and collaborative games
-    - ⚽ **Outdoor Games** — Fresh-air adventures, relay races, sports
-  - **CSS Classes**: `.tb-card`, `.tb-card-desc`, `.tb-enquire` defined in `globals.css` for pure-CSS hover (blue tint + lift on hover, no JS required).
+#### 🛠️ [`src/app/services/page.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/services/page.js) — Services (`/services`) *(added: 2026-08-18)*
+- **Route**: `http://localhost:3000/services`
+- **Purpose**: Showcase all service categories with interactive hover-reveal cards.
+- **Card Interaction**: At rest each card displays only the service name and icon (large, centred). On hover, the name shrinks and moves to the top of the card while a description paragraph and bullet-point list animate in — powered entirely by CSS (`.svc-rest` / `.svc-content` layers with `opacity` + `transform` transitions).
+- **Services Array**: Declared inside `page.js`. Each entry has: `id`, `slug`, `icon`, `label`, `accentHex`, `description`, `points[]`. Current services (11 total):
+  1. 🤝 **Team Building** — Family Day, Fun Fridays, Hobby Clubs, Indoor/Outdoor Games
+  2. 🎉 **Corporate Celebrations** — Annual Day, Foundation Day, Townhall, Festivals, Awards Night, Milestone Celebrations
+  3. 🏔️ **Offsites & Retreats** — Domestic, International, Leadership Retreats, Strategy Meets
+  4. 📚 **Learning Experiences** — Workshops, Leadership Dev, Soft Skills, Innovation Labs, Guest Speakers
+  5. 🏆 **Rewards & Recognition** — R&R Programmes, Long Service Awards, Hall of Fame, Appreciation Events
+  6. 🧘 **Well-being & Mental Health** — Wellness Sessions, Stress Mgmt, Mindfulness, Yoga & Fitness, Health Campaigns
+  7. 🌱 **Workplace Culture** — Culture Building, Value Workshops, EX Campaigns, Internal Initiatives, Transformation
+  8. ✨ **Brand Experiences** — Product Launches, Dealer Meets, Channel Partner Meets, CX Events, Conferences
+  9. 🎤 **Entertainment Experiences** — Stand-up Comedy, Live Bands, DJs, Motivational Speakers, Emcees
+  10. 🌍 **CSR Experiences** — Tree Plantation, Build-a-Bicycle, Toy Drives, Community Projects, NGO Partnerships
+  11. 🎨 **Custom Experiences** — Bespoke programmes, tailor-made campaigns, end-to-end design
+- **CSS Classes** (defined in `globals.css`):
+  - `.svc-grid` — responsive `auto-fill` grid (min 300 px per column)
+  - `.svc-card` — card shell with border, background and lift transition
+  - `.svc-card-top-line` — hairline accent gradient at top of card
+  - `.svc-rest` — rest-state centred layer (hidden on hover)
+  - `.svc-rest-icon`, `.svc-rest-title`, `.svc-rest-hint` — rest state child elements
+  - `.svc-content` — hover-state full-content layer (revealed on hover)
+  - `.svc-content-header`, `.svc-content-icon`, `.svc-content-title` — compact header row
+  - `.svc-content-divider` — thin coloured separator
+  - `.svc-content-desc` — description paragraph
+  - `.svc-content-points`, `.svc-content-point`, `.svc-point-dot` — bullet list
+  - `.svc-cta` — Enquire link with arrow icon
+- **Navigation**: Listed as `Services` in `Header.js` `navLinks` array (href `/services`).
 
+> [!WARNING]
+> **`src/app/experiences/` — DELETED (2026-08-18)**
+> This route and its `page.js` have been removed. All services content has been migrated to [`src/app/services/page.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/services/page.js). The `/experiences` URL is no longer active.
 
 #### 🔄 [`src/app/how-we-work/page.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/how-we-work/page.js) — How We Work (`/how-we-work`)
 - **Route**: `http://localhost:3000/how-we-work`
