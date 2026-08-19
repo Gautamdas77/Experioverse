@@ -2,6 +2,7 @@ import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -63,6 +64,7 @@ export default function RootLayout({ children }) {
         <Header />
         <main className="flex-1 pt-28 md:pt-24 lg:pt-20" style={{ backgroundColor: 'var(--ev-section-bg)' }}>{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
