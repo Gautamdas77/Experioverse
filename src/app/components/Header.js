@@ -45,21 +45,16 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-3 group" id="header-logo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/logo-icon-transparent.png"
+              src="/new-logo-transparent.png"
               alt="Experio Verse"
               style={{ height: 44, width: 'auto', objectFit: 'contain' }}
             />
-            <div className="flex flex-col leading-tight">
-              <span
-                className="text-[1.05rem] font-bold text-ev-navy"
-                style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.01em' }}
-              >
-                Experio<span style={{ color: '#3B82F6' }}>Verse</span>
-              </span>
-              <span className="text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-ev-gray-400">
-                Where People Connect
-              </span>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/experioverse-transparent.png"
+              alt="ExperioVerse — Where People Connect"
+              style={{ height: 36, width: 'auto', objectFit: 'contain' }}
+            />
           </Link>
 
           {/* Desktop Navigation */}

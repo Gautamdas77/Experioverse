@@ -27,21 +27,16 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3 group mb-4 inline-flex" id="footer-logo">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/logo-icon-transparent.png"
+                src="/new-logo-transparent.png"
                 alt="Experio Verse"
                 style={{ height: 44, width: 'auto', objectFit: 'contain' }}
               />
-              <div className="flex flex-col leading-tight">
-                <span
-                  className="text-[1.05rem] font-bold text-white"
-                  style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.01em' }}
-                >
-                  Experio<span style={{ color: '#3B82F6' }}>Verse</span>
-                </span>
-                <span className="text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-white/50">
-                  Where People Connect
-                </span>
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/experioverse-transparent.png"
+                alt="ExperioVerse — Where People Connect"
+                style={{ height: 36, width: 'auto', objectFit: 'contain', filter: 'brightness(0) invert(1)' }}
+              />
             </Link>
             <p className="text-white/50 text-sm leading-relaxed mt-4 max-w-xs">
               We create meaningful experiences that help employees connect, engage, move, celebrate and explore together.

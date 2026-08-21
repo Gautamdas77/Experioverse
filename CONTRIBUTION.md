@@ -76,7 +76,9 @@ Experioverse/
 │   ├── globe.svg                        # Next.js template icon
 │   ├── logo.png                         # Experio Verse standard logo
 │   ├── logo-icon.png                    # Experio Verse square icon badge
-│   ├── logo-icon-transparent.png        # Experio Verse transparent navbar logo badge
+│   ├── logo-icon-transparent.png        # Experio Verse transparent navbar logo badge (legacy blue)
+│   ├── new-logo-transparent.png         # ✅ ACTIVE — New purple brand logo icon, white-bg removed (used in Header & Footer)
+│   ├── experioverse-transparent.png     # ✅ ACTIVE — Wordmark: "ExperioVerse / WHERE PEOPLE CONNECT", transparent (Header & Footer)
 │   ├── next.svg                         # Next.js framework brand icon
 │   ├── vercel.svg                       # Vercel hosting brand icon
 │   └── window.svg                       # Next.js template icon
@@ -140,7 +142,9 @@ The `public/` directory contains static assets served directly from the domain r
 
 | Asset File | Usage & Description |
 |---|---|
-| `logo-icon-transparent.png` | **Primary brand icon** used in the sticky Header navigation. Features an alpha-transparent background for seamless glassmorphism blending. |
+| `new-logo-transparent.png` | ✅ **Active logo icon** — New purple mark (EVo symbol), white background removed. Used alongside wordmark in Header & Footer. |
+| `experioverse-transparent.png` | ✅ **Active wordmark** — "ExperioVerse / WHERE PEOPLE CONNECT" typographic lockup, transparent PNG. Used in Header (full colour) and Footer (inverted white). |
+| `logo-icon-transparent.png` | Legacy blue brand icon (transparent background). Replaced by `new-logo-transparent.png`. |
 | `logo-icon.png` | Square icon with solid background for social sharing, mobile bookmark icons, and rich previews. |
 | `logo.png` | Full brand lockup logo with symbol and typography. |
 | `Final Logo.png` | High-resolution master brand logo asset for marketing and high-DPI displays. |
