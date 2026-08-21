@@ -270,22 +270,59 @@ All reusable UI components live in `src/app/components/` and are centrally expor
 
 Experio Verse adheres to a strict, premium corporate design system.
 
+> [!IMPORTANT]
+> **Brand Rebrand (2026-08-22)**: The entire colour palette was migrated from the original navy/coral/gold scheme to a **Purple × Magenta × Violet** theme that matches the EVo logo. All tokens below reflect the current live values.
+
 ### 🎨 Color Palette & CSS Variables
 
 | Variable Name | Hex Code | Purpose / Usage |
 |---|---|---|
-| `--ev-navy` | `#0B1D3A` | Primary brand navy — used for headings, primary backgrounds |
-| `--ev-navy-light` | `#132B54` | Secondary dark shade — cards, hover states |
-| `--ev-section-bg` | `#060c18` | Dark section & hero background — optimal contrast |
-| `--ev-accent` | `#E07A5F` | Primary CTA warm terracotta / coral |
-| `--ev-accent-hover` | `#D4603E` | Button hover state |
-| `--ev-gold` | `#D4A843` | Premium metallic gold — badges, highlights, gradients |
-| `--ev-off-white` | `#F3F4F6` | Default page background and light card surfaces |
-| `--ev-celebrate` | `#E07A5F` | Category pillar: Celebrate |
-| `--ev-connect` | `#3B82F6` | Category pillar: Connect |
-| `--ev-move` | `#10B981` | Category pillar: Move |
-| `--ev-reset` | `#8B5CF6` | Category pillar: Reset |
-| `--ev-explore` | `#F59E0B` | Category pillar: Explore |
+| `--ev-navy` | `#1A0533` | Primary brand deep-purple — headings, primary dark backgrounds |
+| `--ev-navy-light` | `#2D0A52` | Secondary dark purple — cards, elevated surfaces |
+| `--ev-navy-mid` | `#3B1070` | Mid-tone purple — gradients, hover backgrounds |
+| `--ev-section-bg` | `#0D0118` | Hero & dark section background — near-black purple |
+| `--ev-section-bg-light` | `#1A0533` | Slightly lighter dark bg — used for alternate dark sections |
+| `--ev-accent` | `#C026D3` | **Primary CTA — Vivid Magenta** (buttons, badges, labels) |
+| `--ev-accent-hover` | `#A21CAF` | Magenta hover state |
+| `--ev-accent-light` | `#E879F9` | Soft magenta — light badges, tints |
+| `--ev-gold` | `#A855F7` | **Secondary accent — Medium Violet** (replaces old gold) |
+| `--ev-gold-light` | `#D8B4FE` | Light lavender-purple — subtle highlights |
+| `--ev-blue` | `#7C3AED` | Violet-purple — links, connect category, focus rings |
+| `--ev-blue-light` | `#A855F7` | Medium purple — secondary interactive |
+| `--ev-off-white` | `#F5F3FF` | Light background with lavender tint |
+| `--ev-white-rgb` | `245, 243, 255` | RGB equivalent for `rgba()` usage |
+| `--ev-gray-50` | `#F0EBFF` | Lightest purple-tinted gray — card surfaces |
+| `--ev-gray-100` | `#E9D5FF` | Light purple-gray — borders, dividers |
+| `--ev-gray-200` | `#C4B5FD` | Mid purple-gray — secondary text borders |
+
+#### 🖼️ Hero Gradient
+```css
+background: linear-gradient(135deg, #0D0118 0%, #1A0533 30%, #2D0A52 60%, #3B1070 100%);
+```
+
+#### ✨ Accent / CTA Gradient
+```css
+background: linear-gradient(135deg, #C026D3 0%, #7C3AED 100%);  /* Magenta → Violet */
+```
+
+#### 🌈 Experience Category Colours
+
+| Variable | Hex | Pillar |
+|---|---|---|
+| `--ev-celebrate` | `#C026D3` | Celebrate — Magenta |
+| `--ev-connect` | `#7C3AED` | Connect — Violet |
+| `--ev-move` | `#10B981` | Move — Emerald (kept) |
+| `--ev-reset` | `#A855F7` | Reset — Purple |
+| `--ev-explore` | `#EC4899` | Explore — Pink |
+
+#### 🌟 Shadow Tokens
+```css
+--shadow-sm:  0 1px 3px rgba(26, 5, 51, 0.10);
+--shadow-md:  0 4px 12px rgba(26, 5, 51, 0.15);
+--shadow-lg:  0 8px 30px rgba(26, 5, 51, 0.20);
+--shadow-xl:  0 16px 50px rgba(26, 5, 51, 0.25);
+--shadow-glow: 0 0 40px rgba(192, 38, 211, 0.30);  /* Magenta glow */
+```
 
 ### 🔤 Typography
 
@@ -294,9 +331,9 @@ Experio Verse adheres to a strict, premium corporate design system.
 
 ### 📐 Glassmorphism & UI Rules
 
-1. **Avoid pure harsh `#000000` or `#ffffff` backgrounds**: Use `--ev-section-bg` (`#060c18`) for dark sections and `--ev-off-white` (`#F3F4F6`) for light sections.
-2. **Glassmorphism Panels**: Use `.ev-glass` (`backdrop-blur-md` with semi-transparent border) for floating navigation and dark overlays.
-3. **Buttons**: Main call-to-action buttons should always use the `bg-ev-accent` coral color or `linear-gradient(135deg, #E07A5F 0%, #D4A843 100%)`.
+1. **Avoid pure harsh `#000000` or `#ffffff` backgrounds**: Use `--ev-section-bg` (`#0D0118`) for dark sections and `--ev-off-white` (`#F5F3FF`) for light sections.
+2. **Glassmorphism Panels**: Use `.ev-glass` (`backdrop-filter: blur(16px)` with semi-transparent purple border) for floating navigation and dark overlays.
+3. **Buttons**: Main call-to-action buttons always use `linear-gradient(135deg, #C026D3 0%, #7C3AED 100%)` with a magenta glow shadow (`box-shadow: 0 8px 32px rgba(192,38,211,0.40)`).
 4. **Interactive States**: Interactive elements should have `hover:scale-[1.02]` and `active:scale-[0.98]` micro-interactions with smooth 200ms transitions.
 
 ---

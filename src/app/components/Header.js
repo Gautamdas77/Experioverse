@@ -75,6 +75,7 @@ export default function Header() {
             <Link
               href="/contact"
               className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-ev-accent hover:bg-ev-accent-hover text-white text-sm font-semibold rounded-full transition-all duration-200 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+            style={{ boxShadow: '0 4px 20px rgba(192,38,211,0.35)' }}
               id="header-request-call"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

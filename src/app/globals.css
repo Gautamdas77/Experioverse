@@ -4,50 +4,50 @@
    EXPERIO VERSE — Design System & Global Styles
    ============================================ */
 
-/* --- Design Tokens --- */
+/* --- Design Tokens — Purple × Magenta × Violet Brand Palette --- */
 :root {
-  /* Primary palette — Deep navy to warm gold */
-  --ev-navy: #0B1D3A;
-  --ev-navy-light: #132B54;
-  --ev-navy-mid: #1A3A6E;
+  /* Primary palette — Deep purple-black */
+  --ev-navy: #1A0533;
+  --ev-navy-light: #2D0A52;
+  --ev-navy-mid: #3B1070;
 
-  /* Lighter section backgrounds — used for hero, dark sections (NOT footer) */
-  --ev-section-bg: #060c18;
-  --ev-section-bg-light: #0b1d3a;
-  --ev-section-bg-mid: #0f2952;
-  --ev-blue: #2563EB;
-  --ev-blue-light: #3B82F6;
+  /* Section backgrounds — deep purple-black for dark sections & hero */
+  --ev-section-bg: #0D0118;
+  --ev-section-bg-light: #1A0533;
+  --ev-section-bg-mid: #2D0A52;
+  --ev-blue: #7C3AED;
+  --ev-blue-light: #A855F7;
 
-  /* Accent — Warm terracotta / coral */
-  --ev-accent: #E07A5F;
-  --ev-accent-hover: #D4603E;
-  --ev-accent-light: #F4A88A;
+  /* Accent — Vivid Magenta / Pink (primary CTA) */
+  --ev-accent: #C026D3;
+  --ev-accent-hover: #A21CAF;
+  --ev-accent-light: #E879F9;
 
-  /* Gold / Premium accent */
-  --ev-gold: #D4A843;
-  --ev-gold-light: #F0D178;
+  /* Secondary accent — Medium violet-purple */
+  --ev-gold: #A855F7;
+  --ev-gold-light: #D8B4FE;
 
-  /* Neutrals */
-  --ev-off-white: #F3F4F6;
+  /* Neutrals — slight lavender tint for brand cohesion */
+  --ev-off-white: #F5F3FF;
   --ev-white: var(--ev-off-white);
   /* off-white in RGB for rgba() usage */
-  --ev-white-rgb: 243, 244, 246;
-  --ev-gray-50: #F1F3F8;
-  --ev-gray-100: #E2E6EF;
-  --ev-gray-200: #C8CED9;
+  --ev-white-rgb: 245, 243, 255;
+  --ev-gray-50: #F0EBFF;
+  --ev-gray-100: #E9D5FF;
+  --ev-gray-200: #C4B5FD;
   --ev-gray-300: #9CA3AF;
   --ev-gray-400: #6B7280;
   --ev-gray-500: #4B5563;
   --ev-gray-600: #374151;
   --ev-gray-700: #1F2937;
-  --ev-dark: #0F172A;
+  --ev-dark: #0D0118;
 
-  /* Experience Category Colors */
-  --ev-celebrate: #E07A5F;
-  --ev-connect: #3B82F6;
+  /* Experience Category Colors — purple-toned palette */
+  --ev-celebrate: #C026D3;
+  --ev-connect: #7C3AED;
   --ev-move: #10B981;
-  --ev-reset: #8B5CF6;
-  --ev-explore: #F59E0B;
+  --ev-reset: #A855F7;
+  --ev-explore: #EC4899;
 
   /* Typography — Uses CSS variables set by next/font in layout.js */
   --font-heading: var(--font-outfit), 'Outfit', sans-serif;
@@ -66,11 +66,11 @@
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(11, 29, 58, 0.08);
-  --shadow-md: 0 4px 12px rgba(11, 29, 58, 0.1);
-  --shadow-lg: 0 8px 30px rgba(11, 29, 58, 0.12);
-  --shadow-xl: 0 16px 50px rgba(11, 29, 58, 0.15);
-  --shadow-glow: 0 0 30px rgba(224, 122, 95, 0.2);
+  --shadow-sm: 0 1px 3px rgba(26, 5, 51, 0.10);
+  --shadow-md: 0 4px 12px rgba(26, 5, 51, 0.15);
+  --shadow-lg: 0 8px 30px rgba(26, 5, 51, 0.20);
+  --shadow-xl: 0 16px 50px rgba(26, 5, 51, 0.25);
+  --shadow-glow: 0 0 40px rgba(192, 38, 211, 0.30);
 
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -126,7 +126,7 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #060c18;
+  background: #0D0118;
 }
 
 body {
@@ -185,7 +185,7 @@ img {
 
 /* Gradient backgrounds */
 .ev-gradient-hero {
-  background: linear-gradient(135deg, #060c18 0%, #0b1d3a 35%, #0f2952 65%, #1a1040 100%);
+  background: linear-gradient(135deg, #0D0118 0%, #1A0533 30%, #2D0A52 60%, #3B1070 100%);
 }
 
 .ev-gradient-accent {
@@ -324,7 +324,7 @@ img {
 /* Selection */
 ::selection {
   background: var(--ev-accent);
-  color: var(--ev-white);
+  color: #ffffff;
 }
 
 /* --- Responsive --- */
@@ -351,8 +351,8 @@ img {
 }
 
 .tb-card:hover {
-  background: rgba(59, 130, 246, 0.08);
-  border-color: rgba(59, 130, 246, 0.30);
+  background: rgba(124, 58, 237, 0.10);
+  border-color: rgba(168, 85, 247, 0.35);
   transform: translateY(-4px);
 }
 
@@ -361,12 +361,12 @@ img {
 }
 
 .tb-enquire {
-  color: rgba(59, 130, 246, 0.7);
+  color: rgba(168, 85, 247, 0.7);
   transition: color 0.2s ease;
 }
 
 .tb-enquire:hover {
-  color: rgba(59, 130, 246, 1);
+  color: rgba(168, 85, 247, 1);
 }
 
 /* ─── Services Page — Hover-Reveal Cards ─── */

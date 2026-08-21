@@ -280,7 +280,7 @@ export default function SolutionsCarousel() {
       <div className="ev-container relative z-10 mt-20 text-center">
         <div
           className="rounded-3xl py-14 px-8 relative overflow-hidden"
-          style={{ background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 60%, #1e3a8a 100%)' }}
+          style={{ background: 'linear-gradient(135deg, #1A0533 0%, #2D0A52 55%, #3B1070 100%)' }}
         >
           {/* orb */}
           <div
