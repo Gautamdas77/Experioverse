@@ -104,13 +104,13 @@ export default function HomePage() {
       <HeroSection />
 
       {/* ═══════ WHO WE ARE ═══════ */}
-      <section className="relative py-28 bg-white overflow-hidden" id="who-we-are">
+      <section className="relative py-28 overflow-hidden" id="who-we-are" style={{ background: 'linear-gradient(180deg, #FAF5FF 0%, #F3EEFF 100%)' }}>
         {/* Decorative background accent */}
         <div
           className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none"
           style={{
             background:
-              'radial-gradient(circle, rgba(var(--ev-accent-rgb, 99,102,241),0.06) 0%, transparent 70%)',
+              'radial-gradient(circle, rgba(238,146,208,0.10) 0%, transparent 70%)',
             transform: 'translate(-30%, -30%)',
           }}
         />
@@ -118,7 +118,7 @@ export default function HomePage() {
           className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
           style={{
             background:
-              'radial-gradient(circle, rgba(var(--ev-gold-rgb, 234,179,8),0.05) 0%, transparent 70%)',
+              'radial-gradient(circle, rgba(93,71,129,0.08) 0%, transparent 70%)',
             transform: 'translate(30%, 30%)',
           }}
         />
@@ -168,12 +168,13 @@ export default function HomePage() {
             <div
               className="mt-10 inline-block px-8 py-5 rounded-2xl"
               style={{
-                background: 'linear-gradient(135deg, var(--ev-accent) 0%, var(--ev-gold) 100%)',
+                background: 'linear-gradient(135deg, #EE92D0 0%, #5D4781 100%)',
+                boxShadow: '0 8px 30px rgba(238,146,208,0.35)',
               }}
             >
               <p
-                className="text-xl sm:text-2xl font-bold text-white tracking-wide"
-                style={{ fontFamily: 'var(--font-heading)' }}
+                className="text-xl sm:text-2xl font-bold tracking-wide"
+                style={{ fontFamily: 'var(--font-heading)', color: '#231B35' }}
               >
                 Make work feel more human.
               </p>
@@ -186,20 +187,20 @@ export default function HomePage() {
       <section
         className="relative py-28 overflow-hidden"
         id="why-ee-matters"
-        style={{ background: 'linear-gradient(160deg, #0f172a 0%, #1e293b 100%)' }}
+        style={{ background: 'linear-gradient(160deg, #100C1E 0%, #1A1330 40%, #231B35 100%)' }}
       >
         {/* Decorative orbs */}
         <div
-          className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none opacity-20"
+          className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none opacity-25"
           style={{
-            background: 'radial-gradient(circle, var(--ev-accent) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, #EE92D0 0%, transparent 70%)',
             transform: 'translate(30%, -30%)',
           }}
         />
         <div
-          className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none opacity-10"
+          className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none opacity-15"
           style={{
-            background: 'radial-gradient(circle, var(--ev-gold) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, #5D4781 0%, transparent 70%)',
             transform: 'translate(-30%, 30%)',
           }}
         />
@@ -234,7 +235,7 @@ export default function HomePage() {
               {/* Closing statement */}
               <div
                 className="inline-block px-6 py-4 rounded-xl border"
-                style={{ borderColor: 'rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.05)' }}
+                style={{ borderColor: 'rgba(238,146,208,0.20)', background: 'rgba(238,146,208,0.06)' }}
               >
                 <p
                   className="text-lg font-semibold text-white"
@@ -273,7 +274,7 @@ export default function HomePage() {
                     {/* Check icon */}
                     <span
                       className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center"
-                      style={{ background: 'linear-gradient(135deg, var(--ev-accent), var(--ev-gold))' }}
+                      style={{ background: 'linear-gradient(135deg, #EE92D0, #5D4781)' }}
                     >
                       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3">
                         <polyline points="20 6 9 17 4 12" />
@@ -298,12 +299,12 @@ export default function HomePage() {
 
 
       {/* ═══════ ANNUAL CALENDAR ═══════ */}
-      <section id="annual-calendar" className="relative py-24 overflow-hidden" style={{ background: '#060c18' }}>
-        {/* Hero-matched ambient glowing blobs */}
+      <section id="annual-calendar" className="relative py-24 overflow-hidden" style={{ background: 'linear-gradient(135deg, #100C1E 0%, #1A1330 50%, #231B35 100%)' }}>
+        {/* Pink/purple ambient blobs */}
         <div
           className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
           style={{
-            background: 'radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 65%)',
+            background: 'radial-gradient(circle, rgba(238,146,208,0.15) 0%, transparent 65%)',
             filter: 'blur(50px)',
             transform: 'translate(20%, -20%)',
           }}
@@ -311,7 +312,7 @@ export default function HomePage() {
         <div
           className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
           style={{
-            background: 'radial-gradient(circle, rgba(224,122,95,0.15) 0%, transparent 65%)',
+            background: 'radial-gradient(circle, rgba(93,71,129,0.22) 0%, transparent 65%)',
             filter: 'blur(50px)',
             transform: 'translate(-20%, 20%)',
           }}
@@ -320,7 +321,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0)',
+            backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(238,146,208,0.05) 1px, transparent 0)',
             backgroundSize: '44px 44px',
           }}
         />
@@ -376,12 +377,12 @@ export default function HomePage() {
       </section>
 
       {/* ═══════ FINAL CTA ═══════ */}
-      <section className="relative py-24 bg-white border-t border-gray-100 overflow-hidden" id="final-cta">
-        {/* Warm glow background accent */}
+      <section className="relative py-24 overflow-hidden" id="final-cta" style={{ background: 'linear-gradient(180deg, #FAF5FF 0%, #F3EEFF 100%)' }}>
+        {/* Pink glow background accent */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'radial-gradient(circle at 50% 50%, rgba(224,122,95,0.06) 0%, rgba(212,168,67,0.04) 50%, transparent 80%)',
+            background: 'radial-gradient(circle at 50% 50%, rgba(238,146,208,0.12) 0%, rgba(93,71,129,0.06) 50%, transparent 80%)',
           }}
         />
         <div className="ev-container relative z-10 text-center">

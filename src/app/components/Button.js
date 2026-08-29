@@ -16,7 +16,7 @@ import Link from 'next/link';
 
 const variantClasses = {
   primary:
-    'bg-ev-accent hover:bg-ev-accent-hover text-white shadow-md hover:shadow-lg',
+    'text-[#231B35] shadow-md hover:shadow-lg font-bold',
   secondary:
     'bg-white hover:bg-ev-gray-50 text-ev-navy shadow-md hover:shadow-lg border border-ev-gray-100',
   outline:
@@ -24,7 +24,7 @@ const variantClasses = {
   ghost:
     'bg-transparent hover:bg-ev-gray-50 text-ev-gray-600 hover:text-ev-navy',
   dark:
-    'bg-ev-navy hover:bg-ev-navy-light text-white shadow-md hover:shadow-lg',
+    'text-white shadow-md hover:shadow-lg',
 };
 
 const sizeClasses = {
@@ -41,6 +41,7 @@ export default function Button({
   icon,
   className = '',
   rounded = true,
+  style: styleProp,
   ...props
 }) {
   const baseClasses = `inline-flex items-center justify-center font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${
@@ -49,9 +50,18 @@ export default function Button({
 
   const combinedClasses = `${baseClasses} ${variantClasses[variant] || variantClasses.primary} ${sizeClasses[size] || sizeClasses.md} ${className}`;
 
+  // Inline gradient styles for variants that need them
+  const variantStyle = variant === 'primary'
+    ? { background: 'linear-gradient(135deg, #EE92D0 0%, #5D4781 100%)', boxShadow: '0 4px 20px rgba(238,146,208,0.40)' }
+    : variant === 'dark'
+    ? { background: 'linear-gradient(135deg, #231B35 0%, #2E2148 100%)' }
+    : {};
+
+  const combinedStyle = { ...variantStyle, ...styleProp };
+
   if (href) {
     return (
-      <Link href={href} className={combinedClasses} {...props}>
+      <Link href={href} className={combinedClasses} style={combinedStyle} {...props}>
         {icon && <span className="shrink-0">{icon}</span>}
         {children}
       </Link>
@@ -59,7 +69,7 @@ export default function Button({
   }
 
   return (
-    <button className={combinedClasses} {...props}>
+    <button className={combinedClasses} style={combinedStyle} {...props}>
       {icon && <span className="shrink-0">{icon}</span>}
       {children}
     </button>

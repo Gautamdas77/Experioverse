@@ -3,12 +3,12 @@
 import Link from 'next/link';
 
 const PILLS = [
-  { label: 'Employee Engagement', color: '#6366f1' },
-  { label: 'Team Building',       color: '#E07A5F' },
-  { label: 'Corporate Events',    color: '#D4A843' },
+  { label: 'Employee Engagement', color: '#EE92D0' },
+  { label: 'Team Building',       color: '#5D4781' },
+  { label: 'Corporate Events',    color: '#9B7EC8' },
   { label: 'Wellness Programs',   color: '#10b981' },
-  { label: 'Corporate Offsites',  color: '#8b5cf6' },
-  { label: 'Sports & Fun',        color: '#f97316' },
+  { label: 'Corporate Offsites',  color: '#E066BA' },
+  { label: 'Sports & Fun',        color: '#7A5FA8' },
 ];
 
 const STATS = [
@@ -30,7 +30,7 @@ export default function HeroSection() {
         flexDirection: 'column',
         justifyContent: 'center',
         overflow: 'hidden',
-        background: '#060c18',
+        background: 'linear-gradient(135deg, #100C1E 0%, #1A1330 30%, #231B35 65%, #2E2148 100%)',
       }}
     >
       {/* ── CSS keyframes ── */}
@@ -80,41 +80,41 @@ export default function HeroSection() {
 
       {/* ── Aurora / mesh background ── */}
       <div style={{ position:'absolute', inset:0, zIndex:0, pointerEvents:'none' }}>
-        {/* blob 1 — violet top-right */}
+        {/* blob 1 — pink top-right */}
         <div style={{
           position:'absolute', top:'-15%', right:'-10%',
           width:800, height:800, borderRadius:'50%',
-          background:'radial-gradient(circle, rgba(124,58,237,0.35) 0%, transparent 65%)',
-          filter:'blur(50px)',
+          background:'radial-gradient(circle, rgba(238,146,208,0.30) 0%, transparent 65%)',
+          filter:'blur(60px)',
           animation:'aurora1 9s ease-in-out infinite',
         }} />
-        {/* blob 2 — magenta bottom-left */}
+        {/* blob 2 — purple bottom-left */}
         <div style={{
           position:'absolute', bottom:'-10%', left:'-10%',
           width:650, height:650, borderRadius:'50%',
-          background:'radial-gradient(circle, rgba(192,38,211,0.28) 0%, transparent 65%)',
+          background:'radial-gradient(circle, rgba(93,71,129,0.40) 0%, transparent 65%)',
           filter:'blur(55px)',
           animation:'aurora2 11s ease-in-out infinite',
         }} />
-        {/* blob 3 — purple centre */}
+        {/* blob 3 — rose-pink centre */}
         <div style={{
           position:'absolute', top:'38%', left:'40%',
           width:450, height:450, borderRadius:'50%',
-          background:'radial-gradient(circle, rgba(168,85,247,0.18) 0%, transparent 68%)',
+          background:'radial-gradient(circle, rgba(224,102,186,0.20) 0%, transparent 68%)',
           filter:'blur(65px)',
           animation:'aurora3 13s ease-in-out infinite',
         }} />
         {/* dot grid */}
         <div style={{
           position:'absolute', inset:0,
-          backgroundImage:'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0)',
+          backgroundImage:'radial-gradient(circle at 1px 1px, rgba(238,146,208,0.05) 1px, transparent 0)',
           backgroundSize:'44px 44px',
         }} />
         {/* thin horizontal line near bottom */}
         <div style={{
           position:'absolute', bottom:160, left:0, right:0,
           height:1,
-          background:'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0.06) 70%, transparent 100%)',
+          background:'linear-gradient(90deg, transparent 0%, rgba(238,146,208,0.10) 30%, rgba(238,146,208,0.10) 70%, transparent 100%)',
         }} />
       </div>
 
@@ -129,20 +129,20 @@ export default function HeroSection() {
           <div style={{
             display:'inline-flex', alignItems:'center', gap:8,
             padding:'6px 18px', borderRadius:9999,
-            background:'rgba(192,38,211,0.12)',
-            border:'1px solid rgba(192,38,211,0.35)',
+            background:'rgba(238,146,208,0.12)',
+            border:'1px solid rgba(238,146,208,0.35)',
             fontSize:13, fontWeight:600,
-            color:'#E879F9',
+            color:'#EE92D0',
           }}>
             <span style={{ position:'relative', display:'flex', width:9, height:9 }}>
               <span style={{
                 position:'absolute', inset:0, borderRadius:'50%',
-                background:'#C026D3',
+                background:'#EE92D0',
                 animation:'dotPulse 1.8s ease-out infinite',
               }} />
               <span style={{
                 position:'relative', borderRadius:'50%',
-                width:9, height:9, background:'#C026D3', display:'block',
+                width:9, height:9, background:'#EE92D0', display:'block',
               }} />
             </span>
             Corporate Employee Experience Platform
@@ -166,7 +166,7 @@ export default function HeroSection() {
           Creating Workplaces Where People{' '}
           <span
             style={{
-              backgroundImage:'linear-gradient(90deg, #C026D3 0%, #A855F7 100%)',
+              backgroundImage:'linear-gradient(90deg, #EE92D0 0%, #5D4781 100%)',
               WebkitBackgroundClip:'text',
               WebkitTextFillColor:'transparent',
               backgroundClip:'text',
@@ -192,7 +192,7 @@ export default function HeroSection() {
           that strengthen workplace culture, inspire people, and{' '}
           <span
             style={{
-              backgroundImage:'linear-gradient(90deg, #C026D3 0%, #A855F7 100%)',
+              backgroundImage:'linear-gradient(90deg, #EE92D0 0%, #9B7EC8 100%)',
               WebkitBackgroundClip:'text',
               WebkitTextFillColor:'transparent',
               backgroundClip:'text',
@@ -214,14 +214,14 @@ export default function HeroSection() {
             style={{
               display:'inline-flex', alignItems:'center', gap:8,
               padding:'14px 32px', borderRadius:12,
-              background:'linear-gradient(135deg, #C026D3 0%, #7C3AED 100%)',
-              color:'#fff', fontWeight:700, fontSize:15,
+              background:'linear-gradient(135deg, #EE92D0 0%, #5D4781 100%)',
+              color:'#231B35', fontWeight:700, fontSize:15,
               textDecoration:'none',
-              boxShadow:'0 8px 32px rgba(192,38,211,0.40)',
+              boxShadow:'0 8px 32px rgba(238,146,208,0.45)',
               transition:'transform 0.2s ease, box-shadow 0.2s ease',
             }}
-            onMouseEnter={e => { e.currentTarget.style.transform='translateY(-2px)'; e.currentTarget.style.boxShadow='0 14px 40px rgba(192,38,211,0.60)'; }}
-            onMouseLeave={e => { e.currentTarget.style.transform='translateY(0)'; e.currentTarget.style.boxShadow='0 8px 32px rgba(192,38,211,0.40)'; }}
+            onMouseEnter={e => { e.currentTarget.style.transform='translateY(-2px)'; e.currentTarget.style.boxShadow='0 14px 40px rgba(238,146,208,0.65)'; }}
+            onMouseLeave={e => { e.currentTarget.style.transform='translateY(0)'; e.currentTarget.style.boxShadow='0 8px 32px rgba(238,146,208,0.45)'; }}
           >
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
@@ -303,7 +303,7 @@ export default function HeroSection() {
                 fontFamily:'var(--font-heading)',
                 fontSize:'clamp(1.6rem,3vw,2.2rem)',
                 fontWeight:800,
-                backgroundImage:'linear-gradient(90deg, #C026D3, #A855F7)',
+                backgroundImage:'linear-gradient(90deg, #EE92D0, #9B7EC8)',
                 WebkitBackgroundClip:'text',
                 WebkitTextFillColor:'transparent',
                 backgroundClip:'text',

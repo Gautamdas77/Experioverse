@@ -2,52 +2,57 @@
 
 /* ============================================
    EXPERIO VERSE — Design System & Global Styles
+   Pink × Purple × Deep Violet Brand Palette
+   Reference: #EE92D0 · #5D4781 · #231B35
    ============================================ */
 
-/* --- Design Tokens — Purple × Magenta × Violet Brand Palette --- */
+/* --- Design Tokens --- */
 :root {
-  /* Primary palette — Deep purple-black */
-  --ev-navy: #1A0533;
-  --ev-navy-light: #2D0A52;
-  --ev-navy-mid: #3B1070;
+  /* Primary palette — Deep violet (from image: #231B35 deepest bg) */
+  --ev-navy: #231B35;
+  --ev-navy-light: #2E2148;
+  --ev-navy-mid: #3D2B5E;
 
-  /* Section backgrounds — deep purple-black for dark sections & hero */
-  --ev-section-bg: #0D0118;
-  --ev-section-bg-light: #1A0533;
-  --ev-section-bg-mid: #2D0A52;
-  --ev-blue: #7C3AED;
-  --ev-blue-light: #A855F7;
+  /* Section backgrounds */
+  --ev-section-bg: #100C1E;
+  --ev-section-bg-light: #1A1330;
+  --ev-section-bg-mid: #231B35;
 
-  /* Accent — Vivid Magenta / Pink (primary CTA) */
-  --ev-accent: #C026D3;
-  --ev-accent-hover: #A21CAF;
-  --ev-accent-light: #E879F9;
+  /* Mid purple (#5D4781 from image) */
+  --ev-blue: #5D4781;
+  --ev-blue-light: #7A5FA8;
 
-  /* Secondary accent — Medium violet-purple */
-  --ev-gold: #A855F7;
-  --ev-gold-light: #D8B4FE;
+  /* Accent — Vivid Pink (#EE92D0 from image) */
+  --ev-accent: #EE92D0;
+  --ev-accent-hover: #E066BA;
+  --ev-accent-light: #F5BAE3;
+  --ev-accent-deep: #C026A8;
 
-  /* Neutrals — slight lavender tint for brand cohesion */
-  --ev-off-white: #F5F3FF;
+  /* Secondary accent — Medium Purple (#5D4781) */
+  --ev-gold: #5D4781;
+  --ev-gold-light: #9B7EC8;
+  --ev-gold-vivid: #7C55B8;
+
+  /* Neutrals — slight lavender tint */
+  --ev-off-white: #FAF5FF;
   --ev-white: var(--ev-off-white);
-  /* off-white in RGB for rgba() usage */
-  --ev-white-rgb: 245, 243, 255;
-  --ev-gray-50: #F0EBFF;
-  --ev-gray-100: #E9D5FF;
-  --ev-gray-200: #C4B5FD;
-  --ev-gray-300: #9CA3AF;
-  --ev-gray-400: #6B7280;
-  --ev-gray-500: #4B5563;
-  --ev-gray-600: #374151;
-  --ev-gray-700: #1F2937;
-  --ev-dark: #0D0118;
+  --ev-white-rgb: 250, 245, 255;
+  --ev-gray-50: #F3EEFF;
+  --ev-gray-100: #E4D9F7;
+  --ev-gray-200: #C4AEED;
+  --ev-gray-300: #9B7EC8;
+  --ev-gray-400: #6B5A8A;
+  --ev-gray-500: #4A3A68;
+  --ev-gray-600: #352A50;
+  --ev-gray-700: #231B35;
+  --ev-dark: #100C1E;
 
-  /* Experience Category Colors — purple-toned palette */
-  --ev-celebrate: #C026D3;
-  --ev-connect: #7C3AED;
+  /* Experience Category Colors — pink-purple palette */
+  --ev-celebrate: #EE92D0;
+  --ev-connect: #5D4781;
   --ev-move: #10B981;
-  --ev-reset: #A855F7;
-  --ev-explore: #EC4899;
+  --ev-reset: #9B7EC8;
+  --ev-explore: #E066BA;
 
   /* Typography — Uses CSS variables set by next/font in layout.js */
   --font-heading: var(--font-outfit), 'Outfit', sans-serif;
@@ -65,12 +70,13 @@
   --radius-xl: 1.5rem;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(26, 5, 51, 0.10);
-  --shadow-md: 0 4px 12px rgba(26, 5, 51, 0.15);
-  --shadow-lg: 0 8px 30px rgba(26, 5, 51, 0.20);
-  --shadow-xl: 0 16px 50px rgba(26, 5, 51, 0.25);
-  --shadow-glow: 0 0 40px rgba(192, 38, 211, 0.30);
+  /* Shadows — warm pink glow */
+  --shadow-sm: 0 1px 3px rgba(35, 27, 53, 0.12);
+  --shadow-md: 0 4px 12px rgba(35, 27, 53, 0.18);
+  --shadow-lg: 0 8px 30px rgba(35, 27, 53, 0.22);
+  --shadow-xl: 0 16px 50px rgba(35, 27, 53, 0.28);
+  --shadow-glow: 0 0 40px rgba(238, 146, 208, 0.35);
+  --shadow-glow-purple: 0 0 40px rgba(93, 71, 129, 0.40);
 
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -115,6 +121,15 @@
   --color-ev-explore: var(--ev-explore);
 }
 
+/* ─── Pink × Purple Glow Utilities ─── */
+.ev-glow-pink {
+  box-shadow: 0 0 40px rgba(238, 146, 208, 0.30), 0 0 80px rgba(238, 146, 208, 0.12);
+}
+
+.ev-glow-purple {
+  box-shadow: 0 0 40px rgba(93, 71, 129, 0.40), 0 0 80px rgba(93, 71, 129, 0.15);
+}
+
 /* --- Base Styles --- */
 *,
 *::before,
@@ -126,7 +141,7 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #0D0118;
+  background: #100C1E;
 }
 
 body {
@@ -185,11 +200,16 @@ img {
 
 /* Gradient backgrounds */
 .ev-gradient-hero {
-  background: linear-gradient(135deg, #0D0118 0%, #1A0533 30%, #2D0A52 60%, #3B1070 100%);
+  background: linear-gradient(135deg, #100C1E 0%, #1A1330 25%, #231B35 55%, #2E2148 80%, #3D2B5E 100%);
 }
 
 .ev-gradient-accent {
-  background: linear-gradient(135deg, var(--ev-accent) 0%, var(--ev-gold) 100%);
+  background: linear-gradient(135deg, #EE92D0 0%, #5D4781 100%);
+}
+
+/* Pink → Purple CTA gradient */
+.ev-gradient-cta {
+  background: linear-gradient(135deg, #EE92D0 0%, #5D4781 100%);
 }
 
 .ev-gradient-subtle {
@@ -198,18 +218,18 @@ img {
 
 /* Glass effect */
 .ev-glass {
-  background: rgba(var(--ev-white-rgb), 0.15);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(var(--ev-white-rgb), 0.20);
+  background: rgba(35, 27, 53, 0.40);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(238, 146, 208, 0.18);
 }
 
 .ev-glass-light {
-  background: rgba(var(--ev-white-rgb), 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(var(--ev-white-rgb), 0.8);
-  box-shadow: var(--shadow-md);
+  background: rgba(250, 245, 255, 0.80);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(238, 146, 208, 0.28);
+  box-shadow: 0 4px 24px rgba(238, 146, 208, 0.12);
 }
 
 /* Override Tailwind "white" utility classes to use off-white token */
@@ -244,7 +264,7 @@ img {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ev-accent);
+  color: var(--ev-accent-deep);
   margin-bottom: 1rem;
 }
 
@@ -253,7 +273,7 @@ img {
   display: inline-block;
   width: 2rem;
   height: 2px;
-  background: var(--ev-accent);
+  background: linear-gradient(90deg, #EE92D0, #5D4781);
   border-radius: 1px;
 }
 
@@ -283,7 +303,7 @@ img {
 }
 
 .ev-card:hover {
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 30px rgba(238, 146, 208, 0.18), 0 2px 8px rgba(93, 71, 129, 0.12);
   transform: translateY(-4px);
 }
 
@@ -304,19 +324,19 @@ img {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--ev-gray-50);
+  background: #1A1330;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--ev-gray-200);
+  background: linear-gradient(180deg, #EE92D0, #5D4781);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--ev-gray-300);
+  background: linear-gradient(180deg, #E066BA, #3D2B5E);
 }
 
 /* Focus ring for a11y */
 :focus-visible {
-  outline: 2px solid var(--ev-blue);
+  outline: 2px solid var(--ev-accent);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -324,7 +344,7 @@ img {
 /* Selection */
 ::selection {
   background: var(--ev-accent);
-  color: #ffffff;
+  color: #231B35;
 }
 
 /* --- Responsive --- */
@@ -344,29 +364,29 @@ img {
 
 /* ─── Team Building Section Cards (experiences page) ─── */
 .tb-card {
-  background: rgba(255, 255, 255, 0.03);
-  border-color: rgba(255, 255, 255, 0.07);
+  background: rgba(238, 146, 208, 0.04);
+  border-color: rgba(238, 146, 208, 0.10);
   transform: translateY(0);
   transition: background 0.25s ease, border-color 0.25s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .tb-card:hover {
-  background: rgba(124, 58, 237, 0.10);
-  border-color: rgba(168, 85, 247, 0.35);
+  background: rgba(93, 71, 129, 0.12);
+  border-color: rgba(238, 146, 208, 0.30);
   transform: translateY(-4px);
 }
 
 .tb-card-desc {
-  color: rgba(241, 245, 249, 0.45);
+  color: rgba(250, 245, 255, 0.45);
 }
 
 .tb-enquire {
-  color: rgba(168, 85, 247, 0.7);
+  color: rgba(238, 146, 208, 0.75);
   transition: color 0.2s ease;
 }
 
 .tb-enquire:hover {
-  color: rgba(168, 85, 247, 1);
+  color: rgba(238, 146, 208, 1);
 }
 
 /* ─── Services Page — Hover-Reveal Cards ─── */
@@ -383,8 +403,8 @@ img {
   position: relative;
   display: grid;
   border-radius: 1.25rem;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(238, 146, 208, 0.12);
+  background: rgba(238, 146, 208, 0.04);
   cursor: default;
   transition:
     border-color 0.35s ease,
@@ -394,9 +414,9 @@ img {
 }
 
 .svc-card:hover {
-  border-color: rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255,255,255,0.06);
+  border-color: rgba(238, 146, 208, 0.30);
+  background: rgba(93, 71, 129, 0.10);
+  box-shadow: 0 20px 60px rgba(35, 27, 53, 0.50), 0 0 0 1px rgba(238, 146, 208, 0.10), 0 0 30px rgba(238, 146, 208, 0.08);
   transform: translateY(-6px);
 }
 
@@ -441,7 +461,7 @@ img {
 .svc-rest-title {
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 800;
-  color: #fff;
+  color: #FAF5FF;
   text-align: center;
   letter-spacing: -0.02em;
   line-height: 1.2;
@@ -453,7 +473,8 @@ img {
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  opacity: 0.7;
+  opacity: 0.65;
+  color: var(--ev-accent);
 }
 
 /* ── Hover content layer — shares grid cell 1/1, drives card height ── */
@@ -492,7 +513,7 @@ img {
 .svc-content-title {
   font-size: 1.05rem;
   font-weight: 800;
-  color: #fff;
+  color: #FAF5FF;
   letter-spacing: -0.01em;
   margin: 0;
   line-height: 1.2;
@@ -504,13 +525,15 @@ img {
   width: 100%;
   margin-bottom: 0.875rem;
   border-radius: 1px;
+  background: linear-gradient(90deg, #EE92D0, #5D4781);
+  opacity: 0.4;
 }
 
 /* Description */
 .svc-content-desc {
   font-size: 0.8125rem;
   line-height: 1.65;
-  color: rgba(241, 245, 249, 0.55);
+  color: rgba(250, 245, 255, 0.55);
   margin-bottom: 0.875rem;
   margin-top: 0;
 }
@@ -531,7 +554,7 @@ img {
   align-items: flex-start;
   gap: 0.5rem;
   font-size: 0.78rem;
-  color: rgba(241, 245, 249, 0.65);
+  color: rgba(250, 245, 255, 0.65);
   line-height: 1.5;
 }
 
@@ -541,6 +564,7 @@ img {
   border-radius: 50%;
   flex-shrink: 0;
   margin-top: 0.45em;
+  background: var(--ev-accent);
 }
 
 /* Enquire CTA */
@@ -554,9 +578,15 @@ img {
   transition: opacity 0.2s ease, gap 0.2s ease;
   margin-top: auto;
   text-decoration: none;
+  color: var(--ev-accent);
 }
 
 .svc-cta:hover {
   opacity: 0.85;
   gap: 0.5rem;
+}
+
+/* ─── Light-section overrides ─── */
+.ev-light-section {
+  background: linear-gradient(180deg, #FAF5FF 0%, #F3EEFF 100%);
 }

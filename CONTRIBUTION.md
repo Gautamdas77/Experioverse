@@ -271,57 +271,60 @@ All reusable UI components live in `src/app/components/` and are centrally expor
 Experio Verse adheres to a strict, premium corporate design system.
 
 > [!IMPORTANT]
-> **Brand Rebrand (2026-08-22)**: The entire colour palette was migrated from the original navy/coral/gold scheme to a **Purple × Magenta × Violet** theme that matches the EVo logo. All tokens below reflect the current live values.
+> **Brand Rebrand (2026-08-29)**: The entire colour palette was migrated from the old Purple × Magenta × Violet scheme to a **Pink × Purple × Deep Violet** theme inspired by the EVo brand reference imagery. All tokens below reflect the current live values.
 
 ### 🎨 Color Palette & CSS Variables
 
 | Variable Name | Hex Code | Purpose / Usage |
 |---|---|---|
-| `--ev-navy` | `#1A0533` | Primary brand deep-purple — headings, primary dark backgrounds |
-| `--ev-navy-light` | `#2D0A52` | Secondary dark purple — cards, elevated surfaces |
-| `--ev-navy-mid` | `#3B1070` | Mid-tone purple — gradients, hover backgrounds |
-| `--ev-section-bg` | `#0D0118` | Hero & dark section background — near-black purple |
-| `--ev-section-bg-light` | `#1A0533` | Slightly lighter dark bg — used for alternate dark sections |
-| `--ev-accent` | `#C026D3` | **Primary CTA — Vivid Magenta** (buttons, badges, labels) |
-| `--ev-accent-hover` | `#A21CAF` | Magenta hover state |
-| `--ev-accent-light` | `#E879F9` | Soft magenta — light badges, tints |
-| `--ev-gold` | `#A855F7` | **Secondary accent — Medium Violet** (replaces old gold) |
-| `--ev-gold-light` | `#D8B4FE` | Light lavender-purple — subtle highlights |
-| `--ev-blue` | `#7C3AED` | Violet-purple — links, connect category, focus rings |
-| `--ev-blue-light` | `#A855F7` | Medium purple — secondary interactive |
-| `--ev-off-white` | `#F5F3FF` | Light background with lavender tint |
-| `--ev-white-rgb` | `245, 243, 255` | RGB equivalent for `rgba()` usage |
-| `--ev-gray-50` | `#F0EBFF` | Lightest purple-tinted gray — card surfaces |
-| `--ev-gray-100` | `#E9D5FF` | Light purple-gray — borders, dividers |
-| `--ev-gray-200` | `#C4B5FD` | Mid purple-gray — secondary text borders |
+| `--ev-navy` | `#231B35` | Primary brand deep-violet — headings, primary dark backgrounds |
+| `--ev-navy-light` | `#2E2148` | Secondary dark purple — cards, elevated surfaces |
+| `--ev-navy-mid` | `#3D2B5E` | Mid-tone purple — gradients, hover backgrounds |
+| `--ev-section-bg` | `#100C1E` | Hero & dark section background — near-black deep violet |
+| `--ev-section-bg-light` | `#1A1330` | Slightly lighter dark bg — used for alternate dark sections |
+| `--ev-accent` | `#EE92D0` | **Primary CTA — Vivid Pink** (buttons, badges, labels) |
+| `--ev-accent-hover` | `#E066BA` | Pink hover state |
+| `--ev-accent-light` | `#F5BAE3` | Soft pink — light badges, tints |
+| `--ev-accent-deep` | `#C026A8` | Deep pink — section labels, decorative lines |
+| `--ev-gold` | `#5D4781` | **Secondary accent — Medium Purple** |
+| `--ev-gold-light` | `#9B7EC8` | Light lavender-purple — subtle highlights |
+| `--ev-gold-vivid` | `#7C55B8` | Vivid purple — secondary interactive elements |
+| `--ev-blue` | `#5D4781` | Medium purple — links, connect category |
+| `--ev-blue-light` | `#7A5FA8` | Lighter purple — secondary interactive |
+| `--ev-off-white` | `#FAF5FF` | Light background with soft lavender tint |
+| `--ev-white-rgb` | `250, 245, 255` | RGB equivalent for `rgba()` usage |
+| `--ev-gray-50` | `#F3EEFF` | Lightest purple-tinted gray — card surfaces |
+| `--ev-gray-100` | `#E4D9F7` | Light purple-gray — borders, dividers |
+| `--ev-gray-200` | `#C4AEED` | Mid purple-gray — secondary text borders |
 
 #### 🖼️ Hero Gradient
 ```css
-background: linear-gradient(135deg, #0D0118 0%, #1A0533 30%, #2D0A52 60%, #3B1070 100%);
+background: linear-gradient(135deg, #100C1E 0%, #1A1330 25%, #231B35 55%, #2E2148 80%, #3D2B5E 100%);
 ```
 
 #### ✨ Accent / CTA Gradient
 ```css
-background: linear-gradient(135deg, #C026D3 0%, #7C3AED 100%);  /* Magenta → Violet */
+background: linear-gradient(135deg, #EE92D0 0%, #5D4781 100%);  /* Pink → Purple */
 ```
 
 #### 🌈 Experience Category Colours
 
 | Variable | Hex | Pillar |
 |---|---|---|
-| `--ev-celebrate` | `#C026D3` | Celebrate — Magenta |
-| `--ev-connect` | `#7C3AED` | Connect — Violet |
+| `--ev-celebrate` | `#EE92D0` | Celebrate — Vivid Pink |
+| `--ev-connect` | `#5D4781` | Connect — Medium Purple |
 | `--ev-move` | `#10B981` | Move — Emerald (kept) |
-| `--ev-reset` | `#A855F7` | Reset — Purple |
-| `--ev-explore` | `#EC4899` | Explore — Pink |
+| `--ev-reset` | `#9B7EC8` | Reset — Lavender Purple |
+| `--ev-explore` | `#E066BA` | Explore — Deep Pink |
 
 #### 🌟 Shadow Tokens
 ```css
---shadow-sm:  0 1px 3px rgba(26, 5, 51, 0.10);
---shadow-md:  0 4px 12px rgba(26, 5, 51, 0.15);
---shadow-lg:  0 8px 30px rgba(26, 5, 51, 0.20);
---shadow-xl:  0 16px 50px rgba(26, 5, 51, 0.25);
---shadow-glow: 0 0 40px rgba(192, 38, 211, 0.30);  /* Magenta glow */
+--shadow-sm:  0 1px 3px rgba(35, 27, 53, 0.12);
+--shadow-md:  0 4px 12px rgba(35, 27, 53, 0.18);
+--shadow-lg:  0 8px 30px rgba(35, 27, 53, 0.22);
+--shadow-xl:  0 16px 50px rgba(35, 27, 53, 0.28);
+--shadow-glow: 0 0 40px rgba(238, 146, 208, 0.35);  /* Pink glow */
+--shadow-glow-purple: 0 0 40px rgba(93, 71, 129, 0.40);  /* Purple glow */
 ```
 
 ### 🔤 Typography
@@ -331,10 +334,12 @@ background: linear-gradient(135deg, #C026D3 0%, #7C3AED 100%);  /* Magenta → V
 
 ### 📐 Glassmorphism & UI Rules
 
-1. **Avoid pure harsh `#000000` or `#ffffff` backgrounds**: Use `--ev-section-bg` (`#0D0118`) for dark sections and `--ev-off-white` (`#F5F3FF`) for light sections.
-2. **Glassmorphism Panels**: Use `.ev-glass` (`backdrop-filter: blur(16px)` with semi-transparent purple border) for floating navigation and dark overlays.
-3. **Buttons**: Main call-to-action buttons always use `linear-gradient(135deg, #C026D3 0%, #7C3AED 100%)` with a magenta glow shadow (`box-shadow: 0 8px 32px rgba(192,38,211,0.40)`).
+1. **Avoid pure harsh `#000000` or `#ffffff` backgrounds**: Use `--ev-section-bg` (`#100C1E`) for dark sections and `--ev-off-white` (`#FAF5FF`) for light sections.
+2. **Glassmorphism Panels**: Use `.ev-glass` (`backdrop-filter: blur(20px)` with `rgba(238,146,208,0.18)` pink border) for floating navigation and dark overlays.
+3. **Buttons**: Main call-to-action buttons always use `linear-gradient(135deg, #EE92D0 0%, #5D4781 100%)` with a pink glow shadow (`box-shadow: 0 8px 32px rgba(238,146,208,0.45)`). CTA button text is dark (`#231B35`) to contrast against the light pink gradient.
 4. **Interactive States**: Interactive elements should have `hover:scale-[1.02]` and `active:scale-[0.98]` micro-interactions with smooth 200ms transitions.
+5. **Section Label Lines**: Use `linear-gradient(90deg, #EE92D0, #5D4781)` for the decorative `::before` lines on `.ev-section-label`.
+6. **Scrollbar**: Styled with the pink → purple gradient (`linear-gradient(180deg, #EE92D0, #5D4781)`) for brand consistency.
 
 ---
 
