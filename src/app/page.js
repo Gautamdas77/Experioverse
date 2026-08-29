@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Section, SectionHeader } from './components';
 import Button, { PhoneIcon, ArrowIcon } from './components/Button';
 import SolutionsCarousel from './components/SolutionsCarousel';
 import HeroSection from './components/HeroSection';
@@ -43,21 +42,6 @@ const categories = [
   },
 ];
 
-/* ─── Calendar Data ─── */
-const calendarData = [
-  { month: 'January', experience: 'Team Activity', abbr: 'JAN' },
-  { month: 'February', experience: 'Fitness Challenge', abbr: 'FEB' },
-  { month: 'March', experience: 'Wellness Session', abbr: 'MAR' },
-  { month: 'April', experience: 'Sports Event', abbr: 'APR' },
-  { month: 'May', experience: 'Company Celebration', abbr: 'MAY' },
-  { month: 'June', experience: 'Team Building', abbr: 'JUN' },
-  { month: 'July', experience: 'Outdoor Activity', abbr: 'JUL' },
-  { month: 'August', experience: 'Collaboration Activity', abbr: 'AUG' },
-  { month: 'September', experience: 'Wellness Week', abbr: 'SEP' },
-  { month: 'October', experience: 'Festival Celebration', abbr: 'OCT' },
-  { month: 'November', experience: 'Corporate Offsite', abbr: 'NOV' },
-  { month: 'December', experience: 'Annual Celebration', abbr: 'DEC' },
-];
 
 /* ─── Differentiators ─── */
 const differentiators = [
@@ -294,87 +278,6 @@ export default function HomePage() {
 
       {/* ═══════ OFFERED SOLUTIONS ═══════ */}
       <SolutionsCarousel />
-
-
-
-
-      {/* ═══════ ANNUAL CALENDAR ═══════ */}
-      <section id="annual-calendar" className="relative py-24 overflow-hidden" style={{ background: 'linear-gradient(135deg, #100C1E 0%, #1A1330 50%, #231B35 100%)' }}>
-        {/* Pink/purple ambient blobs */}
-        <div
-          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{
-            background: 'radial-gradient(circle, rgba(238,146,208,0.15) 0%, transparent 65%)',
-            filter: 'blur(50px)',
-            transform: 'translate(20%, -20%)',
-          }}
-        />
-        <div
-          className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{
-            background: 'radial-gradient(circle, rgba(93,71,129,0.22) 0%, transparent 65%)',
-            filter: 'blur(50px)',
-            transform: 'translate(-20%, 20%)',
-          }}
-        />
-        {/* Dot grid */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(238,146,208,0.05) 1px, transparent 0)',
-            backgroundSize: '44px 44px',
-          }}
-        />
-
-        <div className="ev-container relative z-10">
-          <SectionHeader
-            label="Year-Round Experiences"
-            title="Annual Employee Experience Calendar"
-            subtitle="Plan meaningful experiences for your team throughout the year. We help you build a complete employee experience calendar."
-            light={true}
-          />
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {calendarData.map((item) => (
-              <div
-                key={item.month}
-                className="rounded-xl p-4 text-center transition-all duration-300 group cursor-default"
-                style={{
-                  background: 'rgba(255,255,255,0.04)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  backdropFilter: 'blur(8px)',
-                }}
-              >
-                <div
-                  className="text-sm font-bold mb-1"
-                  style={{
-                    fontFamily: 'var(--font-heading)',
-                    color: '#f1f5f9',
-                  }}
-                >
-                  {item.month}
-                </div>
-                <div className="text-xs font-medium" style={{ color: 'rgba(241,245,249,0.65)' }}>
-                  {item.experience}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <div className="text-center mt-12">
-            <Button
-              href="/contact"
-              variant="primary"
-              size="lg"
-              icon={<PhoneIcon size={18} />}
-              id="calendar-cta"
-            >
-              Create My Employee Experience Calendar
-            </Button>
-          </div>
-        </div>
-      </section>
 
       {/* ═══════ FINAL CTA ═══════ */}
       <section className="relative py-24 overflow-hidden" id="final-cta" style={{ background: 'linear-gradient(180deg, #FAF5FF 0%, #F3EEFF 100%)' }}>
