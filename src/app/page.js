@@ -1,323 +1,127 @@
 import Link from 'next/link';
-import Button, { PhoneIcon, ArrowIcon } from './components/Button';
-import SolutionsCarousel from './components/SolutionsCarousel';
 import HeroSection from './components/HeroSection';
-
-/* ─── Experience Categories Data ─── */
-const categories = [
-  {
-    name: 'Celebrate',
-    initial: 'C',
-    color: 'var(--ev-celebrate)',
-    tagline: 'Milestones, festivals, awards — moments worth remembering.',
-    href: '/experiences#celebrate',
-  },
-  {
-    name: 'Connect',
-    initial: 'C',
-    color: 'var(--ev-connect)',
-    tagline: 'Team building, indoor & outdoor activities that bring people together.',
-    href: '/experiences#connect',
-  },
-  {
-    name: 'Move',
-    initial: 'M',
-    color: 'var(--ev-move)',
-    tagline: 'Sports, fitness challenges, yoga — get your team moving.',
-    href: '/experiences#move',
-  },
-  {
-    name: 'Reset',
-    initial: 'R',
-    color: 'var(--ev-reset)',
-    tagline: 'Wellness, mindfulness, stress management — recharge your people.',
-    href: '/experiences#reset',
-  },
-  {
-    name: 'Explore',
-    initial: 'E',
-    color: 'var(--ev-explore)',
-    tagline: 'Offsites, retreats, travel — experiences beyond the office.',
-    href: '/experiences#explore',
-  },
-];
-
-
-/* ─── Differentiators ─── */
-const differentiators = [
-  {
-    title: 'Not Just Events',
-    desc: 'We design employee experiences tailored to your company\'s unique culture and requirements.',
-    num: '01',
-  },
-  {
-    title: 'One Partner',
-    desc: 'Events + Engagement + Wellness + Sports + Offsites + Experiences — all under one roof.',
-    num: '02',
-  },
-  {
-    title: 'Year-Round Approach',
-    desc: 'We build a complete employee experience calendar — not just one-off events.',
-    num: '03',
-  },
-  {
-    title: 'Measurable Impact',
-    desc: 'We collect employee feedback and participation data to show real outcomes.',
-    num: '04',
-  },
-  {
-    title: 'Curated Experiences',
-    desc: 'We work with selected trainers, facilitators, artists, coaches, venues and partners.',
-    num: '05',
-  },
-];
-
-/* ─── Process Steps ─── */
-const processSteps = [
-  { step: '01', title: 'Understand', desc: 'Your company requirements' },
-  { step: '02', title: 'Design', desc: 'The right experience' },
-  { step: '03', title: 'Plan', desc: 'Activities, people & venues' },
-  { step: '04', title: 'Execute', desc: 'Complete experience management' },
-  { step: '05', title: 'Feedback', desc: 'Measure outcome & impact' },
-];
+import TrustedBrands from './components/TrustedBrands';
+import SolutionsGrid from './components/SolutionsGrid';
+import WhyExperioverse from './components/WhyExperioverse';
+import HowWeWork from './components/HowWeWork';
+import ExperiencesGallery from './components/ExperiencesGallery';
+import Testimonials from './components/Testimonials';
 
 export default function HomePage() {
   return (
     <>
-      {/* ═══════ HERO SECTION ═══════ */}
+      {/* ═══════ 1. HERO ═══════ */}
       <HeroSection />
 
-      {/* ═══════ WHO WE ARE ═══════ */}
-      <section className="relative py-28 overflow-hidden" id="who-we-are" style={{ background: 'linear-gradient(180deg, #FAF5FF 0%, #F3EEFF 100%)' }}>
-        {/* Decorative background accent */}
-        <div
-          className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{
-            background:
-              'radial-gradient(circle, rgba(238,146,208,0.10) 0%, transparent 70%)',
-            transform: 'translate(-30%, -30%)',
-          }}
-        />
-        <div
-          className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{
-            background:
-              'radial-gradient(circle, rgba(93,71,129,0.08) 0%, transparent 70%)',
-            transform: 'translate(30%, 30%)',
-          }}
-        />
+      {/* ═══════ 2. TRUSTED BRANDS ═══════ */}
+      <TrustedBrands />
 
-        <div className="ev-container relative z-10">
-          <div className="max-w-4xl mx-auto">
-            {/* Label */}
-            <p
-              id="who-we-are-label"
-              className="text-base sm:text-lg font-bold uppercase tracking-[0.2em] mb-5"
-              style={{ color: 'var(--ev-accent)' }}
-            >
-              Who We Are
-            </p>
+      {/* ═══════ 3. SOLUTIONS GRID ═══════ */}
+      <SolutionsGrid />
 
-            {/* Headline */}
-            <h2
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.15] mb-8"
-              style={{ fontFamily: 'var(--font-heading)', color: 'var(--ev-navy)' }}
-            >
-              More Than Events.{' '}
-              <span
-                className="bg-gradient-to-r from-ev-accent to-ev-gold bg-clip-text text-transparent"
-              >
-                We Create Experiences.
+      {/* ═══════ 4. WHY EXPERIOVERSE ═══════ */}
+      <WhyExperioverse />
+
+      {/* ═══════ 5. HOW WE WORK ═══════ */}
+      <HowWeWork />
+
+      {/* ═══════ 6. EXPERIENCES GALLERY ═══════ */}
+      <ExperiencesGallery />
+
+      {/* ═══════ 7. TESTIMONIALS ═══════ */}
+      <Testimonials />
+
+      {/* ═══════ 8. FINAL CTA BANNER ═══════ */}
+      <section
+        id="final-cta"
+        style={{
+          position: 'relative',
+          overflow: 'hidden',
+          background: 'linear-gradient(135deg, #7c3aed 0%, #e91e8c 50%, #f97316 100%)',
+          padding: '0',
+        }}
+      >
+        {/* Overlay for depth */}
+        <div style={{
+          position: 'absolute', inset: 0, pointerEvents: 'none',
+          background: 'linear-gradient(135deg, rgba(15,5,30,0.30) 0%, rgba(15,5,30,0.10) 50%, rgba(15,5,30,0.20) 100%)',
+        }} />
+        {/* Dot pattern */}
+        <div style={{
+          position: 'absolute', inset: 0, pointerEvents: 'none',
+          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.10) 1px, transparent 0)',
+          backgroundSize: '32px 32px',
+        }} />
+        {/* Light orb top-right */}
+        <div style={{
+          position: 'absolute', top: '-30%', right: '-5%',
+          width: 300, height: 300, borderRadius: '50%',
+          background: 'rgba(255,255,255,0.12)',
+          filter: 'blur(40px)',
+          pointerEvents: 'none',
+        }} />
+
+        <div
+          className="ev-container"
+          style={{
+            position: 'relative', zIndex: 1,
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            alignItems: 'center',
+            gap: '3rem',
+            padding: '60px 1.5rem',
+          }}
+          className="cta-banner-grid"
+        >
+          <style>{`
+            .cta-banner-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 3rem; }
+            @media (max-width: 768px) {
+              .cta-banner-grid { grid-template-columns: 1fr !important; text-align: center; }
+            }
+          `}</style>
+
+          {/* Left — Heading */}
+          <div>
+            <h2 style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
+              fontWeight: 900,
+              color: '#ffffff',
+              lineHeight: 1.15,
+              marginBottom: 0,
+              letterSpacing: '-0.01em',
+            }}>
+              Ready to create
+              <br />
+              experiences that
+              <br />
+              <span style={{ fontStyle: 'italic', fontFamily: 'Georgia, serif' }}>
+                matter?
               </span>
             </h2>
-
-            {/* Body copy */}
-            <div className="space-y-5 text-lg text-ev-gray-400 leading-relaxed">
-              <p>
-                The best workplaces aren&apos;t built in meeting rooms — they&apos;re built through
-                shared experiences.
-              </p>
-              <p>
-                At <strong className="text-ev-navy font-semibold">ExperioVerse</strong>, we help
-                organizations create moments that spark connection, celebrate people, and build
-                cultures employees genuinely enjoy being part of.
-              </p>
-              <p>
-                Whether it&apos;s an offsite, a wellness week, or an annual celebration, every
-                experience is designed with one goal:
-              </p>
-            </div>
-
-            {/* Pull-quote closer */}
-            <div
-              className="mt-10 inline-block px-8 py-5 rounded-2xl"
-              style={{
-                background: 'linear-gradient(135deg, #EE92D0 0%, #5D4781 100%)',
-                boxShadow: '0 8px 30px rgba(238,146,208,0.35)',
-              }}
-            >
-              <p
-                className="text-xl sm:text-2xl font-bold tracking-wide"
-                style={{ fontFamily: 'var(--font-heading)', color: '#231B35' }}
-              >
-                Make work feel more human.
-              </p>
-            </div>
           </div>
-        </div>
-      </section>
 
-      {/* ═══════ WHY EMPLOYEE EXPERIENCE MATTERS ═══════ */}
-      <section
-        className="relative py-28 overflow-hidden"
-        id="why-ee-matters"
-        style={{ background: 'linear-gradient(160deg, #100C1E 0%, #1A1330 40%, #231B35 100%)' }}
-      >
-        {/* Decorative orbs */}
-        <div
-          className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none opacity-25"
-          style={{
-            background: 'radial-gradient(circle, #EE92D0 0%, transparent 70%)',
-            transform: 'translate(30%, -30%)',
-          }}
-        />
-        <div
-          className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none opacity-15"
-          style={{
-            background: 'radial-gradient(circle, #5D4781 0%, transparent 70%)',
-            transform: 'translate(-30%, 30%)',
-          }}
-        />
-
-        <div className="ev-container relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-            {/* ── Left: Text ── */}
-            <div>
-              <p
-                className="text-base sm:text-lg font-bold uppercase tracking-[0.2em] mb-5"
-                style={{ color: 'var(--ev-accent)' }}
-              >
-                Why Employee Experience Matters
-              </p>
-              <h2
-                className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-[1.15] mb-8"
-                style={{ fontFamily: 'var(--font-heading)' }}
-              >
-                Because Great Businesses Are Built by{' '}
-                <span
-                  className="bg-gradient-to-r from-ev-accent to-ev-gold bg-clip-text text-transparent"
-                >
-                  Engaged People.
-                </span>
-              </h2>
-              <p className="text-lg text-white/60 leading-relaxed mb-10">
-                Employees who feel appreciated don&apos;t just stay longer — they contribute more,
-                collaborate better, and become ambassadors of your culture.
-              </p>
-
-              {/* Closing statement */}
-              <div
-                className="inline-block px-6 py-4 rounded-xl border"
-                style={{ borderColor: 'rgba(238,146,208,0.20)', background: 'rgba(238,146,208,0.06)' }}
-              >
-                <p
-                  className="text-lg font-semibold text-white"
-                  style={{ fontFamily: 'var(--font-heading)' }}
-                >
-                  When employees thrive,{' '}
-                  <span className="bg-gradient-to-r from-ev-accent to-ev-gold bg-clip-text text-transparent">
-                    businesses grow.
-                  </span>
-                </p>
-              </div>
-            </div>
-
-            {/* ── Right: Benefits list ── */}
-            <div>
-              <p
-                className="text-sm font-semibold uppercase tracking-widest text-white/40 mb-6"
-              >
-                A Strong Employee Experience Helps You
-              </p>
-              <ul className="space-y-4">
-                {[
-                  'Build a positive workplace culture',
-                  'Increase employee engagement',
-                  'Improve retention and loyalty',
-                  'Strengthen collaboration across teams',
-                  'Boost productivity and motivation',
-                  'Create memorable workplace moments',
-                  'Support employee well-being',
-                  'Enhance employer branding',
-                ].map((benefit) => (
-                  <li
-                    key={benefit}
-                    className="flex items-center gap-4 group"
-                  >
-                    {/* Check icon */}
-                    <span
-                      className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center"
-                      style={{ background: 'linear-gradient(135deg, #EE92D0, #5D4781)' }}
-                    >
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3">
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                    </span>
-                    <span className="text-base text-white/75 group-hover:text-white transition-colors duration-200">
-                      {benefit}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════ OFFERED SOLUTIONS ═══════ */}
-      <SolutionsCarousel />
-
-      {/* ═══════ FINAL CTA ═══════ */}
-      <section className="relative py-24 overflow-hidden" id="final-cta" style={{ background: 'linear-gradient(180deg, #FAF5FF 0%, #F3EEFF 100%)' }}>
-        {/* Pink glow background accent */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: 'radial-gradient(circle at 50% 50%, rgba(238,146,208,0.12) 0%, rgba(93,71,129,0.06) 50%, transparent 80%)',
-          }}
-        />
-        <div className="ev-container relative z-10 text-center">
-          <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-ev-navy mb-6"
-            style={{ fontFamily: 'var(--font-heading)' }}
-          >
-            Ready to Create Meaningful{' '}
-            <span className="bg-gradient-to-r from-ev-accent to-ev-gold bg-clip-text text-transparent">
-              Employee Experiences?
-            </span>
-          </h2>
-          <p className="text-lg text-ev-gray-400 max-w-xl mx-auto mb-10">
-            Let&apos;s discuss how Experio Verse can help your team connect, engage, and grow together.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button
+          {/* Right — Tagline + CTA */}
+          <div>
+            <p style={{
+              fontSize: 15,
+              color: 'rgba(255,255,255,0.80)',
+              lineHeight: 1.7,
+              marginBottom: 28,
+              maxWidth: 360,
+            }}>
+              Let&apos;s make your next event or program your best one yet.
+            </p>
+            <Link
               href="/contact"
-              variant="primary"
-              size="lg"
-              icon={<PhoneIcon size={18} />}
-              id="final-cta-call"
+              id="cta-banner-connect"
+              className="cta-white-btn"
             >
-              Request a Call
-            </Button>
-            <Button
-              href="/about"
-              variant="secondary"
-              size="lg"
-            >
-              Learn About Us
-            </Button>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              Let&apos;s Connect
+            </Link>
           </div>
         </div>
       </section>

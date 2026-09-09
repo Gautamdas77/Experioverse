@@ -88,7 +88,7 @@ Experioverse/
         ├── favicon.ico                  # Browser tab favicon
         ├── globals.css                  # Global CSS variables, design tokens, utility classes & animations
         ├── layout.js                    # Root Layout: fonts, global HTML shell, Header & Footer injection
-        ├── page.js                      # Home Page: Hero, Solutions, Categories, Calendar, Process, CTA
+        ├── page.js                      # Home Page (redesigned Sep 2026): Hero → Brands → Solutions → Why EV → How We Work → Gallery → Testimonials → CTA
         │
         ├── services/                    # Services catalog route (/services)
         │   └── page.js                  # Services Page: Hover-reveal service category cards (Team Building + more)
@@ -105,12 +105,18 @@ Experioverse/
         │
         └── components/                  # Shared, reusable UI component library
             ├── index.js                 # Central barrel export file for all components
-            ├── Header.js                # Sticky glassmorphic navigation bar with mobile drawer
-            ├── Footer.js                # Multi-column enterprise footer with links & social handles
-            ├── HeroSection.js           # Animated hero section with aurora glows, pill badges, and stats
+            ├── Header.js                # REBUILT (Sep 2026) — Dark translucent sticky nav, pink gradient CTA
+            ├── Footer.js                # REBUILT (Sep 2026) — 5-column dark footer (Brand, Quick Links, Solutions, About, Contact)
+            ├── HeroSection.js           # REBUILT (Sep 2026) — Split-screen dark purple hero with animated headline & stats
+            ├── TrustedBrands.js         # NEW (Sep 2026) — White brand logo strip
+            ├── SolutionsGrid.js         # NEW (Sep 2026) — 6-card static grid replacing old carousel on homepage
+            ├── WhyExperioverse.js       # NEW (Sep 2026) — Dark section: heading + 5 differentiator cards
+            ├── HowWeWork.js             # NEW (Sep 2026) — White section: 5-step process
+            ├── ExperiencesGallery.js    # NEW (Sep 2026) — Dark section: text left + 2x3 photo grid
+            ├── Testimonials.js          # NEW (Sep 2026) — Dark section: 3-card testimonials + dot nav
             ├── Button.js                # Polymorphic button/link component with multiple variants & icons
             ├── Section.js               # Standardized section wrapper & SectionHeader component
-            └── SolutionsCarousel.js     # Interactive carousel component for solution showcase
+            └── SolutionsCarousel.js     # Legacy carousel (preserved, no longer used on homepage)
 ```
 
 ---
@@ -180,15 +186,22 @@ The `src/app/` folder is the heart of the Next.js App Router architecture.
 Each folder inside `src/app/` containing a `page.js` corresponds to a public URL route:
 
 #### 🏠 [`src/app/page.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/page.js) — Home Page (`/`)
+
+> [!IMPORTANT]
+> **Homepage Redesigned (2026-09-09)**: Fully rebuilt to match the reference design at experioverse.com. Old structure (Aurora Hero + SolutionsCarousel + Calendar + CTA) replaced with 8-section layout below.
+
 - **Route**: `http://localhost:3000/`
-- **Sections**:
-  1. **Hero Section** ([`HeroSection`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/HeroSection.js)): Aurora background mesh, animated glowing pills, value proposition, quick CTA triggers, and high-impact key statistics.
-  2. **What We Do / Solutions Carousel** ([`SolutionsCarousel`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/SolutionsCarousel.js)): Interactive horizontal slider showcasing the 5 pillars.
-  3. **5 Core Experience Pillars Grid**: Cards for Celebrate, Connect, Move, Reset, Explore with category color accents.
-  4. **12-Month Employee Experience Calendar**: Interactive 12-month grid mapping out structured corporate activities across the year.
-  5. **Why Experio Verse Summary**: Key enterprise benefits and differentiators.
-  6. **5-Step Process Summary**: Brief overview of the implementation journey.
-  7. **High-Conversion Call to Action**: Final banner driving leads to the Contact & Enquiry page.
+- **Architecture Note**: `page.js` is a **Server Component** (no `'use client'`). Hover effects on elements directly in `page.js` use CSS classes (e.g. `.cta-white-btn`) rather than inline JS handlers. All child components with interactive hover effects are individually marked `'use client'`.
+- **Sections (in render order)**:
+  1. **Hero** — [`HeroSection`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/HeroSection.js): Split-screen dark purple. Left: animated headline + stats strip. Right: image placeholder.
+  2. **Trusted Brands** — [`TrustedBrands`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/TrustedBrands.js): White section. Text-based logos: Google, Microsoft, amazon, TCS, Deloitte, zomato, Infosys, Dropbox.
+  3. **Solutions Grid** — [`SolutionsGrid`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/SolutionsGrid.js): White section. 6-card grid with "View All Solutions" header button.
+  4. **Why Experioverse** — [`WhyExperioverse`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/WhyExperioverse.js): Dark purple. Left heading with pink SVG underline. Right: 5 differentiator cards.
+  5. **How We Work** — [`HowWeWork`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/HowWeWork.js): White section. 5 step cards: Understand, Ideate, Plan, Execute, Delight.
+  6. **Experiences Gallery** — [`ExperiencesGallery`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/ExperiencesGallery.js): Dark section. Text left + 2x3 gradient photo grid right. Replace gradients with real photos when available.
+  7. **Testimonials** — [`Testimonials`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Testimonials.js): Dark section. 3-card testimonial grid with `useState` dot navigation.
+  8. **CTA Banner** (inline in `page.js`): Pink/purple/orange gradient. White pill button uses `.cta-white-btn` CSS class.
+
 
 #### ℹ️ [`src/app/about/page.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/about/page.js) — About Us (`/about`)
 - **Route**: `http://localhost:3000/about`
@@ -256,13 +269,20 @@ All reusable UI components live in `src/app/components/` and are centrally expor
 
 | Component File | Type | Description & Features |
 |---|---|---|
-| [`Header.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Header.js) | Client Component (`'use client'`) | Fixed floating glassmorphic navbar with dynamic scroll detection (`scrollY > 20`), animated hamburger toggle, mobile navigation overlay drawer with scroll-lock, brand logo lockup, and high-visibility "Request a Call" CTA. |
-| [`Footer.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Footer.js) | Server Component | Enterprise multi-column footer containing company mission snippet, fast navigation links, categorized services list, direct contact coordinates, social channels, copyright notice, and legal links. |
-| [`HeroSection.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/HeroSection.js) | Client Component (`'use client'`) | Full-viewport visual hero. Features keyframe animations for 3 floating radial aurora meshes, dot background grid, animated pulse indicator, floating category pills with stagger delays, primary gradient CTA button, and 4-metric enterprise statistics strip. |
-| [`Button.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Button.js) | Polymorphic (`button` / `next/link`) | Reusable button component supporting variants (`primary`, `secondary`, `outline`, `ghost`, `dark`), sizes (`sm`, `md`, `lg`), custom icons, smooth scale on hover/active, and exported helper icons ([`PhoneIcon`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Button.js#L72), [`ArrowIcon`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Button.js#L92)). |
-| [`Section.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Section.js) | Server Component | Standardized layout wrapper for page sections. Includes [`SectionHeader`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Section.js) with badge label, main title, and descriptive subtitle with built-in alignment support (left/center). |
-| [`SolutionsCarousel.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/SolutionsCarousel.js) | Client Component (`'use client'`) | Interactive horizontal carousel component with swipe/scroll navigation for showcasing experience categories, features, and case studies. |
-| [`index.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/index.js) | Barrel Export | Provides clean single-line imports for all components across the application: `import { Header, Footer, Button, Section } from './components';` |
+| [`Header.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Header.js) | `'use client'` | **REBUILT Sep 2026.** Dark translucent sticky navbar (`rgba(15,5,30,0.85)` + `backdrop-filter: blur`). Scroll detection adds pink-border glow at `scrollY > 20`. Centered nav links. Pink gradient "Let's Connect" pill CTA. Mobile hamburger drawer with scroll-lock. |
+| [`Footer.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Footer.js) | `'use client'` | **REBUILT Sep 2026.** 5-column dark footer (`#0f051e` to `#070310`). Col 1: logo + tagline + social icons. Col 2: Quick Links. Col 3: Solutions (8 items). Col 4: About Us + Pan India badge. Col 5: phone, email, location. Bottom bar: copyright + legal links. |
+| [`HeroSection.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/HeroSection.js) | `'use client'` | **REBUILT Sep 2026.** Split-screen dark purple hero. Left: "We create experiences" headline + pink "people never forget" + italic "moments". Stats strip: 500+ Experiences, 100+ Companies, 10+ Cities, 1M+ Lives. Two CTAs + radial aurora orbs. |
+| [`TrustedBrands.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/TrustedBrands.js) | `'use client'` | **NEW Sep 2026.** White section with "Trusted by Amazing Brands" label. Horizontal flex strip of styled text logos: Google, Microsoft, amazon, TCS, Deloitte, zomato, Infosys, Dropbox. Hover: opacity + translateY lift. |
+| [`SolutionsGrid.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/SolutionsGrid.js) | `'use client'` | **NEW Sep 2026.** White section. Header: "SOLUTIONS FOR EVERY *Experience*" + "View All Solutions" outlined button. Auto-fill 3-col card grid. Each card: gradient placeholder image, icon, title, description, pink "Learn more" arrow. 6 solutions: Employee Engagement, Corporate Celebrations, Wellness, Mental Health, Leadership, Sports & Fitness. |
+| [`WhyExperioverse.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/WhyExperioverse.js) | `'use client'` | **NEW Sep 2026.** Dark purple section with radial glows. 2-col grid: left = "WHY EXPERIOVERSE?" with pink wavy SVG underline. Right = 5 glass-border cards: One Stop Solution, Creative & Fresh Ideas, End-to-End Execution, Experienced Team, Pan India Presence. |
+| [`HowWeWork.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/HowWeWork.js) | `'use client'` | **NEW Sep 2026.** White section. Centered heading "HOW *WE WORK*". 5-card horizontal grid (responsive: 3-col tablet, 2-col mobile). Cards: step number, SVG icon, title, description. Steps: 01 Understand, 02 Ideate, 03 Plan, 04 Execute, 05 Delight. |
+| [`ExperiencesGallery.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/ExperiencesGallery.js) | `'use client'` | **NEW Sep 2026.** Dark gradient section. 2-col: left = "EXPERIENCES THAT *SPEAK* FOR US" + "View Our Work" CTA. Right = 2x3 grid of gradient placeholder cards. **To add real photos**: replace each card's `background: photo.gradient` with a `next/image` component. |
+| [`Testimonials.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Testimonials.js) | `'use client'` | **NEW Sep 2026.** Dark section. "LOVED BY PEOPLE, *TRUSTED BY BRANDS* ♡" heading. 3-col card grid: large quote mark, italic quote, avatar initials circle, name, role. Bottom: dot indicator pills controlled by `useState`. |
+| [`SolutionsCarousel.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/SolutionsCarousel.js) | `'use client'` | **Legacy — no longer used on homepage.** Preserved for potential inner-page reuse. Interactive horizontal carousel with swipe/scroll navigation. |
+| [`Button.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Button.js) | Polymorphic | Reusable button supporting variants (`primary`, `secondary`, `outline`, `ghost`, `dark`), sizes (`sm`, `md`, `lg`), custom icons. |
+| [`Section.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Section.js) | Server Component | Standardized layout wrapper with `SectionHeader` (badge label, title, subtitle, alignment). |
+| [`index.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/index.js) | Barrel Export | Central import hub: `import { Header, Footer, Button, Section } from './components';` |
+
 
 ---
 
@@ -271,61 +291,59 @@ All reusable UI components live in `src/app/components/` and are centrally expor
 Experio Verse adheres to a strict, premium corporate design system.
 
 > [!IMPORTANT]
-> **Brand Rebrand (2026-08-29)**: The entire colour palette was migrated from the old Purple × Magenta × Violet scheme to a **Pink × Purple × Deep Violet** theme inspired by the EVo brand reference imagery. All tokens below reflect the current live values.
+> **Brand Rebrand (2026-08-29)**: Migrated from old Purple x Magenta to Pink x Purple x Deep Violet.
+>
+> **Palette Update (2026-09-09)**: Further refined to match the live site at experioverse.com. Primary accent is now hot pink `#e91e8c` and vivid purple `#7c3aed`. Deepest background is `#0f051e`.
 
-### 🎨 Color Palette & CSS Variables
+### 🎨 Color Palette & CSS Variables (current as of 2026-09-09)
 
 | Variable Name | Hex Code | Purpose / Usage |
 |---|---|---|
-| `--ev-navy` | `#231B35` | Primary brand deep-violet — headings, primary dark backgrounds |
-| `--ev-navy-light` | `#2E2148` | Secondary dark purple — cards, elevated surfaces |
-| `--ev-navy-mid` | `#3D2B5E` | Mid-tone purple — gradients, hover backgrounds |
-| `--ev-section-bg` | `#100C1E` | Hero & dark section background — near-black deep violet |
-| `--ev-section-bg-light` | `#1A1330` | Slightly lighter dark bg — used for alternate dark sections |
-| `--ev-accent` | `#EE92D0` | **Primary CTA — Vivid Pink** (buttons, badges, labels) |
-| `--ev-accent-hover` | `#E066BA` | Pink hover state |
-| `--ev-accent-light` | `#F5BAE3` | Soft pink — light badges, tints |
-| `--ev-accent-deep` | `#C026A8` | Deep pink — section labels, decorative lines |
-| `--ev-gold` | `#5D4781` | **Secondary accent — Medium Purple** |
-| `--ev-gold-light` | `#9B7EC8` | Light lavender-purple — subtle highlights |
-| `--ev-gold-vivid` | `#7C55B8` | Vivid purple — secondary interactive elements |
-| `--ev-blue` | `#5D4781` | Medium purple — links, connect category |
-| `--ev-blue-light` | `#7A5FA8` | Lighter purple — secondary interactive |
-| `--ev-off-white` | `#FAF5FF` | Light background with soft lavender tint |
-| `--ev-white-rgb` | `250, 245, 255` | RGB equivalent for `rgba()` usage |
-| `--ev-gray-50` | `#F3EEFF` | Lightest purple-tinted gray — card surfaces |
-| `--ev-gray-100` | `#E4D9F7` | Light purple-gray — borders, dividers |
-| `--ev-gray-200` | `#C4AEED` | Mid purple-gray — secondary text borders |
+| `--ev-navy` | `#1a0a3c` | Primary brand deep-purple — headings, primary dark backgrounds |
+| `--ev-navy-light` | `#2d1557` | Secondary dark purple — cards, elevated surfaces |
+| `--ev-navy-mid` | `#3d1f6e` | Mid-tone purple — gradients, hover backgrounds |
+| `--ev-section-bg` | `#0f051e` | Deepest dark background — hero & dark sections |
+| `--ev-section-bg-light` | `#1a0a3c` | Slightly lighter dark bg — alternate dark sections |
+| `--ev-section-bg-mid` | `#2d1557` | Mid dark bg — section transitions |
+| `--ev-accent` | `#e91e8c` | **Primary CTA — Hot Pink** (buttons, badges, highlights) |
+| `--ev-accent-hover` | `#d4147e` | Hot pink hover state |
+| `--ev-accent-light` | `#f06292` | Soft pink — tints and badges |
+| `--ev-accent-deep` | `#c0117a` | Deep pink — section labels, decorative lines |
+| `--ev-gold` | `#7c3aed` | **Secondary accent — Vivid Purple** |
+| `--ev-gold-light` | `#9f6ef5` | Light purple — subtle highlights |
+| `--ev-gold-vivid` | `#6d28d9` | Deep vivid purple — secondary interactive elements |
+| `--ev-blue` | `#7c3aed` | Alias for vivid purple — links, connect category |
+| `--ev-blue-light` | `#9f6ef5` | Light purple — secondary interactive |
+| `--ev-off-white` | `#FAF5FF` | Light section background with soft lavender tint |
+| `--ev-dark` | `#0f051e` | Alias for deepest dark background |
 
-#### 🖼️ Hero Gradient
+#### 🖼️ Dark Section Background Gradient (Hero, Why EV, Gallery, Testimonials, Footer)
 ```css
-background: linear-gradient(135deg, #100C1E 0%, #1A1330 25%, #231B35 55%, #2E2148 80%, #3D2B5E 100%);
+background: linear-gradient(160deg, #0f051e 0%, #1a0a3c 40%, #2d1557 100%);
 ```
 
-#### ✨ Accent / CTA Gradient
+#### ✨ Primary CTA Gradient (buttons, CTA banner)
 ```css
-background: linear-gradient(135deg, #EE92D0 0%, #5D4781 100%);  /* Pink → Purple */
+background: linear-gradient(135deg, #e91e8c 0%, #7c3aed 100%);  /* Hot Pink → Vivid Purple */
 ```
 
 #### 🌈 Experience Category Colours
 
 | Variable | Hex | Pillar |
 |---|---|---|
-| `--ev-celebrate` | `#EE92D0` | Celebrate — Vivid Pink |
-| `--ev-connect` | `#5D4781` | Connect — Medium Purple |
+| `--ev-celebrate` | `#e91e8c` | Celebrate — Hot Pink |
+| `--ev-connect` | `#7c3aed` | Connect — Vivid Purple |
 | `--ev-move` | `#10B981` | Move — Emerald (kept) |
-| `--ev-reset` | `#9B7EC8` | Reset — Lavender Purple |
-| `--ev-explore` | `#E066BA` | Explore — Deep Pink |
+| `--ev-reset` | `#9f6ef5` | Reset — Light Purple |
+| `--ev-explore` | `#f97316` | Explore — Orange |
 
-#### 🌟 Shadow Tokens
+#### 🌟 Glow Shadow Tokens
 ```css
---shadow-sm:  0 1px 3px rgba(35, 27, 53, 0.12);
---shadow-md:  0 4px 12px rgba(35, 27, 53, 0.18);
---shadow-lg:  0 8px 30px rgba(35, 27, 53, 0.22);
---shadow-xl:  0 16px 50px rgba(35, 27, 53, 0.28);
---shadow-glow: 0 0 40px rgba(238, 146, 208, 0.35);  /* Pink glow */
---shadow-glow-purple: 0 0 40px rgba(93, 71, 129, 0.40);  /* Purple glow */
+--shadow-glow:        0 0 40px rgba(233, 30, 140, 0.35);   /* Hot pink glow */
+--shadow-glow-purple: 0 0 40px rgba(124, 58, 237, 0.40);   /* Vivid purple glow */
 ```
+
+
 
 ### 🔤 Typography
 
@@ -536,6 +554,45 @@ npm run start
 - [ ] All interactive elements (buttons, links, form inputs) have visible focus and hover states.
 - [ ] No hardcoded secret API keys or credentials.
 - [ ] Documentation updated if new routes or components were introduced.
+
+---
+
+## 📋 Changelog
+
+### 2026-09-09 — Full Homepage Redesign
+
+**Goal**: Rebuild homepage to match the reference design at [experioverse.com](https://experioverse.com).
+
+**Files Modified**:
+- [`src/app/page.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/page.js) — Complete rewrite. 8-section layout. No more SolutionsCarousel or Calendar on homepage.
+- [`src/app/layout.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/layout.js) — Removed `pt-28` from `<main>` (hero handles own offset now).
+- [`src/app/globals.css`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/globals.css) — Updated all CSS tokens to `#e91e8c` / `#7c3aed` / `#0f051e` palette. Added `.cta-white-btn` utility class.
+- [`src/app/components/Header.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Header.js) — Rebuilt: dark glass nav, centered links, pink gradient CTA.
+- [`src/app/components/HeroSection.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/HeroSection.js) — Rebuilt: split-screen dark purple hero, animated headline, stats strip.
+- [`src/app/components/Footer.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Footer.js) — Rebuilt: 5-column dark footer.
+
+**Files Created**:
+- [`src/app/components/TrustedBrands.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/TrustedBrands.js)
+- [`src/app/components/SolutionsGrid.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/SolutionsGrid.js)
+- [`src/app/components/WhyExperioverse.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/WhyExperioverse.js)
+- [`src/app/components/HowWeWork.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/HowWeWork.js)
+- [`src/app/components/ExperiencesGallery.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/ExperiencesGallery.js)
+- [`src/app/components/Testimonials.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Testimonials.js)
+
+**Key architectural decisions**:
+- `page.js` stays a **Server Component** — no `'use client'` at page level.
+- All new components are `'use client'` because they use inline mouse event handlers.
+- Hover effects directly inside server-rendered JSX use CSS classes (`.cta-white-btn`) instead of JS handlers.
+- `SolutionsCarousel.js` is preserved (not deleted) for potential reuse on inner pages.
+- `ExperiencesGallery.js` photo cards use gradient placeholders — replace with `next/image` when real photos are ready.
+
+---
+
+### 2026-08-29 — Brand Colour Rebrand
+Migrated colour palette from old Purple × Magenta to Pink × Purple × Deep Violet.
+
+### 2026-08-18 — Services Page Added
+Added `/services` route with 11 hover-reveal service cards. Deprecated and removed `/experiences`.
 
 ---
 

@@ -62,7 +62,7 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col" style={{ fontFamily: "var(--font-body)" }}>
         <Header />
-        <main className="flex-1 pt-28 md:pt-24 lg:pt-20" style={{ backgroundColor: 'var(--ev-section-bg)' }}>{children}</main>
+        <main className="flex-1" style={{ backgroundColor: '#0f051e' }}>{children}</main>
         <Footer />
         <Analytics />
       </body>
