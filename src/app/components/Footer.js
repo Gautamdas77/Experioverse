@@ -4,28 +4,27 @@ import Link from 'next/link';
 
 const quickLinks = [
   { label: 'Home', href: '/' },
-  { label: 'Why Us', href: '/why-experio-verse' },
-  { label: 'Solutions for You', href: '/services' },
-  { label: 'Our Work', href: '/our-work' },
+  { label: 'Solutions', href: '/#solutions' },
+  { label: 'How We Work', href: '/#how-we-work' },
   { label: 'Testimonials', href: '/#testimonials' },
-  { label: "Let's Connect", href: '/contact' },
+  { label: 'Contact Us', href: '/contact' },
 ];
 
 const solutionLinks = [
-  { label: 'Employee Engagement', href: '/services#employee-engagement' },
-  { label: 'Corporate Celebrations', href: '/services#corporate-celebrations' },
-  { label: 'Wellness & Wellbeing', href: '/services#wellness' },
-  { label: 'Mental Health Support', href: '/services#mental-health' },
-  { label: 'Leadership Development', href: '/services#leadership' },
-  { label: 'Sports & Fitness', href: '/services#sports' },
-  { label: 'Annual Days & Galas', href: '/services#annual-days' },
+  { label: 'Employee Engagement', href: '/contact' },
+  { label: 'Corporate Celebrations', href: '/contact' },
+  { label: 'Wellness & Wellbeing', href: '/contact' },
+  { label: 'Mental Health Support', href: '/contact' },
+  { label: 'Leadership Development', href: '/contact' },
+  { label: 'Sports & Fitness', href: '/contact' },
+  { label: 'Annual Days & Galas', href: '/contact' },
   { label: 'Custom Experiences', href: '/contact' },
 ];
 
 const aboutLinks = [
-  { label: 'Who We Are', href: '/about' },
-  { label: 'Our Approach', href: '/why-experio-verse' },
-  { label: 'Careers', href: '/careers' },
+  { label: 'Our Story', href: '/' },
+  { label: 'Our Approach', href: '/#how-we-work' },
+  { label: 'Get In Touch', href: '/contact' },
 ];
 
 const socialLinks = [

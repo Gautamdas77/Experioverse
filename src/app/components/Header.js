@@ -5,11 +5,10 @@ import Link from 'next/link';
 
 const navLinks = [
   { label: 'Home', href: '/' },
-  { label: 'Why Us', href: '/why-experio-verse' },
-  { label: 'Solutions for You', href: '/services', hasDropdown: true },
-  { label: 'Our Work', href: '/our-work' },
+  { label: 'Solutions', href: '/#solutions' },
+  { label: 'How We Work', href: '/#how-we-work' },
   { label: 'Testimonials', href: '/#testimonials' },
-  { label: 'About Us', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function Header() {

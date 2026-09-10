@@ -90,18 +90,14 @@ Experioverse/
         ├── layout.js                    # Root Layout: fonts, global HTML shell, Header & Footer injection
         ├── page.js                      # Home Page (redesigned Sep 2026): Hero → Brands → Solutions → Why EV → How We Work → Gallery → Testimonials → CTA
         │
-        ├── services/                    # Services catalog route (/services)
-        │   └── page.js                  # Services Page: Hover-reveal service category cards (Team Building + more)
-        │
-        ├── about/                       # About Us route (/about)
-        ├── how-we-work/                 # Process route (/how-we-work)
-        │   └── page.js                  # Process Page: 5-step methodology (Understand → Design → Plan → Execute → Feedback)
-        │
-        ├── why-experio-verse/           # Value proposition route (/why-experio-verse)
-        │   └── page.js                  # Why EV Page: Key differentiators, comparison, ROI & enterprise benefits
-        │
-        ├── contact/                     # Lead capture route (/contact)
+        ├── contact/                     # ✅ ACTIVE — Contact & lead capture route (/contact)
         │   └── page.js                  # Contact Page: Request a Call lead form, enquiry channels, contact info
+        │
+        │   # ─── DELETED (2026-09-10) ───────────────────────────────────────────────────
+        │   # about/            → REMOVED. Content may be added back to the homepage later.
+        │   # services/         → REMOVED. Solutions link to /contact for now.
+        │   # how-we-work/      → REMOVED. Content lives as a section in homepage (HowWeWork.js).
+        │   # why-experio-verse/ → REMOVED. Content lives as a section in homepage (WhyExperioverse.js).
         │
         └── components/                  # Shared, reusable UI component library
             ├── index.js                 # Central barrel export file for all components
@@ -203,58 +199,11 @@ Each folder inside `src/app/` containing a `page.js` corresponds to a public URL
   8. **CTA Banner** (inline in `page.js`): Pink/purple/orange gradient. White pill button uses `.cta-white-btn` CSS class.
 
 
-#### ℹ️ [`src/app/about/page.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/about/page.js) — About Us (`/about`)
-- **Route**: `http://localhost:3000/about`
-- **Purpose**: Company identity, vision, mission, story, leadership team, and corporate values.
-
-#### 🛠️ [`src/app/services/page.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/services/page.js) — Services (`/services`) *(added: 2026-08-18)*
-- **Route**: `http://localhost:3000/services`
-- **Purpose**: Showcase all service categories with interactive hover-reveal cards.
-- **Card Interaction**: At rest each card displays only the service name and icon (large, centred). On hover, the name shrinks and moves to the top of the card while a description paragraph and bullet-point list animate in — powered entirely by CSS (`.svc-rest` / `.svc-content` layers with `opacity` + `transform` transitions).
-- **Services Array**: Declared inside `page.js`. Each entry has: `id`, `slug`, `icon`, `label`, `accentHex`, `description`, `points[]`. Current services (11 total):
-  1. 🤝 **Team Building** — Family Day, Fun Fridays, Hobby Clubs, Indoor/Outdoor Games
-  2. 🎉 **Corporate Celebrations** — Annual Day, Foundation Day, Townhall, Festivals, Awards Night, Milestone Celebrations
-  3. 🏔️ **Offsites & Retreats** — Domestic, International, Leadership Retreats, Strategy Meets
-  4. 📚 **Learning Experiences** — Workshops, Leadership Dev, Soft Skills, Innovation Labs, Guest Speakers
-  5. 🏆 **Rewards & Recognition** — R&R Programmes, Long Service Awards, Hall of Fame, Appreciation Events
-  6. 🧘 **Well-being & Mental Health** — Wellness Sessions, Stress Mgmt, Mindfulness, Yoga & Fitness, Health Campaigns
-  7. 🌱 **Workplace Culture** — Culture Building, Value Workshops, EX Campaigns, Internal Initiatives, Transformation
-  8. ✨ **Brand Experiences** — Product Launches, Dealer Meets, Channel Partner Meets, CX Events, Conferences
-  9. 🎤 **Entertainment Experiences** — Stand-up Comedy, Live Bands, DJs, Motivational Speakers, Emcees
-  10. 🌍 **CSR Experiences** — Tree Plantation, Build-a-Bicycle, Toy Drives, Community Projects, NGO Partnerships
-  11. 🎨 **Custom Experiences** — Bespoke programmes, tailor-made campaigns, end-to-end design
-- **CSS Classes** (defined in `globals.css`):
-  - `.svc-grid` — responsive `auto-fill` grid (min 300 px per column)
-  - `.svc-card` — card shell with border, background and lift transition
-  - `.svc-card-top-line` — hairline accent gradient at top of card
-  - `.svc-rest` — rest-state centred layer (hidden on hover)
-  - `.svc-rest-icon`, `.svc-rest-title`, `.svc-rest-hint` — rest state child elements
-  - `.svc-content` — hover-state full-content layer (revealed on hover)
-  - `.svc-content-header`, `.svc-content-icon`, `.svc-content-title` — compact header row
-  - `.svc-content-divider` — thin coloured separator
-  - `.svc-content-desc` — description paragraph
-  - `.svc-content-points`, `.svc-content-point`, `.svc-point-dot` — bullet list
-  - `.svc-cta` — Enquire link with arrow icon
-- **Navigation**: Listed as `Services` in `Header.js` `navLinks` array (href `/services`).
-
 > [!WARNING]
-> **`src/app/experiences/` — DELETED (2026-08-18)**
-> This route and its `page.js` have been removed. All services content has been migrated to [`src/app/services/page.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/services/page.js). The `/experiences` URL is no longer active.
+> **DELETED (2026-09-10)**: `about/`, `services/`, `how-we-work/`, `why-experio-verse/` have all been removed.
+> Only **Home** (`/`) and **Contact** (`/contact`) are active routes. If these pages are rebuilt in the future, recreate them following the "How to Add a New Page Route" guide below.
 
-#### 🔄 [`src/app/how-we-work/page.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/how-we-work/page.js) — How We Work (`/how-we-work`)
-- **Route**: `http://localhost:3000/how-we-work`
-- **Purpose**: Explains our 5-step operational workflow:
-  1. *Understand & Discover*: Culture and objective assessment.
-  2. *Curate & Design*: Tailored experience blueprints.
-  3. *Plan & Coordinate*: End-to-end logistics and vendor management.
-  4. *Flawless Execution*: On-ground facilitation and live engagement.
-  5. *Measure & Feedback*: Post-event sentiment and engagement analytics.
-
-#### ✨ [`src/app/why-experio-verse/page.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/why-experio-verse/page.js) — Why EV (`/why-experio-verse`)
-- **Route**: `http://localhost:3000/why-experio-verse`
-- **Purpose**: Detailed value proposition for HR leaders, ROI analysis, testimonials, enterprise case studies, and comparison vs traditional ad-hoc event vendors.
-
-#### 📞 [`src/app/contact/page.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/contact/page.js) — Contact & Lead Capture (`/contact`)
+#### 📞 [`src/app/contact/page.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/contact/page.js) — Contact & Lead Capture (`/contact`) ✅ ACTIVE
 - **Route**: `http://localhost:3000/contact`
 - **Purpose**: Enterprise lead generation hub containing:
   - **"Request a Call" Enquiry Form**: Captures company name, team size, selected interest categories, preferred timeline, and contact information.
@@ -588,7 +537,24 @@ npm run start
 
 ---
 
+### 2026-09-10 — Deleted Unused Page Routes
+
+**Deleted routes** (folders and all contents removed from `src/app/`):
+- `about/` — no longer a standalone page
+- `services/` — solutions now link directly to `/contact`
+- `how-we-work/` — content lives as the `HowWeWork.js` section on the homepage
+- `why-experio-verse/` — content lives as the `WhyExperioverse.js` section on the homepage
+
+**Active routes after this change**: `/` (Home) and `/contact` only.
+
+**Files updated** to remove dead navigation links:
+- [`Header.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Header.js) — `navLinks` updated to: Home, Solutions (anchor), How We Work (anchor), Testimonials (anchor), Contact
+- [`Footer.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Footer.js) — `quickLinks`, `solutionLinks`, and `aboutLinks` updated to point to `/`, `/#sections`, and `/contact` only
+
+---
+
 ### 2026-08-29 — Brand Colour Rebrand
+
 Migrated colour palette from old Purple × Magenta to Pink × Purple × Deep Violet.
 
 ### 2026-08-18 — Services Page Added
