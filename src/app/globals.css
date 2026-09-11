@@ -618,3 +618,26 @@ img {
   transform: translateY(0);
 }
 
+/* ─── How We Work Timeline — Mobile ─── */
+@media (max-width: 700px) {
+  #how-we-work > div > div:last-child {
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+  }
+  /* Hide the horizontal dotted connector on mobile */
+  #how-we-work > div > div:last-child > div:first-child {
+    display: none;
+  }
+}
+
+/* ─── Gradient text utility ─── */
+.gradient-text-pink-purple {
+  background: linear-gradient(135deg, #e91e8c 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-style: italic;
+  display: inline;
+}

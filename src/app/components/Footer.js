@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const quickLinks = [
   { label: 'Home', href: '/' },
-  { label: 'Solutions', href: '/#solutions' },
+  { label: 'Solutions', href: '/#solutions-grid' },
   { label: 'How We Work', href: '/#how-we-work' },
   { label: 'Testimonials', href: '/#testimonials' },
   { label: 'Contact Us', href: '/contact' },
@@ -180,7 +180,7 @@ export default function Footer() {
             </h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 11 }}>
               {solutionLinks.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link
                     href={link.href}
                     style={{
