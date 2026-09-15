@@ -6,6 +6,7 @@ import Link from 'next/link';
 // ─── All mega-menu content ────────────────────────────────────────────────────
 const MENU_DATA = {
   'Offsite Events': {
+    href: '/offsite-events',
     type: 'offsite',
     leftPanel: {
       badge: 'OFFSITE EVENTS',
@@ -37,6 +38,7 @@ const MENU_DATA = {
   },
 
   'Team Building': {
+    href: '/team-building',
     type: 'standard',
     header: {
       heading: 'Team Building',
@@ -54,7 +56,7 @@ const MENU_DATA = {
         title: 'OUTDOOR',
         items: [
           'Adventure Challenges', 'Sports Tournaments', 'Treasure Hunts',
-          'Large Group Activities', 'Outdoor Team Challenges', 'Custom Activities',
+          'Amazing Race', 'Outdoor Team Challenges', 'Custom Activities',
         ],
       },
       {
@@ -62,7 +64,7 @@ const MENU_DATA = {
         items: [
           { label: 'Team Olympics', badge: null },
           { label: 'Corporate Sports Day', badge: 'Popular' },
-          { label: 'Adventure Camp', badge: 'Popular' },
+          { label: 'Large Group Activities', badge: null },
           { label: 'Custom Team Building', badge: null },
         ],
       },
@@ -71,6 +73,7 @@ const MENU_DATA = {
   },
 
   'Rewards & Recognition': {
+    href: '/rewards-recognition',
     type: 'standard',
     header: {
       heading: 'Rewards & Recognition',
@@ -94,6 +97,7 @@ const MENU_DATA = {
   },
 
   'Theme Events': {
+    href: '/theme-events',
     type: 'theme',
     header: {
       heading: 'Theme Events',
@@ -114,6 +118,7 @@ const MENU_DATA = {
   },
 
   'Wellness Programs': {
+    href: '/wellness-programs',
     type: 'standard',
     header: {
       heading: 'Wellness Programs',
@@ -222,10 +227,10 @@ function ImgBox({ label = '', style = {} }) {
   );
 }
 
-function ExploreCta({ label }) {
+function ExploreCta({ label, href }) {
   return (
     <Link
-      href="/contact"
+      href={href || '/contact'}
       style={{
         display: 'inline-flex', alignItems: 'center', gap: 6,
         fontSize: 12.5, fontWeight: 700, color: '#7c3aed',
@@ -283,7 +288,7 @@ function OffsitePanel({ data }) {
       {/* Right image + CTA */}
       <div style={{ width: 180, flexShrink: 0, paddingLeft: 24, display: 'flex', flexDirection: 'column', gap: 14 }}>
         <ImgBox label="New places, Stronger teams" style={{ flex: 1 }} />
-        <ExploreCta label={data.cta} />
+        <ExploreCta label={data.cta} href={data.href} />
       </div>
     </div>
   );
@@ -311,7 +316,7 @@ function StandardPanel({ data }) {
         {/* Right: image + CTA */}
         <div style={{ width: 155, flexShrink: 0, paddingLeft: 24, display: 'flex', flexDirection: 'column', gap: 14 }}>
           <ImgBox style={{ flex: 1, minHeight: 110 }} />
-          <ExploreCta label={data.cta} />
+          <ExploreCta label={data.cta} href={data.href} />
         </div>
       </div>
     </div>
@@ -344,7 +349,7 @@ function ThemePanel({ data }) {
       </div>
 
       <div style={{ marginTop: 16 }}>
-        <ExploreCta label={data.cta} />
+        <ExploreCta label={data.cta} href={data.href} />
       </div>
     </div>
   );
@@ -427,16 +432,17 @@ export default function Header() {
                 onMouseEnter={() => onEnter(name)}
                 onMouseLeave={onLeave}
               >
-                <button
+                <Link
+                  href={MENU_DATA[name].href}
                   style={{
-                    display: 'flex', alignItems: 'center', gap: 5,
+                    display: 'inline-flex', alignItems: 'center', gap: 5,
                     padding: '8px 13px',
                     background: openMenu === name ? 'rgba(255,255,255,0.09)' : 'transparent',
-                    border: 'none', cursor: 'pointer',
                     color: openMenu === name ? '#ffffff' : 'rgba(255,255,255,0.82)',
                     fontSize: 13.5, fontWeight: 500,
                     fontFamily: 'var(--font-body)',
                     borderRadius: 8,
+                    textDecoration: 'none',
                     transition: 'color 0.15s, background 0.15s',
                     whiteSpace: 'nowrap',
                   }}
@@ -445,7 +451,7 @@ export default function Header() {
                 >
                   {name}
                   <ChevronDown open={openMenu === name} />
-                </button>
+                </Link>
               </div>
             ))}
           </nav>
