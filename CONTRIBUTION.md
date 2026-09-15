@@ -224,7 +224,7 @@ All reusable UI components live in `src/app/components/` and are centrally expor
 | [`TrustedBrands.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/TrustedBrands.js) | `'use client'` | **NEW Sep 2026.** White section with "Trusted by Amazing Brands" label. Horizontal flex strip of styled text logos: Google, Microsoft, amazon, TCS, Deloitte, zomato, Infosys, Dropbox. Hover: opacity + translateY lift. |
 | [`SolutionsGrid.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/SolutionsGrid.js) | `'use client'` | **NEW Sep 2026.** White section. Header: "SOLUTIONS FOR EVERY *Experience*" + "View All Solutions" outlined button. Auto-fill 3-col card grid. Each card: gradient placeholder image, icon, title, description, pink "Learn more" arrow. 6 solutions: Employee Engagement, Corporate Celebrations, Wellness, Mental Health, Leadership, Sports & Fitness. |
 | [`WhyExperioverse.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/WhyExperioverse.js) | `'use client'` | **NEW Sep 2026.** Dark purple section with radial glows. 2-col grid: left = "WHY EXPERIOVERSE?" with pink wavy SVG underline. Right = 5 glass-border cards: One Stop Solution, Creative & Fresh Ideas, End-to-End Execution, Experienced Team, Pan India Presence. |
-| [`HowWeWork.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/HowWeWork.js) | `'use client'` | **NEW Sep 2026.** White section. Centered heading "HOW *WE WORK*". 5-card horizontal grid (responsive: 3-col tablet, 2-col mobile). Cards: step number, SVG icon, title, description. Steps: 01 Understand, 02 Ideate, 03 Plan, 04 Execute, 05 Delight. |
+| [`HowWeWork.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/HowWeWork.js) | `'use client'` | **REDESIGNED Sep 2026-09-11.** White section. Heading: "HOW" + italic gradient "WE WORK" (`.gradient-text-pink-purple` CSS class). Subtitle text. Horizontal timeline: 5 icon circles (`72px`, solid white bg, purple border) connected by a `2px dashed rgba(124,58,237,0.30)` horizontal line at `top: 35px`. Line sits at `zIndex: 0`; circles at `zIndex: 2` so they visually cover the line. Each node: SVG icon, pink step number (`01.`), bold title, grey description. Hover: circle lifts (`translateY(-4px)`) + pink glow shadow. Steps: 01 Understand, 02 Ideate, 03 Plan, 04 Execute, 05 Delight. Mobile (< 700px): stacks vertically via `globals.css` media query. |
 | [`ExperiencesGallery.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/ExperiencesGallery.js) | `'use client'` | **NEW Sep 2026.** Dark gradient section. 2-col: left = "EXPERIENCES THAT *SPEAK* FOR US" + "View Our Work" CTA. Right = 2x3 grid of gradient placeholder cards. **To add real photos**: replace each card's `background: photo.gradient` with a `next/image` component. |
 | [`Testimonials.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Testimonials.js) | `'use client'` | **NEW Sep 2026.** Dark section. "LOVED BY PEOPLE, *TRUSTED BY BRANDS* ♡" heading. 3-col card grid: large quote mark, italic quote, avatar initials circle, name, role. Bottom: dot indicator pills controlled by `useState`. |
 | [`SolutionsCarousel.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/SolutionsCarousel.js) | `'use client'` | **Legacy — no longer used on homepage.** Preserved for potential inner-page reuse. Interactive horizontal carousel with swipe/scroll navigation. |
@@ -534,6 +534,22 @@ npm run start
 - Hover effects directly inside server-rendered JSX use CSS classes (`.cta-white-btn`) instead of JS handlers.
 - `SolutionsCarousel.js` is preserved (not deleted) for potential reuse on inner pages.
 - `ExperiencesGallery.js` photo cards use gradient placeholders — replace with `next/image` when real photos are ready.
+
+---
+
+### 2026-09-11 — HowWeWork Timeline Redesign + Bug Fixes
+
+**HowWeWork redesign** — replaced card grid layout with a horizontal icon-node timeline matching the reference design:
+- `HowWeWork.js` fully rewritten: 5 circles connected by a dotted horizontal line
+- Icon circles use solid white `background: #ffffff` + `zIndex: 2` so they sit on top of the `zIndex: 0` dotted line (this prevents the line from rendering through the circles)
+- Gradient heading text uses `.gradient-text-pink-purple` CSS class (added to `globals.css`) instead of inline `WebkitTextFillColor` — inline style approach failed to render correctly in Next.js
+- Mobile responsive: flex-direction stacks vertically at `700px` breakpoint via `globals.css` media query
+
+**Nav anchor fix** — Solutions link in `Header.js` and `Footer.js` corrected from `/#solutions` to `/#solutions-grid` to match the actual `id` on the `<section>` in `SolutionsGrid.js`
+
+**Footer React key error** — `solutionLinks` map was using `link.href` as the React `key`, but all 8 items share `href: '/contact'`, causing duplicate key warnings. Fixed by switching to `key={link.label}`.
+
+**Files changed**: `HowWeWork.js`, `Header.js`, `Footer.js`, `globals.css`
 
 ---
 
