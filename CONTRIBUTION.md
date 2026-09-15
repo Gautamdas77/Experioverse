@@ -93,6 +93,21 @@ Experioverse/
         ├── contact/                     # ✅ ACTIVE — Contact & lead capture route (/contact)
         │   └── page.js                  # Contact Page: Request a Call lead form, enquiry channels, contact info
         │
+        ├── offsite-events/              # ✅ ACTIVE (added 2026-09-15) — /offsite-events
+        │   └── page.js                  # National, International, Day Outings categories
+        │
+        ├── team-building/               # ✅ ACTIVE (added 2026-09-15) — /team-building
+        │   └── page.js                  # Indoor, Outdoor, Signature Experiences categories
+        │
+        ├── rewards-recognition/         # ✅ ACTIVE (added 2026-09-15) — /rewards-recognition
+        │   └── page.js                  # Recognition, Rewards, Awards & Events categories
+        │
+        ├── theme-events/                # ✅ ACTIVE (added 2026-09-15) — /theme-events
+        │   └── page.js                  # Corporate Themes, Celebration Themes categories
+        │
+        ├── wellness-programs/           # ✅ ACTIVE (added 2026-09-15) — /wellness-programs
+        │   └── page.js                  # Physical, Mental, Workplace Wellness categories
+        │
         │   # ─── DELETED (2026-09-10) ───────────────────────────────────────────────────
         │   # about/            → REMOVED. Content may be added back to the homepage later.
         │   # services/         → REMOVED. Solutions link to /contact for now.
@@ -101,13 +116,14 @@ Experioverse/
         │
         └── components/                  # Shared, reusable UI component library
             ├── index.js                 # Central barrel export file for all components
-            ├── Header.js                # REBUILT (Sep 2026) — Dark translucent sticky nav, pink gradient CTA
+            ├── Header.js                # MEGA-MENU REBUILD (Sep 2026-09-15) — hover dropdowns, links to service pages
+            ├── ServicePage.js           # NEW (Sep 2026-09-15) — Shared layout for all 5 service pages
             ├── Footer.js                # REBUILT (Sep 2026) — 5-column dark footer (Brand, Quick Links, Solutions, About, Contact)
             ├── HeroSection.js           # REBUILT (Sep 2026) — Split-screen dark purple hero with animated headline & stats
             ├── TrustedBrands.js         # NEW (Sep 2026) — White brand logo strip
             ├── SolutionsGrid.js         # NEW (Sep 2026) — 6-card static grid replacing old carousel on homepage
             ├── WhyExperioverse.js       # NEW (Sep 2026) — Dark section: heading + 5 differentiator cards
-            ├── HowWeWork.js             # NEW (Sep 2026) — White section: 5-step process
+            ├── HowWeWork.js             # REDESIGNED (Sep 2026-09-11) — Horizontal timeline: 5 icon-node steps
             ├── ExperiencesGallery.js    # NEW (Sep 2026) — Dark section: text left + 2x3 photo grid
             ├── Testimonials.js          # NEW (Sep 2026) — Dark section: 3-card testimonials + dot nav
             ├── Button.js                # Polymorphic button/link component with multiple variants & icons
@@ -199,9 +215,9 @@ Each folder inside `src/app/` containing a `page.js` corresponds to a public URL
   8. **CTA Banner** (inline in `page.js`): Pink/purple/orange gradient. White pill button uses `.cta-white-btn` CSS class.
 
 
-> [!WARNING]
-> **DELETED (2026-09-10)**: `about/`, `services/`, `how-we-work/`, `why-experio-verse/` have all been removed.
-> Only **Home** (`/`) and **Contact** (`/contact`) are active routes. If these pages are rebuilt in the future, recreate them following the "How to Add a New Page Route" guide below.
+> [!NOTE]
+> **Active routes (as of 2026-09-15)**: `/` (Home), `/contact`, `/offsite-events`, `/team-building`, `/rewards-recognition`, `/theme-events`, `/wellness-programs`.
+> The old routes `about/`, `services/`, `how-we-work/`, `why-experio-verse/` were deleted on 2026-09-10 — their content now lives as homepage sections.
 
 #### 📞 [`src/app/contact/page.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/contact/page.js) — Contact & Lead Capture (`/contact`) ✅ ACTIVE
 - **Route**: `http://localhost:3000/contact`
@@ -229,6 +245,7 @@ All reusable UI components live in `src/app/components/` and are centrally expor
 | [`Testimonials.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Testimonials.js) | `'use client'` | **NEW Sep 2026.** Dark section. "LOVED BY PEOPLE, *TRUSTED BY BRANDS* ♡" heading. 3-col card grid: large quote mark, italic quote, avatar initials circle, name, role. Bottom: dot indicator pills controlled by `useState`. |
 | [`SolutionsCarousel.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/SolutionsCarousel.js) | `'use client'` | **Legacy — no longer used on homepage.** Preserved for potential inner-page reuse. Interactive horizontal carousel with swipe/scroll navigation. |
 | [`Button.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Button.js) | Polymorphic | Reusable button supporting variants (`primary`, `secondary`, `outline`, `ghost`, `dark`), sizes (`sm`, `md`, `lg`), custom icons. |
+| [`ServicePage.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/ServicePage.js) | `'use client'` | **NEW Sep 2026-09-15.** Shared full-page layout used by all 5 service pages. Sections: (1) **Hero** — dark purple gradient, badge, H1, description, "Get a Custom Quote" + "Back to Home" CTAs, quick-jump pill anchors per category. (2) **CategoryBlock** per category — alternating `#ffffff` / `#faf5ff` bg, icon box, title, description left column, responsive item card grid right column (hover: pink border + lift). (3) **CTA Banner** — pink→purple gradient, white pill button. All image slots are `<ImgBox>` placeholders (dashed purple border); replace with `<img src="...">` when photos are supplied. |
 | [`Section.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Section.js) | Server Component | Standardized layout wrapper with `SectionHeader` (badge label, title, subtitle, alignment). |
 | [`index.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/index.js) | Barrel Export | Central import hub: `import { Header, Footer, Button, Section } from './components';` |
 
@@ -526,9 +543,33 @@ npm run start
 - Hover bridge: `onMouseLeave` sets a 120ms `setTimeout`; `onMouseEnter` on both the button and the panel clears it — panel stays open while cursor moves between trigger and panel
 - Dropdown panel is `position: fixed; top: 70px` (below header) with `zIndex: 49`; header stays at `zIndex: 50`
 - All image slots are `<ImgBox>` placeholder components (dashed purple border + gradient bg) — replace content with `<img src="...">` when photos are provided
-- All menu links point to `/contact` temporarily (no inner pages exist yet)
+- All menu item links now point to the respective service pages (updated in same session — see entry below)
 - Mobile drawer unchanged: slide-down list of top-level nav names
 - Colours unchanged: dark glass header, `#e91e8c` pink, `#7c3aed` purple
+
+---
+
+### 2026-09-15 (b) — 5 Service Pages + Shared ServicePage Layout
+
+**Goal**: Give each nav item a dedicated full page accessible by clicking the nav label or the mega-menu "Explore" CTA.
+
+**New files**:
+- [`src/app/components/ServicePage.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/ServicePage.js) — shared `'use client'` layout component (hero + category blocks + CTA banner). Used by all 5 service pages via props.
+- [`src/app/offsite-events/page.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/offsite-events/page.js) — `/offsite-events`: National, International, Day Outings
+- [`src/app/team-building/page.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/team-building/page.js) — `/team-building`: Indoor, Outdoor, Signature Experiences
+- [`src/app/rewards-recognition/page.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/rewards-recognition/page.js) — `/rewards-recognition`: Recognition, Rewards, Awards & Events
+- [`src/app/theme-events/page.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/theme-events/page.js) — `/theme-events`: Corporate Themes, Celebration Themes
+- [`src/app/wellness-programs/page.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/wellness-programs/page.js) — `/wellness-programs`: Physical, Mental, Workplace Wellness
+
+**Updated files**:
+- [`src/app/components/Header.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Header.js) — `MENU_DATA` entries updated with `href` field; nav `<button>` replaced with `<Link href={data.href}>`; `ExploreCta` updated to accept `href` prop
+
+**ServicePage architecture**:
+- Each `page.js` is a **Server Component** (exports `metadata` for SEO) that renders `<ServicePage {...data} />`
+- `ServicePage.js` is `'use client'` and receives `{ meta, categories, cta }` props
+- Category items render as hover cards: pink border + `translateY(-2px)` lift on hover
+- Image slots: `<ImgBox>` component (dashed purple border + gradient bg) — replace inner content with `<img src="...">` when photos are ready
+- All item links point to `/contact` for now (no sub-pages yet)
 
 ---
 
