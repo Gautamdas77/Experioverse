@@ -218,7 +218,7 @@ All reusable UI components live in `src/app/components/` and are centrally expor
 
 | Component File | Type | Description & Features |
 |---|---|---|
-| [`Header.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Header.js) | `'use client'` | **REBUILT Sep 2026.** Dark translucent sticky navbar (`rgba(15,5,30,0.85)` + `backdrop-filter: blur`). Scroll detection adds pink-border glow at `scrollY > 20`. Centered nav links. Pink gradient "Let's Connect" pill CTA. Mobile hamburger drawer with scroll-lock. |
+| [`Header.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Header.js) | `'use client'` | **MEGA-MENU REBUILD Sep 2026-09-15.** Dark glass sticky navbar (unchanged colours). Nav items: `Offsite Events`, `Team Building`, `Rewards & Recognition`, `Theme Events`, `Wellness Programs`. Each triggers a **hover mega-menu** dropdown (`position: fixed; top: 70px`) with white panel. Hover bridge: 120ms `setTimeout` on `onMouseLeave` cleared by `onMouseEnter` on both trigger and panel — prevents panel closing when moving mouse between them. **Offsite Events**: dark left panel (badge + heading + desc + image slot) + 3 columns (National, International, Day Outings) + right image slot. **Team Building / R&R / Wellness**: header row + 3 columns + right image slot + CTA. **Theme Events**: header row + 2 columns + 2×2 image grid. All image slots are dashed purple placeholder boxes — replace with `<img src="...">` when photos are ready. `Popular` badge rendered inline on Signature Experiences items. Mobile: slide-down drawer with simple list links. `navLinks` array replaced by `MENU_DATA` object keyed by nav item name. |
 | [`Footer.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Footer.js) | `'use client'` | **REBUILT Sep 2026.** 5-column dark footer (`#0f051e` to `#070310`). Col 1: logo + tagline + social icons. Col 2: Quick Links. Col 3: Solutions (8 items). Col 4: About Us + Pan India badge. Col 5: phone, email, location. Bottom bar: copyright + legal links. |
 | [`HeroSection.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/HeroSection.js) | `'use client'` | **REBUILT Sep 2026.** Split-screen dark purple hero. Left: "We create experiences" headline + pink "people never forget" + italic "moments". Stats strip: 500+ Experiences, 100+ Companies, 10+ Cities, 1M+ Lives. Two CTAs + radial aurora orbs. |
 | [`TrustedBrands.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/TrustedBrands.js) | `'use client'` | **NEW Sep 2026.** White section with "Trusted by Amazing Brands" label. Horizontal flex strip of styled text logos: Google, Microsoft, amazon, TCS, Deloitte, zomato, Infosys, Dropbox. Hover: opacity + translateY lift. |
@@ -424,7 +424,7 @@ The application will be accessible at: **`http://localhost:3000`**
      );
    }
    ```
-3. If navigation is needed, add the link to the `navLinks` array in [`src/app/components/Header.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Header.js) and the quick links in [`src/app/components/Footer.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Footer.js).
+3. If navigation is needed, add the new section to the `MENU_DATA` object in [`src/app/components/Header.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Header.js) (see mega-menu structure) and add the corresponding quick link to [`src/app/components/Footer.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Footer.js).
 
 ---
 
@@ -507,6 +507,30 @@ npm run start
 ---
 
 ## 📋 Changelog
+
+### 2026-09-15 — Header Mega-Menu Rebuild
+
+**Goal**: Replace flat nav links with a full hover-triggered mega-menu navigation matching the reference design.
+
+**File changed**: [`src/app/components/Header.js`](file:///c:/Users/gauta/OneDrive/Desktop/Experioverse/Experioverse/src/app/components/Header.js) — complete rewrite.
+
+**Nav items** (Year Calendar excluded per design decision):
+- Offsite Events → mega panel: dark left panel + National / International / Day Outings columns + image slot
+- Team Building → mega panel: 3 columns (Indoor, Outdoor, Signature Experiences) + image slot
+- Rewards & Recognition → mega panel: 3 columns (Recognition, Rewards, Awards & Events) + image slot
+- Theme Events → mega panel: 2 columns (Corporate Themes, Celebration Themes) + 2×2 image grid
+- Wellness Programs → mega panel: 3 columns (Physical, Mental, Workplace Wellness) + image slot
+
+**Key architectural decisions**:
+- `MENU_DATA` object (keyed by name) replaces the old `navLinks` flat array
+- Hover bridge: `onMouseLeave` sets a 120ms `setTimeout`; `onMouseEnter` on both the button and the panel clears it — panel stays open while cursor moves between trigger and panel
+- Dropdown panel is `position: fixed; top: 70px` (below header) with `zIndex: 49`; header stays at `zIndex: 50`
+- All image slots are `<ImgBox>` placeholder components (dashed purple border + gradient bg) — replace content with `<img src="...">` when photos are provided
+- All menu links point to `/contact` temporarily (no inner pages exist yet)
+- Mobile drawer unchanged: slide-down list of top-level nav names
+- Colours unchanged: dark glass header, `#e91e8c` pink, `#7c3aed` purple
+
+---
 
 ### 2026-09-09 — Full Homepage Redesign
 
